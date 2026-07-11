@@ -2,8 +2,8 @@ import Link from "next/link"
 
 const inkLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Practice areas" },
-  { href: "/case-studies", label: "Recent results" },
+  { href: "/features", label: "Features" },
+  { href: "/case-studies", label: "Case studies" },
   { href: "/contact-us", label: "Contact" },
 ]
 
@@ -34,10 +34,10 @@ function NotFound() {
                 &ldquo;
               </span>
               <h1 className="mt-5 text-3xl leading-tight font-light tracking-tight text-balance md:mt-6 md:text-4xl lg:text-5xl">
-                Some pages, like some cases, simply aren&apos;t filed.
+                Looks like this call didn&apos;t connect.
               </h1>
               <figcaption className="mt-7 text-sm text-muted-foreground md:mt-8">
-                a note from the bench, regarding the page you tried
+                the page you tried to reach doesn&apos;t exist
               </figcaption>
             </figure>
           </div>

@@ -10,7 +10,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/common/shadcnUI/breadcrumb"
+} from "@/common/shadcnUI/breadCrumb"
 import { Button } from "@/common/shadcnUI/button"
 import type { ServiceFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"

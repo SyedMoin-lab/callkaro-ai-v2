@@ -10,7 +10,7 @@ import {
 } from "lucide-react"
 import { motion } from "motion/react"
 
-import SectionHeader from "@/common/elements/section-header"
+import SectionHeader from "@/common/elements/sectionHeader"
 import { Button } from "@/common/shadcnUI/button"
 import { Field, FieldLabel } from "@/common/shadcnUI/field"
 import { Input } from "@/common/shadcnUI/input"
@@ -30,18 +30,18 @@ import {
 import { cn } from "@/lib/utils"
 
 const matters = [
-  "Lawsuit",
-  "Regulations",
-  "Business / Deals",
-  "Restructuring",
-  "Appeal",
+  "Inbound support",
+  "Outbound campaigns",
+  "Reminders & bookings",
+  "Batch calling",
+  "Something else",
 ]
 
 const jurisdictions = [
-  "New York",
-  "Washington D.C.",
-  "UK",
-  "U.S. Trade",
+  "Healthcare",
+  "E-commerce",
+  "Financial Services",
+  "Real Estate",
   "Other",
 ]
 
@@ -67,7 +67,7 @@ const contactMeta = [
 ]
 
 const SUCCESS_MESSAGE =
-  "Thanks, we got your message. A senior lawyer will review it and get back to you within three days."
+  "Thanks, we got your message. Our team will review it and get back to you within one business day."
 const ERROR_MESSAGE = `Something went wrong. Please try again, or email us at ${SUPPORT_EMAIL}.`
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
@@ -82,8 +82,8 @@ function Contact() {
       <div className="container">
         <SectionHeader
           badge="Contact"
-          heading={<>Talk to a lawyer.</>}
-          description="A senior lawyer takes the call. Conflicts checked within the hour, and a clear plan in your inbox within three days."
+          heading={<>Talk to our team.</>}
+          description="Tell us about the calls you want to automate. We map your use case and get a clear plan in your inbox within one business day."
           mark={
             <Mail
               aria-hidden
@@ -122,7 +122,7 @@ function CtaCard() {
         transition={{ duration: 0.7, ease: EASE_OUT }}
         className="relative"
       >
-        <Eyebrow className="text-foreground/80">Start your case</Eyebrow>
+        <Eyebrow className="text-foreground/80">Book a demo</Eyebrow>
         <h3 className="mt-6 text-4xl leading-[1.04] font-light tracking-tight md:text-5xl">
           Ready to get started?
         </h3>
@@ -169,7 +169,7 @@ function ContactForm() {
     <>
       <Eyebrow>Private &amp; secure</Eyebrow>
       <h3 className="mt-4 text-2xl leading-tight font-light tracking-tight md:text-3xl">
-        Tell us about your case.
+        Tell us about your calls.
       </h3>
 
       <form onSubmit={onSubmit} className="mt-8">
@@ -268,11 +268,11 @@ function FormFields({ locked }: { locked?: boolean }) {
 
       <Field>
         <FieldLabel htmlFor="matter" className={labelClass}>
-          <FieldTick /> Type of case <Required />
+          <FieldTick /> What do you need? <Required />
         </FieldLabel>
         <Select name="matter" required>
           <SelectTrigger id="matter" className="w-full">
-            <SelectValue placeholder="Pick a case type" />
+            <SelectValue placeholder="Pick a use case" />
           </SelectTrigger>
           <SelectContent>
             {matters.map((m) => (
@@ -286,11 +286,11 @@ function FormFields({ locked }: { locked?: boolean }) {
 
       <Field>
         <FieldLabel htmlFor="jurisdiction" className={labelClass}>
-          <FieldTick /> Location
+          <FieldTick /> Industry
         </FieldLabel>
         <Select name="jurisdiction">
           <SelectTrigger id="jurisdiction" className="w-full">
-            <SelectValue placeholder="Pick a location" />
+            <SelectValue placeholder="Pick an industry" />
           </SelectTrigger>
           <SelectContent>
             {jurisdictions.map((j) => (
@@ -310,7 +310,7 @@ function FormFields({ locked }: { locked?: boolean }) {
           id="brief"
           name="brief"
           rows={3}
-          placeholder="A short note about your case. Kept private."
+          placeholder="A short note about the calls you want to automate. Kept private."
           required
           className="resize-none"
         />

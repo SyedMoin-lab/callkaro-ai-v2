@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { MoveRight, TrendingUp } from "lucide-react"
 
-import SectionHeader from "@/common/elements/section-header"
-import FolioList from "@/common/sections/folio-list"
+import SectionHeader from "@/common/elements/sectionHeader"
+import FolioList from "@/common/sections/folioList"
 import { Button } from "@/common/shadcnUI/button"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 

@@ -19,36 +19,36 @@ const PRACTICE_AREAS = [
   {
     roman: "I",
     slug: "business-law",
-    title: "Business Law",
-    summary: "Contracts, deals, and partnerships.",
+    title: "Inbound Support",
+    summary: "Every call answered, day or night.",
     image: "/images/services/i-corporate.webp",
   },
   {
     roman: "II",
     slug: "lawsuits-disputes",
-    title: "Lawsuits & Disputes",
-    summary: "From first filing to final ruling.",
+    title: "Outbound Campaigns",
+    summary: "Reach every lead at real scale.",
     image: "/images/services/ii-litigation.webp",
   },
   {
     roman: "III",
     slug: "compliance-rules",
-    title: "Compliance & Rules",
-    summary: "Steady guidance with regulators.",
+    title: "Reminders & Bookings",
+    summary: "Confirm visits, fill the calendar.",
     image: "/images/services/iii-compliance.webp",
   },
   {
     roman: "IV",
     slug: "intellectual-property",
-    title: "Intellectual Property",
-    summary: "Patents, secrets, and brands.",
+    title: "Batch & Payment Calls",
+    summary: "Bulk dialing and gentle payment nudges.",
     image: "/images/services/iv-ip.webp",
   },
   {
     roman: "V",
     slug: "restructuring-recovery",
-    title: "Restructuring & Recovery",
-    summary: "Workouts and creditor protection.",
+    title: "Analytics & Integrations",
+    summary: "Call insights synced to your CRM.",
     image: "/images/services/v-restructuring.webp",
   },
 ]
@@ -74,12 +74,13 @@ function AboutPractice() {
           <div>
             <Eyebrow>What We Do</Eyebrow>
             <h2 className="mt-8 max-w-2xl text-4xl leading-[1.05] font-light tracking-tight md:text-5xl">
-              When we put our name on a case,{" "}
+              When our AI picks up your calls,{" "}
               <span className="text-accent">we mean it.</span>
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-muted-foreground md:text-right">
-            Five practice areas, one standard, honest, careful, and ours.
+            Five core capabilities, one standard, natural, reliable, and in 20+
+            languages.
           </p>
         </motion.div>
 
@@ -137,7 +138,7 @@ function AboutPractice() {
               className="group/people flex h-full flex-col justify-between gap-8 rounded-xl bg-foreground p-6 text-background transition-colors hover:bg-foreground/90"
             >
               <p className="text-lg leading-snug font-light tracking-tight transition-transform duration-300 group-hover/people:-translate-y-0.5 md:text-xl">
-                Meet the team behind the verdicts.
+                Meet the team behind the voice agents.
               </p>
               <div className="flex items-center justify-between gap-4">
                 <AvatarGroup className="translate-x-1 opacity-0 transition-all duration-300 group-hover/people:translate-x-0 group-hover/people:opacity-100">

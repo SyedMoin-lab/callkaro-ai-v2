@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react"
 
-import FolioList from "@/common/sections/folio-list"
+import FolioList from "@/common/sections/folioList"
 import { Badge } from "@/common/shadcnUI/badge"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 

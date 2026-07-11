@@ -21,44 +21,44 @@ type Part =
 
 const HEADLINE_PARTS: Part[] = [
   { type: "word", text: "From" },
-  { type: "word", text: "a" },
-  { type: "word", text: "small" },
-  { type: "word", text: "office" },
-  { type: "word", text: "downtown," },
+  { type: "word", text: "one" },
+  { type: "word", text: "missed" },
+  { type: "word", text: "customer" },
+  { type: "word", text: "call," },
   {
     type: "image",
     src: "/images/process/001-intake.webp",
     alt: "",
   },
   { type: "word", text: "to" },
-  { type: "word", text: "courts" },
+  { type: "word", text: "millions" },
   {
     type: "image",
     src: "/images/process/005-verdict.webp",
     alt: "",
   },
-  { type: "word", text: "across" },
-  { type: "word", text: "the" },
-  { type: "word", text: "country" },
+  { type: "word", text: "of" },
+  { type: "word", text: "calls" },
+  { type: "word", text: "answered" },
+  { type: "word", text: "instantly" },
   { type: "word", text: ", " },
   { type: "word", text: "our" },
-  { type: "word", text: "work" },
+  { type: "word", text: "mission" },
   { type: "word", text: "is" },
   { type: "word", text: "built" },
   { type: "word", text: "on" },
-  { type: "word", text: "trust," },
-  { type: "word", text: "honest" },
-  { type: "word", text: "advice," },
+  { type: "word", text: "natural" },
+  { type: "word", text: "voice," },
   {
     type: "image",
     src: "/images/about/hero-1.webp",
     alt: "",
   },
   { type: "word", text: "and" },
-  { type: "word", text: "results" },
-  { type: "word", text: "we" },
-  { type: "word", text: "stand" },
-  { type: "word", text: "by." },
+  { type: "word", text: "conversations" },
+  { type: "word", text: "that" },
+  { type: "word", text: "always" },
+  { type: "word", text: "connect." },
 ]
 
 const TRUST_AVATARS = [
@@ -169,14 +169,14 @@ function AboutStory() {
                 ))}
               </div>
               <span className="font-mono text-[0.625rem] tracking-[0.2em] text-foreground/65 uppercase">
-                Top-rated lawyers
+                Trusted by modern teams
               </span>
             </div>
           </div>
 
           <Button asChild size="lg" className="mt-14 md:mt-16">
             <Link href="/contact-us">
-              Book a consultation
+              Book a demo
               <MoveUpRight className="size-4" strokeWidth={1.5} />
             </Link>
           </Button>

@@ -9,10 +9,10 @@ import Eyebrow from "@/common/elements/eyebrow"
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 const VALUE_PAIRS = [
-  "Integrity. Excellence. Justice.",
+  "Instant. Natural. Effortless.",
   "Trust. Commitment. Results.",
   "Respect. Care. Honesty.",
-  "Compassion. Patience. Calm.",
+  "Presence. Patience. Calm.",
   "Service. Skill. Empathy.",
   "Honesty. Reliability. Clarity.",
 ]
@@ -47,15 +47,16 @@ function AboutMission() {
             <Eyebrow>Our Mission</Eyebrow>
 
             <h2 className="mt-8 text-3xl leading-[1.05] font-light tracking-tight md:text-4xl lg:text-5xl">
-              Guided by purpose, driven by principle, dedicated to making
-              justice real.
+              Guided by purpose, driven by technology, dedicated to making every
+              business call effortless.
             </h2>
 
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Our mission is simple, the law should serve people, protect them,
-              and give them a clear path forward. We go beyond the courtroom to
-              build trust, real relationships, and outcomes our clients can
-              stand behind.
+              Our mission is simple, every business call should be answered
+              instantly, sound genuinely human, and move people forward. We go
+              beyond automation to build trust, real conversations, and outcomes
+              our customers can stand behind, so no lead or customer is ever left
+              waiting.
             </p>
 
             <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">

@@ -9,39 +9,39 @@ import {
   useMotionValue,
 } from "motion/react"
 
-import SectionHeader from "@/common/elements/section-header"
+import SectionHeader from "@/common/elements/sectionHeader"
 import { cn } from "@/lib/utils"
 
 const phases = [
   {
-    title: "First call",
-    body: "A senior lawyer takes your call, never an assistant. We listen, ask the right questions, and decide together if we're the right fit for your case.",
+    title: "Discovery",
+    body: "We start with a call to understand your goals, your call flows, and the outcomes you want to automate. No generic templates.",
     image: {
       src: "/images/process/001-intake.webp",
       className: "object-right -scale-x-100 md:object-center md:scale-x-100",
     },
   },
   {
-    title: "Strategy",
-    body: "We build a clear plan before the case gets going. Timeline, witnesses, the result we're aiming for, mapped out so every step has a purpose.",
+    title: "Build",
+    body: "We configure your voice agent: the script, a knowledge base built from your own content, custom functions, and clear rules for when to hand off.",
     image: { src: "/images/process/002-strategy.webp" },
   },
   {
-    title: "Preparation",
-    body: "We read every document, interview the witnesses, and work with the experts. Nothing reaches the courtroom that your senior lawyer hasn't already seen.",
+    title: "Connect",
+    body: "We connect your phone numbers, CRM, and calendar, then test the agent on real scenarios until it sounds right and handles the edge cases.",
     image: { src: "/images/process/003-discovery.webp" },
   },
   {
-    title: "Pre-trial",
-    body: "We file the right motions, push for early wins, and try to settle when it makes sense. Every argument the other side might use is tested first.",
+    title: "Go live",
+    body: "Your agent goes live on inbound and outbound calls, answering in seconds and transferring to a human whenever a call genuinely needs one.",
     image: {
       src: "/images/process/004-pretrial.webp",
       className: "object-[50%_30%]",
     },
   },
   {
-    title: "Final result",
-    body: "Your case goes to court. A clear story, strong witnesses, and a record built to last. The result is delivered.",
+    title: "Optimize",
+    body: "Post-call analytics show what is working. We keep tuning answer rates, resolution, and conversions so your results improve every week.",
     image: { src: "/images/process/005-verdict.webp" },
   },
 ]
@@ -89,8 +89,8 @@ function Process() {
       <div className="container">
         <SectionHeader
           badge="Our Process"
-          heading={<>Five clear steps from first call to final result.</>}
-          description="Five steps. Same care, every case. The same senior team is with you from the very first call all the way to the result."
+          heading={<>Five steps from first call to a live voice agent.</>}
+          description="Five steps to a working AI calling agent. The same team guides you from the first call to launch, and you can be live in days, not months."
           mark={
             <ChevronsRight
               aria-hidden

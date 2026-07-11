@@ -15,9 +15,9 @@ type Cell =
 const ROW_DARK: Cell[] = [
   {
     type: "stat",
-    eyebrow: "Cases",
-    value: "200+",
-    body: "Cases successfully resolved, showing our experience and the steady results we deliver.",
+    eyebrow: "Calls handled",
+    value: "10M+",
+    body: "Conversations handled end to end by our AI voice agents, from first ring to final follow-up.",
   },
   {
     type: "image",
@@ -26,9 +26,9 @@ const ROW_DARK: Cell[] = [
   },
   {
     type: "stat",
-    eyebrow: "Clients",
-    value: "100+",
-    body: "Clients served with personal attention, clear advice, and dedicated support from start to finish.",
+    eyebrow: "Businesses",
+    value: "500+",
+    body: "Teams that trust CallKaro AI to answer inbound support, run campaigns, and book appointments.",
   },
   {
     type: "image",
@@ -45,9 +45,9 @@ const ROW_WARM: Cell[] = [
   },
   {
     type: "stat",
-    eyebrow: "Commitment",
-    value: "110%",
-    body: "We go above and beyond on every case, giving each client the care and focus they deserve.",
+    eyebrow: "Languages",
+    value: "20+",
+    body: "Natural, human-sounding conversations in the language each of your customers speaks best.",
   },
   {
     type: "image",
@@ -56,9 +56,9 @@ const ROW_WARM: Cell[] = [
   },
   {
     type: "stat",
-    eyebrow: "Results",
-    value: "100%",
-    body: "Focused on real outcomes, real protection, and real peace of mind, every time.",
+    eyebrow: "Uptime",
+    value: "99.9%",
+    body: "Always-on voice agents that pick up every call, day or night, so no opportunity slips away.",
   },
 ]
 
@@ -74,8 +74,8 @@ function AboutHero() {
           >
             <Eyebrow>About</Eyebrow>
             <h1 className="mt-8 text-5xl leading-[0.95] font-light tracking-tight md:text-7xl lg:text-8xl">
-              Leading with <br className="hidden md:block" />
-              integrity &amp; purpose.
+              Voice AI that <br className="hidden md:block" />
+              answers &amp; delivers.
             </h1>
           </motion.div>
 
@@ -85,8 +85,9 @@ function AboutHero() {
             transition={{ duration: 0.85, ease: EASE_OUT, delay: 0.15 }}
             className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg"
           >
-            Years of experience and a steady commitment to honest, careful work,
-            for clients who need legal help they can truly trust.
+            CallKaro AI builds human-sounding voice agents that handle every
+            business call, so teams stop losing calls and stop wasting time on
+            repetitive phone work.
           </motion.p>
         </div>
       </div>
@@ -105,7 +106,9 @@ function CellRow({ tone, cells }: { tone: "dark" | "warm"; cells: Cell[] }) {
         "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
         isDark
           ? "dark bg-background text-foreground"
-          : "bg-[oklch(0.92_0.04_75)] text-foreground"
+          : // Fixed light-peach panel: pin foreground dark so text stays
+            // readable even when the site theme is dark.
+            "bg-[oklch(0.92_0.04_75)] text-foreground [--foreground:oklch(0.145_0_0)]"
       )}
     >
       {cells.map((cell, i) =>

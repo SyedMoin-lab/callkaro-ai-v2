@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import ReviewsRow from "@/common/elements/reviews-row"
+import ReviewsRow from "@/common/elements/reviewsRow"
 import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
 import { Separator } from "@/common/shadcnUI/separator"

@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight, Plus } from "lucide-react"
 
-import SectionHeader from "@/common/elements/section-header"
+import SectionHeader from "@/common/elements/sectionHeader"
 import {
   Accordion,
   AccordionContent,
@@ -14,7 +14,7 @@ import {
 } from "@/common/shadcnUI/accordion"
 import { cn } from "@/lib/utils"
 
-// TODO: images are placeholders reused from the old template — the user will change them later.
+// TODO: images are placeholders reused from the old template; the user will change them later.
 const services = [
   {
     roman: "I",

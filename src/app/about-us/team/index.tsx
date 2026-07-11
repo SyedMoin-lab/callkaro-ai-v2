@@ -9,33 +9,33 @@ const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 const TEAM = [
   {
-    name: "Jane Anderson",
-    role: "Lawsuits & Disputes",
+    name: "Aarav Mehta",
+    role: "Founder & CEO",
     portrait: "/images/partners/01-anderson.webp",
   },
   {
-    name: "Marcus Klein",
-    role: "Business Law",
+    name: "Neha Kapoor",
+    role: "Head of AI & Voice",
     portrait: "/images/partners/02-klein.webp",
   },
   {
-    name: "Rachel Lee",
-    role: "Intellectual Property",
+    name: "Rohan Iyer",
+    role: "Head of Engineering",
     portrait: "/images/partners/03-lee.webp",
   },
   {
-    name: "Tom Singh",
-    role: "Restructuring & Recovery",
+    name: "Priya Nair",
+    role: "Head of Product",
     portrait: "/images/partners/04-singh.webp",
   },
   {
-    name: "Anna Petrova",
-    role: "Compliance & Rules",
+    name: "Ananya Rao",
+    role: "Head of Customer Success",
     portrait: "/images/partners/05-petrova.webp",
   },
   {
-    name: "Daniel Okonkwo",
-    role: "Tax & Wealth Planning",
+    name: "Vikram Sharma",
+    role: "Head of Growth",
     portrait: "/images/partners/06-okonkwo.webp",
   },
 ]
@@ -57,7 +57,7 @@ function AboutTeam() {
             transition={{ duration: 0.8, ease: EASE_OUT }}
             className="text-4xl leading-[1.05] font-light tracking-tight md:text-5xl lg:text-6xl"
           >
-            The minds behind your legal success.
+            The people making every business call effortless.
           </motion.h2>
         </div>
 

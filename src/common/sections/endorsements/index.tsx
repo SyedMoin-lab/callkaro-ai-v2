@@ -5,7 +5,7 @@ import { Maximize2, Quote, X } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { Dialog as DialogPrimitive } from "radix-ui"
 
-import SectionHeader from "@/common/elements/section-header"
+import SectionHeader from "@/common/elements/sectionHeader"
 import {
   Dialog,
   DialogClose,
@@ -29,56 +29,56 @@ function AffordanceHint() {
 export const endorsements = [
   {
     quote:
-      "They built our plan before the case even started, and every step had a clear purpose. By the time we were in court, our defense had been tested in every way we could think of.",
-    role: "Head of Legal",
-    sector: "Fortune 100 Energy",
-    sectorShort: "Energy",
-    matter: "New York · 2024",
+      "CallKaro's voice agents answer every support call the moment it rings, day or night. Our customers get instant answers and our team finally stopped drowning in the queue.",
+    role: "Head of Customer Support",
+    sector: "E-commerce Brand",
+    sectorShort: "E-commerce",
+    matter: "Inbound support · 2025",
     portrait: "/images/testimonials/client-01.webp",
   },
   {
     quote:
-      "I have worked with three of the biggest firms in the country. None of them matched the care I got here. A senior lawyer read every single document we sent out.",
-    role: "Deputy Head of Legal",
-    sector: "Public Pharma Company",
-    sectorShort: "Life Sciences",
-    matter: "D.C. · 2023",
+      "The AI calls every patient to confirm their appointment and reschedules the no-shows on its own. Our front desk went from overwhelmed to calm in a single week.",
+    role: "Operations Director",
+    sector: "Healthcare Network",
+    sectorShort: "Healthcare",
+    matter: "Appointment reminders · 2025",
     portrait: "/images/testimonials/client-02.webp",
   },
   {
     quote:
-      "The recovery they got for our creditor group was much more than we expected. The strategy was patient and the work was relentless.",
-    role: "Head of Special Situations",
-    sector: "Global Investment Bank",
-    sectorShort: "Banking",
-    matter: "U.S. Bankruptcy · 2024",
+      "We went from a few hundred outbound calls a day to millions a month without adding a single agent. CallKaro simply scaled with us.",
+    role: "VP Operations",
+    sector: "Logistics Company",
+    sectorShort: "Logistics",
+    matter: "Outbound · 2025",
     portrait: "/images/testimonials/client-03.webp",
   },
   {
     quote:
-      "They told us where our case was weak before they told us where it was strong. That kind of honesty is rare, and it's why we trust them even when the law isn't on our side.",
-    role: "CEO",
-    sector: "Top Tech Company",
-    sectorShort: "Technology",
-    matter: "U.S. Trade Comm. · 2025",
+      "Ninety percent of our enrollment calls are now handled start to finish by the AI, and it books the demo before the student even hangs up.",
+    role: "Founder",
+    sector: "EdTech Platform",
+    sectorShort: "EdTech",
+    matter: "Bookings · 2025",
     portrait: "/images/testimonials/client-04.webp",
   },
   {
     quote:
-      "I called them on a Friday afternoon and a senior lawyer had the case on his desk by Monday morning. That isn't normal, and it's why we keep coming back.",
-    role: "Board Member",
-    sector: "NYSE-listed Industrial",
-    sectorShort: "Industrial",
-    matter: "2025",
+      "Our callers switch between three languages and the AI never misses a beat. It transfers to a human only when it truly needs to, and that is rare.",
+    role: "Customer Experience Lead",
+    sector: "Insurance Provider",
+    sectorShort: "Insurance",
+    matter: "Multilingual · 2025",
     portrait: "/images/testimonials/client-05.webp",
   },
   {
     quote:
-      "When the regulators asked for more, the team had a full answer ready in two weeks. It wasn't just speed, it was preparation. They had already seen it coming.",
-    role: "Chief Legal Officer",
-    sector: "Life Sciences",
-    sectorShort: "Life Sciences",
-    matter: "2023",
+      "The payment reminder calls run themselves and our collection rate climbed within the first month. It paid for itself before we even finished onboarding.",
+    role: "VP Collections",
+    sector: "Lending Firm",
+    sectorShort: "Lending",
+    matter: "Payment reminders · 2025",
     portrait: "/images/testimonials/client-06.webp",
   },
 ]
@@ -101,54 +101,54 @@ type Cell =
   | { kind: "empty" }
 
 const CELLS: Cell[] = [
-  { kind: "portrait", index: 0 }, // Energy
+  { kind: "portrait", index: 0 },
   { kind: "empty" },
-  { kind: "chip", index: 3 }, // "Honesty is rare." → Tech
-  { kind: "stat", idx: 0 }, // $1.2B → Banking (idx 2)
-  { kind: "portrait", index: 1 }, // Pharma
+  { kind: "chip", index: 3 }, // chip pulls from testimonial 3
+  { kind: "stat", idx: 0 }, // stat 0, links to testimonial 2
+  { kind: "portrait", index: 1 },
   { kind: "empty" },
-  { kind: "scene", idx: 0 }, // pretrial photo
+  { kind: "scene", idx: 0 },
   { kind: "empty" },
-  { kind: "portrait", index: 4 }, // Industrial
+  { kind: "portrait", index: 4 },
   { kind: "empty" },
-  { kind: "chip", index: 5 }, // "Two weeks." → Life Sciences
-  { kind: "stat", idx: 1 }, // 47 verdicts (decorative)
+  { kind: "chip", index: 5 }, // chip pulls from testimonial 5
+  { kind: "stat", idx: 1 }, // decorative
   { kind: "empty" },
-  { kind: "scene", idx: 1 }, // verdict courtroom
-  { kind: "stat", idx: 2 }, // 100% senior-led (decorative)
+  { kind: "scene", idx: 1 },
+  { kind: "stat", idx: 2 }, // decorative
 ]
 
 const STATS = [
   {
-    number: "$1.2B",
-    label: "Recovered",
-    sub: "New York · 2024",
+    number: "2M+",
+    label: "Calls automated",
+    sub: "Outbound · 2025",
     tone: "brass" as const,
     linkTo: 2,
   },
   {
-    number: "47",
-    label: "Court wins",
-    sub: "At trial",
+    number: "90%",
+    label: "Resolved by AI",
+    sub: "No human needed",
     tone: "dark" as const,
   },
   {
-    number: "100%",
-    label: "Senior-led",
-    sub: "Every case",
+    number: "24/7",
+    label: "Always on",
+    sub: "Every call",
     tone: "card" as const,
   },
 ]
 
 const CHIPS: Array<{ text: string; tone: "card" | "dark" }> = [
-  // chip index 3, Tech endorsement: "told us where the case would lose"
-  { text: "“Honest from day one.”", tone: "card" },
-  // chip index 5, Life Sciences endorsement: "response ready in two weeks"
-  { text: "“Ready in two weeks.”", tone: "dark" },
+  // chip index 3, EdTech endorsement: "handled start to finish by the AI"
+  { text: "“Handled start to finish.”", tone: "card" },
+  // chip index 5, Lending endorsement: "it paid for itself before onboarding"
+  { text: "“Paid for itself in a month.”", tone: "dark" },
 ]
 
 const SCENES = [
-  { src: "/images/process/004-pretrial.webp", caption: "Federal · D.C." },
+  { src: "/images/process/004-pretrial.webp", caption: "Live calls" },
   { src: "/images/testimonials/result-scene.webp", caption: "The result" },
 ]
 
@@ -161,8 +161,8 @@ function Endorsements() {
       <div className="container">
         <SectionHeader
           badge="Testimonials"
-          heading={<>What our clients say.</>}
-          description="Most of our work stays private. With permission, these are some of the clients we've helped, in their own words."
+          heading={<>What our customers say.</>}
+          description="Most of our calls run without a human in the loop. With permission, these are some of the customers CallKaro AI helps every day, in their own words."
           mark={
             <Quote
               aria-hidden

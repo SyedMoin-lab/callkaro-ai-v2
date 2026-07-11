@@ -11,7 +11,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/common/shadcnUI/breadcrumb"
+} from "@/common/shadcnUI/breadCrumb"
 import type { BlogFrontmatter, ServiceFrontmatter } from "@/lib/types"
 import { formatDate, initialsOf } from "@/lib/utils"
 

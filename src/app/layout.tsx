@@ -5,17 +5,18 @@ import { cookies } from "next/headers"
 import Banner from "@/common/layout/banner"
 import Footer from "@/common/layout/footer"
 import Navbar from "@/common/layout/navbar"
-import { StyleGlideProvider } from "@/common/providers/styleglide-provider"
-import { ThemeProvider } from "@/common/providers/theme-provider"
+import SiteChrome from "@/common/layout/siteChrome"
+import { StyleGlideProvider } from "@/common/providers/styleglideProvider"
+import { ThemeProvider } from "@/common/providers/themeProvider"
 import { cn } from "@/lib/utils"
 
 import "./globals.css"
 
 const SITE_URL = "https://verdict-nextjs-template.vercel.app"
 const SITE_NAME = "CallKaro AI"
-const SITE_TITLE = "CallKaro AI, trusted legal help when it matters most"
+const SITE_TITLE = "CallKaro AI, AI voice agents for every business call"
 const SITE_DESCRIPTION =
-  "Senior lawyers on every case. Proven results in court. Clear fees, no surprises."
+  "CallKaro AI automates your inbound and outbound calls with human-sounding AI voice agents. Answer every call, book more, and cut costs. Live in days."
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,16 +26,16 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "TailwindCSS",
-    "Template",
-    "Shadcn/UI",
-    "Landing Page",
-    "Law Firm",
-    "Litigation",
-    "Legal",
+    "AI Voice Agent",
+    "Voice AI",
+    "Call Automation",
+    "Conversational AI",
+    "AI Calling",
+    "Outbound Calling",
+    "Customer Support Automation",
+    "Appointment Reminders",
+    "Batch Calling",
+    "CallKaro AI",
   ],
   authors: [{ name: "CallKaro AI" }],
   creator: "CallKaro AI",
@@ -106,10 +107,13 @@ export default async function RootLayout({
       <body className="flex min-h-screen flex-col">
         <ThemeProvider>
           <StyleGlideProvider />
-          <Banner initialVisible={!bannerDismissed} />
-          <Navbar initialBannerVisible={!bannerDismissed} />
-          <main className="relative flex-1">{children}</main>
-          <Footer />
+          <SiteChrome
+            banner={<Banner initialVisible={!bannerDismissed} />}
+            navbar={<Navbar initialBannerVisible={!bannerDismissed} />}
+            footer={<Footer />}
+          >
+            {children}
+          </SiteChrome>
         </ThemeProvider>
       </body>
     </html>

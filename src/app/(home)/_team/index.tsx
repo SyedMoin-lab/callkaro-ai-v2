@@ -5,7 +5,7 @@ import Link from "next/link"
 import { MoveRight, Scan } from "lucide-react"
 import { motion } from "motion/react"
 
-import SectionHeader from "@/common/elements/section-header"
+import SectionHeader from "@/common/elements/sectionHeader"
 import { Button } from "@/common/shadcnUI/button"
 import { cn } from "@/lib/utils"
 
@@ -13,43 +13,43 @@ const team = [
   {
     id: "I",
     name: "Jane Anderson",
-    role: "Managing Partner",
-    practice: "Lawsuits & Disputes",
+    role: "Founder & CEO",
+    practice: "Vision & Strategy",
     portrait: "/images/partners/01-anderson.webp",
   },
   {
     id: "II",
     name: "Marcus Klein",
-    role: "Partner",
-    practice: "Business Law",
+    role: "Head of AI & Voice",
+    practice: "Voice AI",
     portrait: "/images/partners/02-klein.webp",
   },
   {
     id: "III",
     name: "Rachel Lee",
-    role: "Partner",
-    practice: "Intellectual Property",
+    role: "Head of Engineering",
+    practice: "Engineering",
     portrait: "/images/partners/03-lee.webp",
   },
   {
     id: "IV",
     name: "Tom Singh",
-    role: "Partner",
-    practice: "Restructuring & Recovery",
+    role: "Head of Customer Success",
+    practice: "Customer Success",
     portrait: "/images/partners/04-singh.webp",
   },
   {
     id: "V",
     name: "Anna Petrova",
-    role: "Partner",
-    practice: "Compliance & Rules",
+    role: "Head of Product",
+    practice: "Product",
     portrait: "/images/partners/05-petrova.webp",
   },
   {
     id: "VI",
     name: "Daniel Okonkwo",
-    role: "Partner",
-    practice: "Tax & Wealth Planning",
+    role: "Head of Sales",
+    practice: "Growth & Partnerships",
     portrait: "/images/partners/06-okonkwo.webp",
   },
 ]
@@ -76,8 +76,8 @@ function Team() {
       <div className="container">
         <SectionHeader
           badge="Our Team"
-          heading={<>The people behind your legal success.</>}
-          description="Every case is led by a senior lawyer, from the first call all the way to the result. Meet the team that proudly carries our firm's name."
+          heading={<>The people building CallKaro AI.</>}
+          description="From the first ring to the final analytics, our team designs voice agents that sound human and get work done. Meet the people making every conversation count."
           mark={
             <Scan
               aria-hidden

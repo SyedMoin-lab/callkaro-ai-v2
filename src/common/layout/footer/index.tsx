@@ -10,11 +10,13 @@ import {
 } from "@/lib/contact"
 
 const STATEMENT =
-  "We do the work to know, and to say, what others are still trying to figure out."
+  "AI voice agents that answer every call, day or night, so your team can focus on the conversations that matter most."
 
 const FIRM_LINKS = [
   { label: "About", href: "/about-us" },
   { label: "Services", href: "/services" },
+  { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Case studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact-us" },
@@ -24,7 +26,7 @@ const CONTACT_LINKS = [
   { label: SUPPORT_EMAIL, href: SUPPORT_EMAIL_HREF },
   { label: PRIMARY_OFFICE.phone.display, href: PRIMARY_OFFICE.phone.href },
   { label: "LinkedIn", href: "#" },
-  { label: "Chambers", href: "#" },
+  { label: "Book a demo", href: "/contact-us" },
 ]
 
 function Footer() {
@@ -44,7 +46,7 @@ function Footer() {
             </p>
           </div>
 
-          <FooterColumn label="Firm">
+          <FooterColumn label="Company">
             <ul className="space-y-3 text-sm">
               {FIRM_LINKS.map((l) => (
                 <li key={l.label}>
@@ -119,13 +121,13 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 function Baseline() {
   return (
     <div className="mt-16 flex flex-col gap-3 border-t border-foreground/12 pt-6 text-xs text-foreground/40 sm:flex-row sm:items-center sm:justify-between md:mt-20">
-      <span>© CallKaro AI · Attorney advertising</span>
+      <span>© CallKaro AI. All rights reserved.</span>
       <span className="flex items-center gap-2">
         <span
           aria-hidden
           className="size-1.5 animate-pulse rounded-full bg-accent"
         />
-        Licensed in New York &amp; Washington D.C.
+        AI voice agents for every business call.
       </span>
     </div>
   )

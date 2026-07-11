@@ -14,28 +14,28 @@ import { Badge } from "@/common/shadcnUI/badge"
 
 const FAQS = [
   {
-    q: "How does our first meeting work?",
-    a: "A senior partner takes the first call, never an assistant. We use the call to check for conflicts, understand your case, and decide together if we're the right fit. The first conversation is free.",
+    q: "How fast can we go live?",
+    a: "Most teams launch in days, not months. We help you script your first agent, connect your systems, and run test calls, so you can be handling real conversations within a week.",
   },
   {
-    q: "What will it be like working with our team?",
-    a: "The same team that builds your plan also runs your case in court. You'll know exactly who is working on your case, and they'll know your story before they pick up the phone.",
+    q: "Does it actually sound human?",
+    a: "Our voices are natural and low latency, so callers hear real pauses, interruptions, and back-and-forth instead of a rigid menu. Most people carry on a normal conversation without realizing they are talking to an AI agent.",
   },
   {
-    q: "How long do different types of cases take?",
-    a: "We send a first plan within three days. Court dates depend on the court's schedule, but we'll give you an honest look at the next 90 days before you sign anything.",
+    q: "Which languages and accents are supported?",
+    a: "The platform speaks 20+ languages and can switch mid-call when a caller does. You can also choose regional accents so the voice sounds local to the people you are calling.",
   },
   {
-    q: "How does pricing and billing work?",
-    a: "Most cases are billed by the hour with a clear budget agreed up front and checked at each step. We can also talk about other options, like fixed fees or success bonuses, when they make sense.",
+    q: "How does it connect to our CRM and calendar?",
+    a: "Agents connect to your CRM, calendar, and internal tools through APIs and custom functions. That lets them book appointments, look up account details, and log every call automatically, with no manual data entry.",
   },
   {
-    q: "How do we keep your information safe?",
-    a: "We sign a confidentiality agreement from the very first call. Your information stays in a secure system, and only the people who need to see it on your case will.",
+    q: "What happens when the AI can't handle a call?",
+    a: "When a call needs a person, the agent transfers it to the right team member and passes along full context, including the transcript and reason for the handoff. Nobody has to repeat themselves and no lead falls through the cracks.",
   },
   {
-    q: "Do we handle appeals and follow-up work?",
-    a: "Yes. Our appeals team writes strong briefs based on the same case record we helped build. We also handle collecting on judgments and any motions after the verdict.",
+    q: "How is our call data and compliance handled?",
+    a: "Every call is recorded, transcribed, and stored securely, so you have a full audit trail. Agents stay on-script and follow your compliance rules, and access is limited to the people on your team who need it.",
   },
 ]
 
@@ -73,13 +73,13 @@ function FaqHeader() {
       </div>
 
       <h2 className="mt-8 text-3xl leading-[1.05] font-light tracking-tight md:text-4xl lg:text-5xl">
-        Answers to your legal questions.
+        Answers about AI calling.
       </h2>
 
       <p className="mt-6 max-w-md text-base text-muted-foreground">
-        We know legal questions can feel a lot to handle, especially when
-        you&apos;re not sure where to start. Here are the questions clients ask
-        us most often before getting in touch.
+        Bringing AI voice agents into your business can raise a lot of
+        questions, especially if you&apos;re not sure where to start. Here are
+        the ones teams ask us most often before getting in touch.
       </p>
 
       <ContactBridge />
@@ -98,7 +98,7 @@ function ContactBridge() {
         className="group/bridge mt-1.5 inline-flex items-center gap-2 text-sm tracking-tight text-foreground transition-colors"
       >
         <span className="border-b border-transparent transition-colors group-hover/bridge:border-foreground">
-          Talk to a lawyer directly
+          Talk to our team directly
         </span>
         <MoveUpRight className="size-3.5 text-accent transition-transform group-hover/bridge:translate-x-0.5 group-hover/bridge:-translate-y-0.5" />
       </Link>

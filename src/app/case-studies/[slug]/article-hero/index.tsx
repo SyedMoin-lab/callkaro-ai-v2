@@ -10,7 +10,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/common/shadcnUI/breadcrumb"
+} from "@/common/shadcnUI/breadCrumb"
 import { Button } from "@/common/shadcnUI/button"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
@@ -85,11 +85,11 @@ function CtaCard() {
   return (
     <div className="flex flex-col rounded-xl bg-muted/60 p-7 md:p-8">
       <h2 className="text-xl leading-tight font-light tracking-tight md:text-2xl">
-        Need counsel on a matter like this?
+        Want results like this for your calls?
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-        A senior partner takes the first call. Conflicts cleared within the
-        hour, a strategy memo on your desk inside seventy-two.
+        Book a quick call and we&apos;ll map CallKaro AI to your exact call
+        flows, and you can be live in days, not months.
       </p>
       <Button asChild className="mt-6 w-fit">
         <Link href="/contact-us">

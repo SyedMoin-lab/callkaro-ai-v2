@@ -1,4 +1,4 @@
-export const SUPPORT_EMAIL = "counsel@verdict.law"
+export const SUPPORT_EMAIL = "hello@callkaro.ai"
 export const SUPPORT_EMAIL_HREF = `mailto:${SUPPORT_EMAIL}`
 
 export type Office = {
@@ -12,31 +12,31 @@ export type Office = {
 
 export const OFFICES: Office[] = [
   {
-    city: "New York",
-    region: "United States",
+    city: "Bengaluru",
+    region: "India",
     mapSrc:
-      "https://www.openstreetmap.org/export/embed.html?bbox=-74.0207%2C40.7010%2C-74.0007%2C40.7170&layer=mapnik&marker=40.7090%2C-74.0107",
-    address: { line1: "One Liberty Plaza", line2: "New York, NY 10006" },
-    phone: { display: "+1 (212) 555-0142", href: "tel:+12125550142" },
-    email: "newyork@verdict.law",
+      "https://www.openstreetmap.org/export/embed.html?bbox=77.5846%2C12.9616%2C77.6046%2C12.9816&layer=mapnik&marker=12.9716%2C77.5946",
+    address: { line1: "Koramangala, 5th Block", line2: "Bengaluru, KA 560095" },
+    phone: { display: "+91 80 4718 2200", href: "tel:+918047182200" },
+    email: "bengaluru@callkaro.ai",
   },
   {
-    city: "Washington, D.C.",
-    region: "United States",
+    city: "Mumbai",
+    region: "India",
     mapSrc:
-      "https://www.openstreetmap.org/export/embed.html?bbox=-77.0499%2C38.8938%2C-77.0299%2C38.9098&layer=mapnik&marker=38.9018%2C-77.0399",
-    address: { line1: "900 17th Street NW", line2: "Washington, D.C. 20006" },
-    phone: { display: "+1 (202) 555-0188", href: "tel:+12025550188" },
-    email: "dc@verdict.law",
+      "https://www.openstreetmap.org/export/embed.html?bbox=72.8677%2C19.0660%2C72.8877%2C19.0860&layer=mapnik&marker=19.0760%2C72.8777",
+    address: { line1: "Bandra Kurla Complex", line2: "Mumbai, MH 400051" },
+    phone: { display: "+91 22 6120 4400", href: "tel:+912261204400" },
+    email: "mumbai@callkaro.ai",
   },
   {
-    city: "London",
-    region: "England & Wales",
+    city: "New Delhi",
+    region: "India",
     mapSrc:
-      "https://www.openstreetmap.org/export/embed.html?bbox=-0.0903%2C51.5064%2C-0.0703%2C51.5224&layer=mapnik&marker=51.5144%2C-0.0803",
-    address: { line1: "30 St Mary Axe", line2: "London EC3A 8BF" },
-    phone: { display: "+44 20 7946 0500", href: "tel:+442079460500" },
-    email: "london@verdict.law",
+      "https://www.openstreetmap.org/export/embed.html?bbox=77.1990%2C28.6039%2C77.2190%2C28.6239&layer=mapnik&marker=28.6139%2C77.2090",
+    address: { line1: "Connaught Place", line2: "New Delhi, DL 110001" },
+    phone: { display: "+91 11 4200 6600", href: "tel:+911142006600" },
+    email: "delhi@callkaro.ai",
   },
 ]
 

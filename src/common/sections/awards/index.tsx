@@ -5,39 +5,39 @@ import Image from "next/image"
 import { Award } from "lucide-react"
 import { motion } from "motion/react"
 
-import SectionHeader from "@/common/elements/section-header"
+import SectionHeader from "@/common/elements/sectionHeader"
 import { cn } from "@/lib/utils"
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 const AWARDS = [
   {
-    id: "chambers",
-    title: "Chambers USA, Top Rated for Lawsuits",
-    year: 2024,
+    id: "g2",
+    title: "G2, High Performer in Conversational AI",
+    year: 2025,
     image: "/images/awards/01-chambers.webp",
   },
   {
-    id: "legal500",
-    title: "The Legal 500, Top Tier in Finance Law",
+    id: "producthunt",
+    title: "Product Hunt, #1 Product of the Day",
     year: 2024,
     image: "/images/awards/02-legal500.webp",
   },
   {
-    id: "benchmark",
-    title: "Benchmark Litigation, Top Tier Firm",
+    id: "deloitte",
+    title: "Deloitte Technology Fast 50, Rising Company",
     year: 2025,
     image: "/images/awards/03-benchmark.webp",
   },
   {
-    id: "amlaw",
-    title: "The American Lawyer, Litigation Team of the Year",
+    id: "ai100",
+    title: "The AI 100, Most Promising Startups",
     year: 2024,
     image: "/images/awards/04-amlaw.webp",
   },
   {
-    id: "law360",
-    title: "Law360, Practice Group of the Year",
+    id: "saasboomi",
+    title: "SaaSBoomi, Rising Star in Voice AI",
     year: 2023,
     image: "/images/awards/05-law360.webp",
   },
@@ -51,8 +51,8 @@ function Awards() {
       <div className="container">
         <SectionHeader
           badge="Our Awards"
-          heading={<>Awards that reflect our work.</>}
-          description="Top rankings from the guides that lawyers actually trust, earned year after year."
+          heading={<>Recognition for the AI voice tech we build.</>}
+          description="Honors from the platforms and analysts that track real product performance, earned year after year."
           mark={<AwardsMark />}
         />
       </div>
