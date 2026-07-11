@@ -102,8 +102,8 @@ function FeaturedHeader() {
           transition={{ duration: 0.7, ease: EASE_OUT }}
           className="mt-6 max-w-sm text-base text-muted-foreground md:text-lg"
         >
-          Six practice areas the firm accepts work in. Every engagement is
-          partner-led from the first call.
+          Six capabilities that power every CallKaro AI voice agent, from the
+          first ring to the final follow-up.
         </motion.p>
       </div>
 
@@ -117,7 +117,7 @@ function FeaturedHeader() {
       >
         <Button asChild variant="outline" size="lg">
           <Link href="/contact-us">
-            Brief our team
+            Talk to our team
             <MoveUpRight />
           </Link>
         </Button>
