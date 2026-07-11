@@ -19,7 +19,7 @@ const eslintConfig = defineConfig([
             ["^\\u0000"],
             // Node builtins.
             ["^node:"],
-            // External packages — react/next first, then everything else.
+            // External packages, react/next first, then everything else.
             ["^react", "^next", "^@?\\w"],
             // Internal aliases.
             ["^@/"],

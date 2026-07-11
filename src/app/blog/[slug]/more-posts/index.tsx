@@ -2,8 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/common/shadcnUI/avatar"
+import { Card } from "@/common/shadcnUI/card"
 import type { BlogFrontmatter } from "@/lib/types"
 import { formatDate, initialsOf } from "@/lib/utils"
 

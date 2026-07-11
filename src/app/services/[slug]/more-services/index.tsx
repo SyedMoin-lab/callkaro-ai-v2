@@ -2,10 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 
-import { resolveServiceIcon } from "@/components/sections/services-page/data"
-import { Card } from "@/components/ui/card"
+import { Card } from "@/common/shadcnUI/card"
 import type { ServiceFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"
+
+import { resolveServiceIcon } from "../data"
 
 const TOP_CROP_SLUGS = new Set(["lawsuits-disputes", "restructuring-recovery"])
 

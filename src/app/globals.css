@@ -200,7 +200,7 @@
   }
 }
 
-/* Animated brass mesh — warm-only gradient for the contact CTA card.
+/* Animated brass mesh, warm-only gradient for the contact CTA card.
    @property lets the custom properties interpolate smoothly on the GPU. */
 @property --vg-x1 {
   syntax: "<percentage>";

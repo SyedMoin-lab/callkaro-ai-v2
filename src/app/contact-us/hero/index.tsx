@@ -4,13 +4,14 @@ import Image from "next/image"
 import { Mail, Phone } from "lucide-react"
 import { motion } from "motion/react"
 
-import ContactForm from "@/components/sections/contact-page/contact-form"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/common/shadcnUI/badge"
 import {
   PRIMARY_OFFICE,
   SUPPORT_EMAIL,
   SUPPORT_EMAIL_HREF,
 } from "@/lib/contact"
+
+import ContactForm from "../contact-form"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 

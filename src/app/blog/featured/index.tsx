@@ -5,9 +5,9 @@ import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 import { motion } from "motion/react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/common/shadcnUI/avatar"
+import { Badge } from "@/common/shadcnUI/badge"
+import { Card } from "@/common/shadcnUI/card"
 import type { BlogFrontmatter } from "@/lib/types"
 import { formatDate, initialsOf } from "@/lib/utils"
 
@@ -81,7 +81,7 @@ function BlogIntro() {
         transition={{ duration: 0.7, ease: EASE_OUT }}
         className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg"
       >
-        Practice notes, case framings, and process pieces — written by the
+        Practice notes, case framings, and process pieces, written by the
         partners who tried the matters they describe.
       </motion.p>
     </motion.div>

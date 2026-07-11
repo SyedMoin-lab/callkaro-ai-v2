@@ -11,13 +11,13 @@ import {
   useScroll,
 } from "motion/react"
 
-import { VerdictLogo } from "@/components/layout/logo"
-import { Button } from "@/components/ui/button"
+import { CallKaroLogo } from "@/common/layout/logo"
+import { Button } from "@/common/shadcnUI/button"
 import { useBannerVisibility } from "@/hooks/use-banner-visibility"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-us" },
   { label: "Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
@@ -104,9 +104,9 @@ function Navbar({
           >
             <div className="flex flex-1 items-center">
               <Link href="/" className="flex items-center gap-2.5">
-                <VerdictLogo className="size-9" />
+                <CallKaroLogo className="size-9" />
                 <span className="text-xl font-semibold tracking-tight">
-                  Verdict
+                  CallKaro AI
                 </span>
               </Link>
             </div>
@@ -150,7 +150,7 @@ function Navbar({
 
             <div className="flex flex-1 items-center justify-end gap-2">
               <Button size="lg" className="hidden md:inline-flex" asChild>
-                <Link href="/contact">Book Free Consultation</Link>
+                <Link href="/contact-us">Book Free Consultation</Link>
               </Button>
               <button
                 type="button"
@@ -196,9 +196,9 @@ function Navbar({
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-2.5"
                 >
-                  <VerdictLogo className="size-8" />
+                  <CallKaroLogo className="size-8" />
                   <span className="text-lg font-semibold tracking-tight">
-                    Verdict
+                    CallKaro AI
                   </span>
                 </Link>
                 <button
@@ -234,7 +234,7 @@ function Navbar({
 
               <div className="mt-auto pt-8">
                 <Button size="lg" className="w-full" asChild>
-                  <Link href="/contact" onClick={() => setMenuOpen(false)}>
+                  <Link href="/contact-us" onClick={() => setMenuOpen(false)}>
                     Book Free Consultation
                   </Link>
                 </Button>

@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 
-import { resolveServiceIcon } from "@/components/sections/services-page/data"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,10 +10,12 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Button } from "@/components/ui/button"
+} from "@/common/shadcnUI/breadcrumb"
+import { Button } from "@/common/shadcnUI/button"
 import type { ServiceFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"
+
+import { resolveServiceIcon } from "../data"
 
 const TOP_CROP_SLUGS = new Set(["lawsuits-disputes", "restructuring-recovery"])
 
@@ -143,7 +144,7 @@ function SidebarCard({ frontmatter }: { frontmatter: ServiceFrontmatter }) {
       </div>
 
       <Button asChild className="mt-2">
-        <Link href="/contact">
+        <Link href="/contact-us">
           Brief our team
           <MoveUpRight />
         </Link>

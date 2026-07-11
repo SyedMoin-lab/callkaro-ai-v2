@@ -1,9 +1,9 @@
 import Link from "next/link"
 import { MoveRight, TrendingUp } from "lucide-react"
 
-import SectionHeader from "@/components/elements/section-header"
-import FolioList from "@/components/sections/case-studies-page/folio-list"
-import { Button } from "@/components/ui/button"
+import SectionHeader from "@/common/elements/section-header"
+import FolioList from "@/common/sections/folio-list"
+import { Button } from "@/common/shadcnUI/button"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 
 function CaseStudies({ cases }: { cases: CaseStudyFrontmatter[] }) {
@@ -15,7 +15,7 @@ function CaseStudies({ cases }: { cases: CaseStudyFrontmatter[] }) {
         <SectionHeader
           badge="Featured Case Studies"
           heading={<>Real cases. Real results for our clients.</>}
-          description="A look at recent work across our service areas. Some names are kept private to respect client confidentiality. These are the cases we were hired to win — and what the court decided."
+          description="A look at recent work across our service areas. Some names are kept private to respect client confidentiality. These are the cases we were hired to win, and what the court decided."
           mark={
             <TrendingUp
               aria-hidden

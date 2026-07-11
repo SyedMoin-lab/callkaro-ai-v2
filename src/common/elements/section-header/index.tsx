@@ -1,6 +1,6 @@
 import { type ReactNode } from "react"
 
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/common/shadcnUI/badge"
 
 type SectionHeaderProps = {
   badge: ReactNode

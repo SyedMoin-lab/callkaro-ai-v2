@@ -1,4 +1,4 @@
-import FolioCard from "@/components/sections/case-studies-page/folio-card"
+import FolioCard from "@/common/sections/folio-card"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 
 function FolioList({

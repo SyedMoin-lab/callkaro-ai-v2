@@ -2,18 +2,18 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { cookies } from "next/headers"
 
-import Banner from "@/components/layout/banner"
-import Footer from "@/components/layout/footer"
-import Navbar from "@/components/layout/navbar"
-import { StyleGlideProvider } from "@/components/providers/styleglide-provider"
-import { ThemeProvider } from "@/components/providers/theme-provider"
+import Banner from "@/common/layout/banner"
+import Footer from "@/common/layout/footer"
+import Navbar from "@/common/layout/navbar"
+import { StyleGlideProvider } from "@/common/providers/styleglide-provider"
+import { ThemeProvider } from "@/common/providers/theme-provider"
 import { cn } from "@/lib/utils"
 
 import "./globals.css"
 
 const SITE_URL = "https://verdict-nextjs-template.vercel.app"
-const SITE_NAME = "Verdict"
-const SITE_TITLE = "Verdict — trusted legal help when it matters most"
+const SITE_NAME = "CallKaro AI"
+const SITE_TITLE = "CallKaro AI, trusted legal help when it matters most"
 const SITE_DESCRIPTION =
   "Senior lawyers on every case. Proven results in court. Clear fees, no surprises."
 
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     "Litigation",
     "Legal",
   ],
-  authors: [{ name: "Verdict - Shadcnblocks.com" }],
-  creator: "Verdict - Shadcnblocks.com",
+  authors: [{ name: "CallKaro AI" }],
+  creator: "CallKaro AI",
   publisher: SITE_NAME,
   robots: { index: true, follow: true },
   icons: {
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: ["/og-image.jpg"],
-    creator: "@shadcnblocks",
+    creator: "@callkaroai",
   },
 }
 

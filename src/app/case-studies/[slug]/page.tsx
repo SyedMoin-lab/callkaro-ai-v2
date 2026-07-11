@@ -1,15 +1,16 @@
 import { notFound } from "next/navigation"
 import { compileMDX } from "next-mdx-remote/rsc"
 
-import CaseStudyArticleHero from "@/components/sections/case-studies-page/article-hero"
-import CaseStudyTestimonialCard from "@/components/sections/case-studies-page/testimonial"
-import YouAlsoMightLike from "@/components/sections/case-studies-page/you-also-might-like"
 import {
   getAllCaseStudies,
   getCaseStudyBySlug,
   getCaseStudySlugs,
 } from "@/lib/case-studies"
 import type { CaseStudyFrontmatter } from "@/lib/types"
+
+import CaseStudyArticleHero from "./article-hero"
+import CaseStudyTestimonialCard from "./testimonial"
+import YouAlsoMightLike from "./you-also-might-like"
 
 export const dynamic = "force-static"
 export const dynamicParams = false

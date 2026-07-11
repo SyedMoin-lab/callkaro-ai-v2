@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { motion } from "motion/react"
 
-import Eyebrow from "@/components/elements/eyebrow"
+import Eyebrow from "@/common/elements/eyebrow"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
@@ -55,7 +55,7 @@ function AboutValues() {
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
               The law should serve people, protect their rights, and give them a
               clear path to justice. We help our clients move forward with
-              confidence — and a plan built around them.
+              confidence, and a plan built around them.
             </p>
 
             <ul className="mt-10 grid grid-cols-3 gap-x-6 border-t pt-8">

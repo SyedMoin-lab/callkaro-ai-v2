@@ -5,14 +5,14 @@ import { Maximize2, Quote, X } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { Dialog as DialogPrimitive } from "radix-ui"
 
-import SectionHeader from "@/components/elements/section-header"
+import SectionHeader from "@/common/elements/section-header"
 import {
   Dialog,
   DialogClose,
   DialogOverlay,
   DialogPortal,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/common/shadcnUI/dialog"
 import { cn } from "@/lib/utils"
 
 function AffordanceHint() {
@@ -56,7 +56,7 @@ export const endorsements = [
   },
   {
     quote:
-      "They told us where our case was weak before they told us where it was strong. That kind of honesty is rare — and it's why we trust them even when the law isn't on our side.",
+      "They told us where our case was weak before they told us where it was strong. That kind of honesty is rare, and it's why we trust them even when the law isn't on our side.",
     role: "CEO",
     sector: "Top Tech Company",
     sectorShort: "Technology",
@@ -65,7 +65,7 @@ export const endorsements = [
   },
   {
     quote:
-      "I called them on a Friday afternoon and a senior lawyer had the case on his desk by Monday morning. That isn't normal — and it's why we keep coming back.",
+      "I called them on a Friday afternoon and a senior lawyer had the case on his desk by Monday morning. That isn't normal, and it's why we keep coming back.",
     role: "Board Member",
     sector: "NYSE-listed Industrial",
     sectorShort: "Industrial",
@@ -74,7 +74,7 @@ export const endorsements = [
   },
   {
     quote:
-      "When the regulators asked for more, the team had a full answer ready in two weeks. It wasn't just speed — it was preparation. They had already seen it coming.",
+      "When the regulators asked for more, the team had a full answer ready in two weeks. It wasn't just speed, it was preparation. They had already seen it coming.",
     role: "Chief Legal Officer",
     sector: "Life Sciences",
     sectorShort: "Life Sciences",
@@ -141,9 +141,9 @@ const STATS = [
 ]
 
 const CHIPS: Array<{ text: string; tone: "card" | "dark" }> = [
-  // chip index 3 — Tech endorsement: "told us where the case would lose"
+  // chip index 3, Tech endorsement: "told us where the case would lose"
   { text: "“Honest from day one.”", tone: "card" },
-  // chip index 5 — Life Sciences endorsement: "response ready in two weeks"
+  // chip index 5, Life Sciences endorsement: "response ready in two weeks"
   { text: "“Ready in two weeks.”", tone: "dark" },
 ]
 
@@ -162,7 +162,7 @@ function Endorsements() {
         <SectionHeader
           badge="Testimonials"
           heading={<>What our clients say.</>}
-          description="Most of our work stays private. With permission, these are some of the clients we've helped — in their own words."
+          description="Most of our work stays private. With permission, these are some of the clients we've helped, in their own words."
           mark={
             <Quote
               aria-hidden
@@ -359,7 +359,7 @@ function StatTile({
       type={onClick ? "button" : undefined}
       layoutId={layoutId}
       onClick={onClick}
-      aria-label={onClick ? `${label} — open quote` : undefined}
+      aria-label={onClick ? `${label}, open quote` : undefined}
       initial={{ opacity: 0, y: 6 }}
       whileInView={{ opacity: 1, y: 0 }}
       animate={{ opacity: isDimmed ? 0.3 : 1 }}

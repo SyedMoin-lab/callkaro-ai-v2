@@ -5,8 +5,8 @@ import Link from "next/link"
 import { MoveRight, Scan } from "lucide-react"
 import { motion } from "motion/react"
 
-import SectionHeader from "@/components/elements/section-header"
-import { Button } from "@/components/ui/button"
+import SectionHeader from "@/common/elements/section-header"
+import { Button } from "@/common/shadcnUI/button"
 import { cn } from "@/lib/utils"
 
 const team = [
@@ -59,8 +59,8 @@ type Member = (typeof team)[number]
 const EASE = [0.22, 1, 0.36, 1] as const
 
 // All cards are `col-span-3` (equal width). The col-start values leave
-// intentional empty 3-col gaps inside each row — middle-left on row 1,
-// middle-right on row 2 — for the bento rhythm.
+// intentional empty 3-col gaps inside each row, middle-left on row 1,
+// middle-right on row 2, for the bento rhythm.
 const slots = [
   "md:col-start-1 md:row-start-1",
   "md:col-start-7 md:row-start-1",
@@ -77,7 +77,7 @@ function Team() {
         <SectionHeader
           badge="Our Team"
           heading={<>The people behind your legal success.</>}
-          description="Every case is led by a senior lawyer — from the first call all the way to the result. Meet the team that proudly carries our firm's name."
+          description="Every case is led by a senior lawyer, from the first call all the way to the result. Meet the team that proudly carries our firm's name."
           mark={
             <Scan
               aria-hidden
@@ -97,7 +97,7 @@ function Team() {
 
         <div className="mt-10 flex justify-center md:mt-14">
           <Button size="lg" variant="secondary" asChild>
-            <Link href="/contact">
+            <Link href="/contact-us">
               Connect with us
               <MoveRight className="size-5" strokeWidth={1.25} />
             </Link>
@@ -130,7 +130,7 @@ function MemberCard({
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
       tabIndex={0}
-      aria-label={`${p.name}, ${p.role} — ${p.practice}`}
+      aria-label={`${p.name}, ${p.role}, ${p.practice}`}
       className={cn(
         "group relative aspect-[3/4] overflow-hidden rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:col-span-3",
         className

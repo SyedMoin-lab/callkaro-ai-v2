@@ -23,7 +23,7 @@ function ContactOffices() {
           </h2>
           <p className="mt-6 text-base text-muted-foreground md:text-lg">
             Senior counsel on the ground in each jurisdiction we accept work in.
-            Walk in, write in, or call — the response is the same.
+            Walk in, write in, or call, the response is the same.
           </p>
         </motion.div>
 

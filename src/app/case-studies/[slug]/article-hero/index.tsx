@@ -10,8 +10,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Button } from "@/components/ui/button"
+} from "@/common/shadcnUI/breadcrumb"
+import { Button } from "@/common/shadcnUI/button"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
 
@@ -92,7 +92,7 @@ function CtaCard() {
         hour, a strategy memo on your desk inside seventy-two.
       </p>
       <Button asChild className="mt-6 w-fit">
-        <Link href="/contact">
+        <Link href="/contact-us">
           Get in touch
           <MoveUpRight />
         </Link>

@@ -17,34 +17,34 @@ const API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 const STYLE = `Editorial cinematography, 16:9 widescreen landscape composition. Warm tungsten lighting with aged-brass highlights, deep ink shadows, low saturation, fine 35mm film grain, shallow depth of field, 50mm lens, Wall Street Journal photo essay aesthetic. Restrained and serious. No stiff stock-photo poses, no gavels, no scales-of-justice icons, no flags, no lens flares.`
 
-const STYLE_DOCUMENTARY = `Editorial documentary photography, 16:9 widescreen landscape composition. Bright natural daylight, soft diffused window light, clean neutral whites with warm midtones. Photojournalistic candid moment in a real working environment — no heavy color grading, no moodboard darkness, no orange-and-teal. Real professionals in natural mid-action poses, business attire, eyes on each other or on documents, never on camera. Trustworthy business-magazine feature quality, the kind of photo a Bloomberg or FT feature would run. Shot on 35mm with shallow depth of field, sharp focal subject, gentle film grain. No posed stock-photo handshakes, no AI-looking faces, no flags, no logos, no gavels.`
+const STYLE_DOCUMENTARY = `Editorial documentary photography, 16:9 widescreen landscape composition. Bright natural daylight, soft diffused window light, clean neutral whites with warm midtones. Photojournalistic candid moment in a real working environment, no heavy color grading, no moodboard darkness, no orange-and-teal. Real professionals in natural mid-action poses, business attire, eyes on each other or on documents, never on camera. Trustworthy business-magazine feature quality, the kind of photo a Bloomberg or FT feature would run. Shot on 35mm with shallow depth of field, sharp focal subject, gentle film grain. No posed stock-photo handshakes, no AI-looking faces, no flags, no logos, no gavels.`
 
-const STYLE_PORTRAIT = `Premium attorney biography portrait, 3:4 vertical composition. Warm and evenly lit — bright midtones, soft directional fill from the side, gentle natural shadow on one side of the face. NOT cinematic chiaroscuro, NOT moody, NOT silhouetted. The subject faces toward camera with a calm, composed, authoritative expression, eyes looking directly at the lens. Photographed in a real upmarket law-firm office or library — softly out-of-focus background of warm wood paneling and rows of leather-bound legal books, perhaps a warm tungsten lamp or brass desk fitting blurred in the bokeh. Tasteful warm color palette: deep walnut browns, soft golds, cream skin tones. Shot on an 85mm portrait lens at f/2, sharp focal plane on the eyes, beautiful natural skin texture, gentle 35mm film grain. Magazine bio-page quality, the kind of portrait a top New York law firm would commission. Real, believable faces with natural skin and pores — NOT a glossy AI stock illustration, NOT plasticky. No flags, no logos, no gavels, no scales-of-justice icons.`
+const STYLE_PORTRAIT = `Premium attorney biography portrait, 3:4 vertical composition. Warm and evenly lit, bright midtones, soft directional fill from the side, gentle natural shadow on one side of the face. NOT cinematic chiaroscuro, NOT moody, NOT silhouetted. The subject faces toward camera with a calm, composed, authoritative expression, eyes looking directly at the lens. Photographed in a real upmarket law-firm office or library, softly out-of-focus background of warm wood paneling and rows of leather-bound legal books, perhaps a warm tungsten lamp or brass desk fitting blurred in the bokeh. Tasteful warm color palette: deep walnut browns, soft golds, cream skin tones. Shot on an 85mm portrait lens at f/2, sharp focal plane on the eyes, beautiful natural skin texture, gentle 35mm film grain. Magazine bio-page quality, the kind of portrait a top New York law firm would commission. Real, believable faces with natural skin and pores, NOT a glossy AI stock illustration, NOT plasticky. No flags, no logos, no gavels, no scales-of-justice icons.`
 
 // Same warm, evenly-lit lighting and palette as the partner portraits, but
 // for 16:9 scene/still-life compositions instead of a person facing camera.
-const STYLE_WARM = `Premium editorial still photography, 16:9 widescreen landscape composition. Warm and evenly lit — bright midtones, soft directional daylight fill, gentle natural shadow. NOT cinematic chiaroscuro, NOT moody, NOT dark, NOT dusk, NOT night, NOT silhouetted. Tasteful warm color palette: deep walnut browns, soft golds, cream and ivory tones, warm wood paneling and leather, the same look as a top New York law firm's bio portraits. Photographed in an upmarket firm interior with softly out-of-focus warm backgrounds and rows of leather-bound legal books. Shot on an 85mm lens at f/2, sharp focal plane, shallow depth of field, beautiful natural texture, gentle 35mm film grain. Refined magazine feature quality — believable and real, NOT a glossy AI stock illustration, NOT plasticky. No people facing the camera, no flags, no logos, no gavels, no scales-of-justice icons.`
+const STYLE_WARM = `Premium editorial still photography, 16:9 widescreen landscape composition. Warm and evenly lit, bright midtones, soft directional daylight fill, gentle natural shadow. NOT cinematic chiaroscuro, NOT moody, NOT dark, NOT dusk, NOT night, NOT silhouetted. Tasteful warm color palette: deep walnut browns, soft golds, cream and ivory tones, warm wood paneling and leather, the same look as a top New York law firm's bio portraits. Photographed in an upmarket firm interior with softly out-of-focus warm backgrounds and rows of leather-bound legal books. Shot on an 85mm lens at f/2, sharp focal plane, shallow depth of field, beautiful natural texture, gentle 35mm film grain. Refined magazine feature quality, believable and real, NOT a glossy AI stock illustration, NOT plasticky. No people facing the camera, no flags, no logos, no gavels, no scales-of-justice icons.`
 
-// Cinematic, premium hero treatment — high-credibility but bright and warm.
+// Cinematic, premium hero treatment, high-credibility but bright and warm.
 // Lighter than a moody chiaroscuro: luminous warm light, refined (not flat,
 // not murky) shadows. Drama from a prominent lit subject, not from darkness.
-const STYLE_HERO = `Cinematic editorial photography, 16:9 widescreen hero composition. Premium and high-end with a bright, warm, luminous quality — soft warm directional daylight fills the scene and gently sculpts the subject, with refined restrained shadows (NOT murky, NOT flat, NOT washed out, NOT heavy chiaroscuro). Warm walnut browns, soft golds and honey tones, cream highlights, low-to-medium saturation, fine 35mm film grain, shallow depth of field, 50mm lens. The focal subject is sharp and prominent; the background gallery is softly out of focus and gently lit, never pitch black. The kind of arresting, trustworthy, high-value hero image a top-tier New York law firm would put on its homepage — conveys gravitas and credibility while feeling open and approachable. Photoreal and believable with natural skin and correct anatomy, especially hands — NOT plasticky, NOT an AI illustration, no warped fingers, no extra limbs. No logos, no flags, no gavels, no scales-of-justice icons.`
+const STYLE_HERO = `Cinematic editorial photography, 16:9 widescreen hero composition. Premium and high-end with a bright, warm, luminous quality, soft warm directional daylight fills the scene and gently sculpts the subject, with refined restrained shadows (NOT murky, NOT flat, NOT washed out, NOT heavy chiaroscuro). Warm walnut browns, soft golds and honey tones, cream highlights, low-to-medium saturation, fine 35mm film grain, shallow depth of field, 50mm lens. The focal subject is sharp and prominent; the background gallery is softly out of focus and gently lit, never pitch black. The kind of arresting, trustworthy, high-value hero image a top-tier New York law firm would put on its homepage, conveys gravitas and credibility while feeling open and approachable. Photoreal and believable with natural skin and correct anatomy, especially hands, NOT plasticky, NOT an AI illustration, no warped fingers, no extra limbs. No logos, no flags, no gavels, no scales-of-justice icons.`
 
 const jobs = [
-  // Hero — match the reference: blonde advocate from the right, arm extended
+  // Hero, match the reference: blonde advocate from the right, arm extended
   // left to the gallery; same composition as the original, but lighter/warmer.
   {
     out: "public/images/hero/courtroom.png",
     style: STYLE_HERO,
     scene:
-      "A wide establishing cinematic shot of a grand ornate wood-paneled American courtroom, true 16:9 widescreen with a lot of room and air. A female trial attorney stands at counsel's table in the right third of the frame, seen from behind in three-quarter profile at a comfortable medium distance — she is NOT zoomed in or cropped tight; there is generous headroom above her and open space around her. She wears a flowing black advocate's robe with billowing sleeves; her blonde hair is in a low ponytail tied with a slim black ribbon, a small gold earring catching the light, face in soft profile. She extends her arm out to the left, hand open in a measured, eloquent gesture toward the court. Across the left two-thirds of the frame, a packed gallery and jury box of attentive, well-dressed spectators sit softly lit and gently out of focus, with depth into the room. A framed portrait on the right wall, a brass chandelier glowing in the upper right, a soft shaft of warm light falling from high above. In the foreground a polished dark-walnut desk with open law books, papers, and a glass of water. Bright, warm, and luminous — clearly lit and fully readable, not dark or murky, while keeping cinematic depth. The hand is anatomically correct and natural.",
+      "A wide establishing cinematic shot of a grand ornate wood-paneled American courtroom, true 16:9 widescreen with a lot of room and air. A female trial attorney stands at counsel's table in the right third of the frame, seen from behind in three-quarter profile at a comfortable medium distance, she is NOT zoomed in or cropped tight; there is generous headroom above her and open space around her. She wears a flowing black advocate's robe with billowing sleeves; her blonde hair is in a low ponytail tied with a slim black ribbon, a small gold earring catching the light, face in soft profile. She extends her arm out to the left, hand open in a measured, eloquent gesture toward the court. Across the left two-thirds of the frame, a packed gallery and jury box of attentive, well-dressed spectators sit softly lit and gently out of focus, with depth into the room. A framed portrait on the right wall, a brass chandelier glowing in the upper right, a soft shaft of warm light falling from high above. In the foreground a polished dark-walnut desk with open law books, papers, and a glass of water. Bright, warm, and luminous, clearly lit and fully readable, not dark or murky, while keeping cinematic depth. The hand is anatomically correct and natural.",
   },
   // Practice Areas
   {
     out: "public/images/services/i-corporate.png",
     style: STYLE_WARM,
     scene:
-      "A heavy walnut conference table at desk height, a leather portfolio open over a stack of contract pages, a fountain pen resting across them. Two figures partially visible — well-tailored sleeves and hands, no faces — leaning slightly toward a quiet discussion. Bright warm daylight fills the room from a tall window, soft even light across the table, warm wood paneling behind.",
+      "A heavy walnut conference table at desk height, a leather portfolio open over a stack of contract pages, a fountain pen resting across them. Two figures partially visible, well-tailored sleeves and hands, no faces, leaning slightly toward a quiet discussion. Bright warm daylight fills the room from a tall window, soft even light across the table, warm wood paneling behind.",
   },
   {
     out: "public/images/services/ii-litigation.png",
@@ -68,7 +68,7 @@ const jobs = [
     out: "public/images/services/v-restructuring.png",
     style: STYLE_WARM,
     scene:
-      "A single attorney's walnut desk inside a bright warmly-lit office during the day — an open restructuring report with spreadsheets, a fountain pen, a cup of coffee, softly out-of-focus rows of leather-bound books behind, warm daylight through the window. No person visible, just a calm workspace mid-task.",
+      "A single attorney's walnut desk inside a bright warmly-lit office during the day, an open restructuring report with spreadsheets, a fountain pen, a cup of coffee, softly out-of-focus rows of leather-bound books behind, warm daylight through the window. No person visible, just a calm workspace mid-task.",
   },
   // Process
   {
@@ -99,34 +99,34 @@ const jobs = [
     out: "public/images/process/005-verdict.png",
     style: STYLE_WARM,
     scene:
-      "A calm empty American courtroom photographed from the judge's bench looking out — empty jury box at left, empty counsel tables ahead, gallery benches behind. Bright warm daylight streams through tall side windows across warm oak benches and the polished wood floor. Clean, luminous, and still. No people.",
+      "A calm empty American courtroom photographed from the judge's bench looking out, empty jury box at left, empty counsel tables ahead, gallery benches behind. Bright warm daylight streams through tall side windows across warm oak benches and the polished wood floor. Clean, luminous, and still. No people.",
   },
-  // Case Studies — varied moments, not all multi-person meetings
+  // Case Studies, varied moments, not all multi-person meetings
   {
     out: "public/images/cases/01-energy.png",
     style: STYLE_WARM,
     scene:
-      "Anna Petrova, a composed partner in her early forties with long blonde hair softly waved and a fair complexion, in a tailored dark blazer — a senior litigator alone at counsel's table inside a warm wood-paneled American courtroom after a hearing has ended. She is calmly closing a thick three-ring binder and sliding it into a leather case-file portfolio, her face in a calm three-quarter view. The jury box on the right is empty, the judge's bench in the background unoccupied. Bright warm daylight pours through tall arched courtroom windows onto warm oak benches and the polished wood table. A second binder, a water glass, and a pen rest on the table. The composed moment after a quiet professional win. Portrait-forward single-figure composition with the partner prominent, shot at gallery height.",
+      "Anna Petrova, a composed partner in her early forties with long blonde hair softly waved and a fair complexion, in a tailored dark blazer, a senior litigator alone at counsel's table inside a warm wood-paneled American courtroom after a hearing has ended. She is calmly closing a thick three-ring binder and sliding it into a leather case-file portfolio, her face in a calm three-quarter view. The jury box on the right is empty, the judge's bench in the background unoccupied. Bright warm daylight pours through tall arched courtroom windows onto warm oak benches and the polished wood table. A second binder, a water glass, and a pen rest on the table. The composed moment after a quiet professional win. Portrait-forward single-figure composition with the partner prominent, shot at gallery height.",
   },
   {
     out: "public/images/cases/02-pharma.png",
     style: STYLE_WARM,
     scene:
-      "Rachel Lee, a composed partner in her late thirties with shoulder-length wavy brunette hair and a fair complexion, in a fitted dark blazer — senior counsel mid-argument at a wooden podium in a warm wood-paneled courtroom, addressing the bench. Her hand is mid-gesture toward a printed demonstrative exhibit on a tripod easel beside her, a clean timeline graphic with no logos. The judge's bench is partially visible in the background; an out-of-focus court reporter to the side. Bright warm daylight from tall side windows, warm courtroom tones. A dynamic working moment, three-quarter view of the attorney mid-speech, dignified and real. Portrait-forward composition with the partner prominent.",
+      "Rachel Lee, a composed partner in her late thirties with shoulder-length wavy brunette hair and a fair complexion, in a fitted dark blazer, senior counsel mid-argument at a wooden podium in a warm wood-paneled courtroom, addressing the bench. Her hand is mid-gesture toward a printed demonstrative exhibit on a tripod easel beside her, a clean timeline graphic with no logos. The judge's bench is partially visible in the background; an out-of-focus court reporter to the side. Bright warm daylight from tall side windows, warm courtroom tones. A dynamic working moment, three-quarter view of the attorney mid-speech, dignified and real. Portrait-forward composition with the partner prominent.",
   },
   {
     out: "public/images/cases/03-banking.png",
     style: STYLE_WARM,
     scene:
-      "An overhead detail shot of two pairs of hands meeting across a polished walnut signing table — one hand, with a small leather cuff and a steel watch, holding a fountain pen mid-signature on the final page of a thick stapled term sheet titled 'PLAN OF REORGANIZATION'; the other set of hands resting beside a sleek closed laptop and a small espresso cup. A handsome leather portfolio open at the edge of frame, a faint reflection of a Manhattan window in the table surface. Soft natural daylight from the left. No faces visible, the document and the act of signing are the subject. Quiet, decisive, important.",
+      "An overhead detail shot of two pairs of hands meeting across a polished walnut signing table, one hand, with a small leather cuff and a steel watch, holding a fountain pen mid-signature on the final page of a thick stapled term sheet titled 'PLAN OF REORGANIZATION'; the other set of hands resting beside a sleek closed laptop and a small espresso cup. A handsome leather portfolio open at the edge of frame, a faint reflection of a Manhattan window in the table surface. Soft natural daylight from the left. No faces visible, the document and the act of signing are the subject. Quiet, decisive, important.",
   },
   {
     out: "public/images/cases/04-tech.png",
     style: STYLE_WARM,
     scene:
-      "Two attorneys descending the broad stone steps of a federal building in late-morning sun after a hearing. A woman in her early forties in a tailored slate-gray suit leads, one hand carrying a slim leather case, the other gesturing in mid-conversation; a younger associate just behind her, carrying a banker's box of binders, listens intently. Both with relaxed, confident half-smiles — the easy posture of a team that just won, not staged celebration. Bright daylight, classical limestone columns and steps behind them, slightly low camera angle, photojournalistic and moving with them. No identifiable signage, no flags.",
+      "Two attorneys descending the broad stone steps of a federal building in late-morning sun after a hearing. A woman in her early forties in a tailored slate-gray suit leads, one hand carrying a slim leather case, the other gesturing in mid-conversation; a younger associate just behind her, carrying a banker's box of binders, listens intently. Both with relaxed, confident half-smiles, the easy posture of a team that just won, not staged celebration. Bright daylight, classical limestone columns and steps behind them, slightly low camera angle, photojournalistic and moving with them. No identifiable signage, no flags.",
   },
-  // Partners — warm well-lit attorney bio portraits, library backdrop, facing camera
+  // Partners, warm well-lit attorney bio portraits, library backdrop, facing camera
   {
     out: "public/images/partners/01-anderson.png",
     style: STYLE_PORTRAIT,
@@ -155,7 +155,7 @@ const jobs = [
     out: "public/images/partners/05-petrova.png",
     style: STYLE_PORTRAIT,
     scene:
-      "A composed woman in her early forties, long blonde hair softly waved, fair complexion, in a tailored black blazer over a black shirt. Standing arms gently folded in a warmly lit firm library — softly out-of-focus floor-to-ceiling rows of leather-bound books behind her, a brass-shaded library lamp glowing on a desk in the bokeh, a small green potted plant. She looks directly at the camera with a calm, focused, professional expression. Warm even side fill light, no heavy shadows.",
+      "A composed woman in her early forties, long blonde hair softly waved, fair complexion, in a tailored black blazer over a black shirt. Standing arms gently folded in a warmly lit firm library, softly out-of-focus floor-to-ceiling rows of leather-bound books behind her, a brass-shaded library lamp glowing on a desk in the bokeh, a small green potted plant. She looks directly at the camera with a calm, focused, professional expression. Warm even side fill light, no heavy shadows.",
   },
   {
     out: "public/images/partners/06-okonkwo.png",
@@ -227,5 +227,5 @@ async function generateOne({ out, scene, style }, idx) {
 
 const results = await Promise.all(jobs.map((job, i) => generateOne(job, i)))
 const ok = results.filter(Boolean).length
-console.log(`\nDone — ${ok}/${jobs.length} succeeded.`)
+console.log(`\nDone, ${ok}/${jobs.length} succeeded.`)
 process.exit(ok === jobs.length ? 0 : 1)

@@ -4,7 +4,7 @@ const inkLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Practice areas" },
   { href: "/case-studies", label: "Recent results" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact-us", label: "Contact" },
 ]
 
 function NotFound() {
@@ -37,7 +37,7 @@ function NotFound() {
                 Some pages, like some cases, simply aren&apos;t filed.
               </h1>
               <figcaption className="mt-7 text-sm text-muted-foreground md:mt-8">
-                &mdash; a note from the bench, regarding the page you tried
+                a note from the bench, regarding the page you tried
               </figcaption>
             </figure>
           </div>

@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Check } from "lucide-react"
 import { motion } from "motion/react"
 
-import Eyebrow from "@/components/elements/eyebrow"
+import Eyebrow from "@/common/elements/eyebrow"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
@@ -52,7 +52,7 @@ function AboutMission() {
             </h2>
 
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Our mission is simple — the law should serve people, protect them,
+              Our mission is simple, the law should serve people, protect them,
               and give them a clear path forward. We go beyond the courtroom to
               build trust, real relationships, and outcomes our clients can
               stand behind.

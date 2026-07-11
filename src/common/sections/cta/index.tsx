@@ -2,8 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 
-import Eyebrow from "@/components/elements/eyebrow"
-import { Button } from "@/components/ui/button"
+import Eyebrow from "@/common/elements/eyebrow"
+import { Button } from "@/common/shadcnUI/button"
 
 function Cta() {
   return (
@@ -18,14 +18,14 @@ function Cta() {
                 Take the first step today.
               </h2>
               <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-                The sooner you start, the more options you have &mdash; and the
-                better prepared you&apos;ll be to protect what matters.
+                The sooner you start, the more options you have, and the better
+                prepared you&apos;ll be to protect what matters.
               </p>
             </div>
 
             <div className="mt-12 md:mt-16">
               <Button size="lg" asChild>
-                <Link href="/contact">
+                <Link href="/contact-us">
                   Book a consultation
                   <MoveUpRight className="size-4" strokeWidth={1.5} />
                 </Link>

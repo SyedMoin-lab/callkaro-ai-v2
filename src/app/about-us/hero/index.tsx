@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { motion } from "motion/react"
 
-import Eyebrow from "@/components/elements/eyebrow"
+import Eyebrow from "@/common/elements/eyebrow"
 import { cn } from "@/lib/utils"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
@@ -17,7 +17,7 @@ const ROW_DARK: Cell[] = [
     type: "stat",
     eyebrow: "Cases",
     value: "200+",
-    body: "Cases successfully resolved — showing our experience and the steady results we deliver.",
+    body: "Cases successfully resolved, showing our experience and the steady results we deliver.",
   },
   {
     type: "image",
@@ -47,7 +47,7 @@ const ROW_WARM: Cell[] = [
     type: "stat",
     eyebrow: "Commitment",
     value: "110%",
-    body: "We go above and beyond on every case — giving each client the care and focus they deserve.",
+    body: "We go above and beyond on every case, giving each client the care and focus they deserve.",
   },
   {
     type: "image",
@@ -58,7 +58,7 @@ const ROW_WARM: Cell[] = [
     type: "stat",
     eyebrow: "Results",
     value: "100%",
-    body: "Focused on real outcomes, real protection, and real peace of mind — every time.",
+    body: "Focused on real outcomes, real protection, and real peace of mind, every time.",
   },
 ]
 
@@ -85,8 +85,8 @@ function AboutHero() {
             transition={{ duration: 0.85, ease: EASE_OUT, delay: 0.15 }}
             className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg"
           >
-            Years of experience and a steady commitment to honest, careful work
-            — for clients who need legal help they can truly trust.
+            Years of experience and a steady commitment to honest, careful work,
+            for clients who need legal help they can truly trust.
           </motion.p>
         </div>
       </div>

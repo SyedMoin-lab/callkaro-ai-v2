@@ -1,6 +1,6 @@
-import ContactBanner from "@/components/sections/contact-page/contact-banner"
-import ContactHero from "@/components/sections/contact-page/hero"
-import ContactOffices from "@/components/sections/contact-page/offices"
+import ContactBanner from "./contact-banner"
+import ContactHero from "./hero"
+import ContactOffices from "./offices"
 
 export default function ContactPage() {
   return (

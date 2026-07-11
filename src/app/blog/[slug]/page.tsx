@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation"
 import { compileMDX } from "next-mdx-remote/rsc"
 
-import BlogArticleHero from "@/components/sections/blog-page/article-hero"
-import MorePosts from "@/components/sections/blog-page/more-posts"
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/blog"
 import { getAllServices } from "@/lib/services"
 import type { BlogFrontmatter } from "@/lib/types"
+
+import BlogArticleHero from "./article-hero"
+import MorePosts from "./more-posts"
 
 export const dynamic = "force-static"
 export const dynamicParams = false

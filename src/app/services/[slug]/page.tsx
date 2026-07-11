@@ -1,14 +1,15 @@
 import { notFound } from "next/navigation"
 import { compileMDX } from "next-mdx-remote/rsc"
 
-import ServiceArticleHero from "@/components/sections/services-page/article-hero"
-import MoreServices from "@/components/sections/services-page/more-services"
 import {
   getAllServices,
   getServiceBySlug,
   getServiceSlugs,
 } from "@/lib/services"
 import type { ServiceFrontmatter } from "@/lib/types"
+
+import ServiceArticleHero from "./article-hero"
+import MoreServices from "./more-services"
 
 export const dynamic = "force-static"
 export const dynamicParams = false

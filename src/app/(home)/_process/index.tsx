@@ -1,21 +1,21 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { ChevronsRight } from "lucide-react"
 import {
   AnimatePresence,
   motion,
   useInView,
   useMotionValue,
 } from "motion/react"
-import { ChevronsRight } from "lucide-react"
 
-import SectionHeader from "@/components/elements/section-header"
+import SectionHeader from "@/common/elements/section-header"
 import { cn } from "@/lib/utils"
 
 const phases = [
   {
     title: "First call",
-    body: "A senior lawyer takes your call — never an assistant. We listen, ask the right questions, and decide together if we're the right fit for your case.",
+    body: "A senior lawyer takes your call, never an assistant. We listen, ask the right questions, and decide together if we're the right fit for your case.",
     image: {
       src: "/images/process/001-intake.webp",
       className: "object-right -scale-x-100 md:object-center md:scale-x-100",
@@ -23,7 +23,7 @@ const phases = [
   },
   {
     title: "Strategy",
-    body: "We build a clear plan before the case gets going. Timeline, witnesses, the result we're aiming for — mapped out so every step has a purpose.",
+    body: "We build a clear plan before the case gets going. Timeline, witnesses, the result we're aiming for, mapped out so every step has a purpose.",
     image: { src: "/images/process/002-strategy.webp" },
   },
   {

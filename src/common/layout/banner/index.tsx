@@ -3,12 +3,12 @@
 import { usePathname } from "next/navigation"
 import { X } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/common/shadcnUI/button"
 import { useBannerVisibility } from "@/hooks/use-banner-visibility"
 import { cn } from "@/lib/utils"
 
 function Banner({
-  url = "https://shadcnblocks.com",
+  url = "#", // TODO: add banner link
   initialVisible = true,
 }: {
   url?: string
@@ -29,9 +29,12 @@ function Banner({
     >
       <div className="container flex h-14 items-center justify-between gap-4 pr-12">
         <div className="flex flex-1 items-center justify-center gap-3 sm:gap-4">
+          <span className="hidden rounded-full border border-current/40 px-2.5 py-0.5 text-[0.65rem] font-semibold tracking-wider uppercase sm:inline-block">
+            Introducing
+          </span>
           <span className="text-center text-sm">
-            Purchase this theme on{" "}
-            <span className="font-semibold">shadcnblocks.com</span>
+            Give every incoming call a smart voice agent that turns callers into
+            customers, nonstop.
           </span>
           <Button
             size="sm"
@@ -43,7 +46,7 @@ function Banner({
             )}
           >
             <a href={url} target="_blank" rel="noreferrer">
-              Get Template
+              Take a look
             </a>
           </Button>
         </div>

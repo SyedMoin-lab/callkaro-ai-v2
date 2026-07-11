@@ -1,15 +1,15 @@
 import Link from "next/link"
 
-import ReviewsRow from "@/components/elements/reviews-row"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
+import ReviewsRow from "@/common/elements/reviews-row"
+import { Badge } from "@/common/shadcnUI/badge"
+import { Button } from "@/common/shadcnUI/button"
+import { Separator } from "@/common/shadcnUI/separator"
 
 const stats = [
-  { value: "92%", label: ["Cases won", "for our clients"] },
-  { value: "75+", label: ["Compliance checks", "every year"] },
-  { value: "$1.2B", label: ["Client money", "protected and recovered"] },
-  { value: "380+", label: ["Business contracts", "drafted and signed"] },
+  { value: "24/7", label: ["Calls answered", "day and night"] },
+  { value: "<3s", label: ["Average pickup", "on every call"] },
+  { value: "3x", label: ["More leads", "captured and booked"] },
+  { value: "60%", label: ["Lower cost", "than a call center"] },
 ]
 
 function About() {
@@ -27,16 +27,19 @@ function About() {
 
           <div>
             <h2 className="text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl lg:text-6xl">
-              Honest, experienced lawyers for the moments that matter most.
+              Voice AI agents that answer every call the way your best employee
+              would.
             </h2>
             <p className="mt-8 max-w-3xl text-base text-muted-foreground">
-              Our team brings decades of courtroom experience to every case.
-              From major lawsuits to day-to-day legal questions, we build the
-              strategy, evidence, and arguments that win &mdash; for founders,
-              business leaders, and families facing important decisions.
+              CallKaro AI builds intelligent voice agents that pick up
+              instantly, understand what every caller wants, and book
+              appointments automatically. From busy front desks to after-hours
+              calls, we make sure every customer is heard, every lead is
+              captured, and no opportunity slips away, for startups, growing
+              teams, and enterprises alike.
             </p>
             <Link
-              href="/about"
+              href="/about-us"
               className="mt-10 inline-flex items-center gap-1.5 text-sm underline underline-offset-4 transition-colors hover:text-muted-foreground"
             >
               Learn more
@@ -56,10 +59,10 @@ function About() {
             <div className="space-y-6 p-6">
               <div>
                 <p className="text-lg font-medium">
-                  1,000+ clients served worldwide
+                  1,000+ businesses on CallKaro AI
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Helping businesses in 15+ countries
+                  Answering calls across 15+ countries
                 </p>
               </div>
               <Button asChild size="lg" className="w-full">

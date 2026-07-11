@@ -5,55 +5,64 @@ import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight, Plus } from "lucide-react"
 
-import SectionHeader from "@/components/elements/section-header"
+import SectionHeader from "@/common/elements/section-header"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/common/shadcnUI/accordion"
 import { cn } from "@/lib/utils"
 
+// TODO: images are placeholders reused from the old template — the user will change them later.
 const services = [
   {
     roman: "I",
-    slug: "business-law",
-    title: "Business Law",
+    slug: "multilingual",
+    title: "Multilingual & Accent-Adaptive",
     summary:
-      "Contracts, deals, partnerships, and everyday legal help to keep your business running smoothly.",
+      "Our AI voice agent supports 20+ languages and understands diverse regional accents for seamless, inclusive conversations.",
     image: "/images/services/i-corporate.webp",
   },
   {
     roman: "II",
-    slug: "lawsuits-disputes",
-    title: "Lawsuits & Disputes",
+    slug: "low-latency",
+    title: "Low Latency",
     summary:
-      "Strong defense for business disputes, regulator cases, and group lawsuits — from the first filing to the final ruling.",
+      "Fast responses, no matter the query. Experience real-time interactions with near-zero delay.",
     image: "/images/services/ii-litigation.webp",
   },
   {
     roman: "III",
-    slug: "compliance-rules",
-    title: "Compliance & Rules",
+    slug: "natural-voice",
+    title: "Natural, Human-Sounding Voice",
     summary:
-      "Clear plans, regulator support, and steady guidance to keep your business on the right side of the law.",
+      "No robotic tones. Our voice agents sound genuinely human, engaging customers with warmth, clarity, and emotion.",
     image: "/images/services/iii-compliance.webp",
   },
   {
     roman: "IV",
-    slug: "intellectual-property",
-    title: "Intellectual Property",
+    slug: "interrupt-friendly",
+    title: "Interrupt-Friendly & Intuitive",
     summary:
-      "Patents, trade secrets, brand protection, and licensing for the ideas that make your business valuable.",
+      "Just like a real human, the AI can handle interruptions mid-sentence, adapt, and pick up the conversation naturally.",
     image: "/images/services/iv-ip.webp",
   },
   {
     roman: "V",
-    slug: "restructuring-recovery",
-    title: "Restructuring & Recovery",
+    slug: "context-aware",
+    title: "Context-Aware & Customisable",
     summary:
-      "Bankruptcy support, out-of-court deals, and creditor protection for businesses going through hard times.",
+      "Tailor every conversation to suit your business logic. Our AI adapts fluidly to user intent, context, and tone.",
     image: "/images/services/v-restructuring.webp",
+  },
+  {
+    roman: "VI",
+    slug: "api-integration",
+    title: "Simple API Integration",
+    summary:
+      "Plug into your existing CRM, databases, and knowledge bases effortlessly, with flexible, developer-friendly APIs.",
+    image: "/images/services/i-corporate.webp",
   },
 ]
 
@@ -72,28 +81,9 @@ function Services() {
     <section id="practice-areas" className="section-padding">
       <div className="container">
         <SectionHeader
-          badge="Our Services"
-          heading={
-            <>
-              Trusted{" "}
-              <span className="relative isolate inline-block">
-                <span
-                  aria-hidden
-                  className="absolute inset-x-0 bottom-[0.05em] -z-10 h-[0.4em] bg-foreground/15"
-                />
-                legal services
-              </span>{" "}
-              across five key areas
-            </>
-          }
-          description={
-            <>
-              Every business hits moments where good legal advice really
-              matters. Our five service areas are each led by senior lawyers
-              &mdash; ready to protect what&apos;s yours and help you plan
-              what&apos;s next.
-            </>
-          }
+          badge="Capabilities"
+          heading="Deliver Truly Human-Like Customer Service with AI Voice Agents"
+          description="Power your customer interactions with best-in-class capabilities that drive real business outcomes."
           mark={
             <Plus
               aria-hidden
@@ -106,7 +96,7 @@ function Services() {
         <div className="dark mt-12 hidden overflow-hidden rounded-xl bg-background text-foreground md:mt-16 md:block lg:mt-20">
           <ul
             role="tablist"
-            aria-label="Practice areas"
+            aria-label="Capabilities"
             className="relative grid h-[28rem] gap-[3px] motion-safe:transition-[grid-template-columns] motion-safe:duration-500 md:h-[36rem]"
             style={{
               gridTemplateColumns: gridTemplate,
@@ -176,7 +166,7 @@ function Services() {
                       </span>
 
                       <span className="absolute bottom-16 left-1/2 -translate-x-1/2 font-mono text-[0.625rem] tracking-widest text-foreground/40">
-                        VERDICT &middot; {String(i + 1).padStart(2, "0")}
+                        CALLKARO &middot; {String(i + 1).padStart(2, "0")}
                       </span>
                     </span>
 
@@ -271,10 +261,10 @@ function Services() {
         </div>
 
         <p className="mt-12 hidden max-w-md font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase md:block">
-          &mdash; Hover to preview. Click to select.
+          Hover to preview. Click to select.
         </p>
         <p className="mt-8 max-w-md font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase md:hidden">
-          &mdash; Tap to select.
+          Tap to select.
         </p>
       </div>
     </section>

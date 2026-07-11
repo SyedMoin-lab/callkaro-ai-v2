@@ -9,13 +9,13 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
+} from "@/common/shadcnUI/accordion"
+import { Badge } from "@/common/shadcnUI/badge"
 
 const FAQS = [
   {
     q: "How does our first meeting work?",
-    a: "A senior partner takes the first call — never an assistant. We use the call to check for conflicts, understand your case, and decide together if we're the right fit. The first conversation is free.",
+    a: "A senior partner takes the first call, never an assistant. We use the call to check for conflicts, understand your case, and decide together if we're the right fit. The first conversation is free.",
   },
   {
     q: "What will it be like working with our team?",
@@ -27,7 +27,7 @@ const FAQS = [
   },
   {
     q: "How does pricing and billing work?",
-    a: "Most cases are billed by the hour with a clear budget agreed up front and checked at each step. We can also talk about other options — like fixed fees or success bonuses — when they make sense.",
+    a: "Most cases are billed by the hour with a clear budget agreed up front and checked at each step. We can also talk about other options, like fixed fees or success bonuses, when they make sense.",
   },
   {
     q: "How do we keep your information safe?",
@@ -77,7 +77,7 @@ function FaqHeader() {
       </h2>
 
       <p className="mt-6 max-w-md text-base text-muted-foreground">
-        We know legal questions can feel a lot to handle — especially when
+        We know legal questions can feel a lot to handle, especially when
         you&apos;re not sure where to start. Here are the questions clients ask
         us most often before getting in touch.
       </p>
@@ -94,7 +94,7 @@ function ContactBridge() {
         Don&apos;t see your question?
       </p>
       <Link
-        href="/contact"
+        href="/contact-us"
         className="group/bridge mt-1.5 inline-flex items-center gap-2 text-sm tracking-tight text-foreground transition-colors"
       >
         <span className="border-b border-transparent transition-colors group-hover/bridge:border-foreground">

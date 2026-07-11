@@ -38,3 +38,7 @@ next-env.d.ts
 # Claude Code project rules (local-only)
 CLAUDE.md
 .env
+
+# Claude Code local settings & scratch workspace
+.claude/settings.local.json
+active/tmp/

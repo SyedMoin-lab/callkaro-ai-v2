@@ -10,18 +10,18 @@ import {
 } from "lucide-react"
 import { motion } from "motion/react"
 
-import SectionHeader from "@/components/elements/section-header"
-import { Button } from "@/components/ui/button"
-import { Field, FieldLabel } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+import SectionHeader from "@/common/elements/section-header"
+import { Button } from "@/common/shadcnUI/button"
+import { Field, FieldLabel } from "@/common/shadcnUI/field"
+import { Input } from "@/common/shadcnUI/input"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
+} from "@/common/shadcnUI/select"
+import { Textarea } from "@/common/shadcnUI/textarea"
 import {
   PRIMARY_OFFICE,
   SUPPORT_EMAIL,
@@ -67,7 +67,7 @@ const contactMeta = [
 ]
 
 const SUCCESS_MESSAGE =
-  "Thanks — we got your message. A senior lawyer will review it and get back to you within three days."
+  "Thanks, we got your message. A senior lawyer will review it and get back to you within three days."
 const ERROR_MESSAGE = `Something went wrong. Please try again, or email us at ${SUPPORT_EMAIL}.`
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const

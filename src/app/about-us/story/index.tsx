@@ -5,14 +5,14 @@ import Link from "next/link"
 import { MoveUpRight, Star } from "lucide-react"
 import { motion } from "motion/react"
 
-import Eyebrow from "@/components/elements/eyebrow"
+import Eyebrow from "@/common/elements/eyebrow"
 import {
   Avatar,
   AvatarFallback,
   AvatarGroup,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+} from "@/common/shadcnUI/avatar"
+import { Button } from "@/common/shadcnUI/button"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
@@ -40,7 +40,7 @@ const HEADLINE_PARTS: Part[] = [
   { type: "word", text: "across" },
   { type: "word", text: "the" },
   { type: "word", text: "country" },
-  { type: "word", text: "—" },
+  { type: "word", text: ", " },
   { type: "word", text: "our" },
   { type: "word", text: "work" },
   { type: "word", text: "is" },
@@ -175,7 +175,7 @@ function AboutStory() {
           </div>
 
           <Button asChild size="lg" className="mt-14 md:mt-16">
-            <Link href="/contact">
+            <Link href="/contact-us">
               Book a consultation
               <MoveUpRight className="size-4" strokeWidth={1.5} />
             </Link>

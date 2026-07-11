@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Award } from "lucide-react"
 import { motion } from "motion/react"
 
-import SectionHeader from "@/components/elements/section-header"
+import SectionHeader from "@/common/elements/section-header"
 import { cn } from "@/lib/utils"
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
@@ -13,31 +13,31 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 const AWARDS = [
   {
     id: "chambers",
-    title: "Chambers USA — Top Rated for Lawsuits",
+    title: "Chambers USA, Top Rated for Lawsuits",
     year: 2024,
     image: "/images/awards/01-chambers.webp",
   },
   {
     id: "legal500",
-    title: "The Legal 500 — Top Tier in Finance Law",
+    title: "The Legal 500, Top Tier in Finance Law",
     year: 2024,
     image: "/images/awards/02-legal500.webp",
   },
   {
     id: "benchmark",
-    title: "Benchmark Litigation — Top Tier Firm",
+    title: "Benchmark Litigation, Top Tier Firm",
     year: 2025,
     image: "/images/awards/03-benchmark.webp",
   },
   {
     id: "amlaw",
-    title: "The American Lawyer — Litigation Team of the Year",
+    title: "The American Lawyer, Litigation Team of the Year",
     year: 2024,
     image: "/images/awards/04-amlaw.webp",
   },
   {
     id: "law360",
-    title: "Law360 — Practice Group of the Year",
+    title: "Law360, Practice Group of the Year",
     year: 2023,
     image: "/images/awards/05-law360.webp",
   },
@@ -52,7 +52,7 @@ function Awards() {
         <SectionHeader
           badge="Our Awards"
           heading={<>Awards that reflect our work.</>}
-          description="Top rankings from the guides that lawyers actually trust — earned year after year."
+          description="Top rankings from the guides that lawyers actually trust, earned year after year."
           mark={<AwardsMark />}
         />
       </div>

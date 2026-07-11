@@ -1,24 +1,19 @@
 import Link from "next/link"
-import { ArrowDown, MoveRight } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 
 import {
   Avatar,
   AvatarFallback,
   AvatarGroup,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-
-const bulletPoints = [
-  "Senior lawyers on every case",
-  "Proven results in court",
-  "Clear fees, no surprises",
-]
+} from "@/common/shadcnUI/avatar"
+import { Badge } from "@/common/shadcnUI/badge"
+import { Button } from "@/common/shadcnUI/button"
 
 const stats = [
-  { value: "1,800+", label: "Cases won" },
-  { value: "22", label: "Years of experience" },
-  { value: "1,000+", label: "Clients helped" },
+  { value: "1M+", label: "Calls answered" },
+  { value: "24/7", label: "Always available" },
+  { value: "98%", label: "Leads captured" },
 ]
 
 const trustAvatars = [
@@ -59,30 +54,27 @@ function Hero() {
 
         <div className="container flex flex-1 flex-col">
           <div className="hero-padding max-w-5xl">
-            <div className="flex items-center gap-3 text-sm">
-              <MoveRight className="size-5" strokeWidth={1.25} />
-              <span>When the result matters.</span>
-            </div>
+            <Badge variant="outline" size="lg">
+              Always-on Voice AI
+            </Badge>
 
             <h1 className="mt-8 text-5xl leading-[1.05] font-medium tracking-tight md:text-6xl lg:text-7xl">
-              Trusted legal help when it matters most.
+              Revolutionize Your <br className="hidden md:block" />
+              Call Handling with Voice AI
             </h1>
 
-            <ul className="mt-10 space-y-3 text-lg">
-              {bulletPoints.map((point) => (
-                <li key={point} className="flex items-center gap-3">
-                  <span className="size-1.5 rounded-full bg-foreground" />
-                  {point}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-6 max-w-2xl text-lg text-foreground/70">
+              CallKaro AI delivers 24/7 AI Voice agents for your business so
+              that it stays responsive and never miss a call, lead, or
+              opportunity
+            </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <Link href="/contact">Book a consultation</Link>
+                <Link href="/contact-us">Get started</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link href="#practice-areas">See our services</Link>
+                <Link href="#practice-areas">See how it works</Link>
               </Button>
             </div>
           </div>
@@ -90,7 +82,7 @@ function Hero() {
           <div className="mt-auto flex justify-between gap-2 border-t border-foreground/10 py-6 text-sm">
             <div className="flex items-center gap-3">
               <span className="size-1.5 rounded-full bg-foreground" />
-              <span>Where good outcomes begin.</span>
+              <span>Never miss another call.</span>
             </div>
             <div className="flex flex-col items-center gap-1 text-foreground/60">
               <span>Scroll to explore</span>
@@ -105,7 +97,7 @@ function Hero() {
           <div className="space-y-4">
             <p className="text-base">
               <span className="font-semibold">Trusted</span>
-              <span className="ml-3 text-foreground/80">by our clients</span>
+              <span className="ml-3 text-foreground/80">by growing teams</span>
             </p>
             <div className="flex items-center gap-4">
               <AvatarGroup>
@@ -124,7 +116,7 @@ function Hero() {
               <div>
                 <p className="text-2xl leading-none font-semibold">1,000+</p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  happy clients
+                  businesses automated
                 </p>
               </div>
             </div>

@@ -1,9 +1,8 @@
 # Verdict NextJS Template
 
-Verdict NextJS Template is a premium template built by https://www.shadcnblocks.com
+Verdict NextJS Template is a premium template.
 
 - [Demo](https://verdict-nextjs-template.vercel.app/)
-- [Documentation](https://www.shadcnblocks.com/docs/templates/getting-started)
 
 ## Screenshot
 

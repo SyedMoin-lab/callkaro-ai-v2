@@ -5,9 +5,9 @@ import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 import { motion } from "motion/react"
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Badge } from "@/common/shadcnUI/badge"
+import { Button } from "@/common/shadcnUI/button"
+import { Card } from "@/common/shadcnUI/card"
 import type { ServiceFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -15,7 +15,7 @@ const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 // Rhythm default: tile indexes 1 and 2 sit grayscale at rest (the diagonal pair
 // from top-right of the featured row to bottom-left of the secondary row).
-// On hover of any tile, the hovered one becomes color and the rest grayscale —
+// On hover of any tile, the hovered one becomes color and the rest grayscale,
 // handled via `group-has-[a:hover]/tiles:` + `group-hover/tile:` overrides.
 const RHYTHM_GRAYSCALE_INDEXES = new Set([1, 2])
 
@@ -116,7 +116,7 @@ function FeaturedHeader() {
         className="mt-10 lg:mt-12"
       >
         <Button asChild variant="outline" size="lg">
-          <Link href="/contact">
+          <Link href="/contact-us">
             Brief our team
             <MoveUpRight />
           </Link>

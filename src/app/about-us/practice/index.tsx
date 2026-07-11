@@ -5,13 +5,13 @@ import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 import { motion } from "motion/react"
 
-import Eyebrow from "@/components/elements/eyebrow"
+import Eyebrow from "@/common/elements/eyebrow"
 import {
   Avatar,
   AvatarFallback,
   AvatarGroup,
   AvatarImage,
-} from "@/components/ui/avatar"
+} from "@/common/shadcnUI/avatar"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
@@ -79,7 +79,7 @@ function AboutPractice() {
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-muted-foreground md:text-right">
-            Five practice areas, one standard — honest, careful, and ours.
+            Five practice areas, one standard, honest, careful, and ours.
           </p>
         </motion.div>
 

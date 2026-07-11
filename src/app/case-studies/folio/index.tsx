@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react"
 
-import FolioList from "@/components/sections/case-studies-page/folio-list"
-import { Badge } from "@/components/ui/badge"
+import FolioList from "@/common/sections/folio-list"
+import { Badge } from "@/common/shadcnUI/badge"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
@@ -53,7 +53,7 @@ function FolioIntro() {
       >
         A full record of recent work across our service areas. Some names are
         kept private to respect client confidentiality. These are the cases we
-        were hired to win — and what the court decided.
+        were hired to win, and what the court decided.
       </motion.p>
     </motion.div>
   )

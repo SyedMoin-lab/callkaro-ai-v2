@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/common/shadcnUI/avatar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,7 +11,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "@/common/shadcnUI/breadcrumb"
 import type { BlogFrontmatter, ServiceFrontmatter } from "@/lib/types"
 import { formatDate, initialsOf } from "@/lib/utils"
 

@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
 
-import { endorsements } from "@/components/sections/endorsements"
-import { Marquee } from "@/components/ui/marquee"
+import { endorsements } from "@/common/sections/endorsements"
+import { Marquee } from "@/common/shadcnUI/marquee"
 import { cn } from "@/lib/utils"
 
 type Platform = {
@@ -53,7 +53,7 @@ function ReviewsRow() {
               className="size-7 shrink-0 rounded-full object-cover grayscale transition-[filter] duration-200 group-hover:grayscale-0"
             />
             <p className="truncate text-xs text-muted-foreground">
-              <span className="text-foreground">&ldquo;{e.quote}&rdquo;</span> —{" "}
+              <span className="text-foreground">&ldquo;{e.quote}&rdquo;</span>,{" "}
               {e.sectorShort}
             </p>
           </Link>

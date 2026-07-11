@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { motion } from "motion/react"
 
-import Eyebrow from "@/components/elements/eyebrow"
+import Eyebrow from "@/common/elements/eyebrow"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 

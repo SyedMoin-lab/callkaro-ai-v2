@@ -1,7 +1,7 @@
 import { type ReactNode } from "react"
 import Link from "next/link"
 
-import { VerdictLogo } from "@/components/layout/logo"
+import { CallKaroLogo } from "@/common/layout/logo"
 import {
   OFFICES,
   PRIMARY_OFFICE,
@@ -10,14 +10,14 @@ import {
 } from "@/lib/contact"
 
 const STATEMENT =
-  "We do the work to know — and to say — what others are still trying to figure out."
+  "We do the work to know, and to say, what others are still trying to figure out."
 
 const FIRM_LINKS = [
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-us" },
   { label: "Services", href: "/services" },
   { label: "Case studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact-us" },
 ]
 
 const CONTACT_LINKS = [
@@ -34,9 +34,9 @@ function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1.1fr_1fr] lg:gap-10">
           <div className="flex flex-col gap-5">
             <Link href="/" className="flex w-fit items-center gap-2.5">
-              <VerdictLogo className="size-8 text-accent" />
+              <CallKaroLogo className="size-8 text-accent" />
               <span className="text-xl font-semibold tracking-tight">
-                Verdict
+                CallKaro AI
               </span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-foreground/60">
@@ -119,7 +119,7 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 function Baseline() {
   return (
     <div className="mt-16 flex flex-col gap-3 border-t border-foreground/12 pt-6 text-xs text-foreground/40 sm:flex-row sm:items-center sm:justify-between md:mt-20">
-      <span>© Verdict LLP · Attorney advertising</span>
+      <span>© CallKaro AI · Attorney advertising</span>
       <span className="flex items-center gap-2">
         <span
           aria-hidden

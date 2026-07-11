@@ -6,8 +6,8 @@ import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Button } from "@/common/shadcnUI/button"
+import { Card } from "@/common/shadcnUI/card"
 import type { CaseStudyFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"
 

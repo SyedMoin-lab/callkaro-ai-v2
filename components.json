@@ -15,9 +15,9 @@
   "menuColor": "default",
   "menuAccent": "subtle",
   "aliases": {
-    "components": "@/components",
+    "components": "@/common",
     "utils": "@/lib/utils",
-    "ui": "@/components/ui",
+    "ui": "@/common/shadcnUI",
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
