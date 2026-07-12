@@ -1,14 +1,17 @@
-import { getAllIndustries } from "@/lib/industries"
+import { getAllIndustries, getIndustriesPageHero } from "@/lib/industries"
 
 import IndustriesGrid from "./grid"
 import IndustriesHero from "./hero"
 
 export default async function IndustriesPage() {
-  const industries = await getAllIndustries()
+  const [industries, hero] = await Promise.all([
+    getAllIndustries(),
+    getIndustriesPageHero(),
+  ])
 
   return (
     <>
-      <IndustriesHero />
+      <IndustriesHero hero={hero} />
       <IndustriesGrid industries={industries} />
     </>
   )

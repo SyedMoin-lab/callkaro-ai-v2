@@ -144,10 +144,10 @@
     @apply border-border outline-ring/50;
   }
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth overflow-x-hidden;
   }
   body {
-    @apply bg-background font-text font-weight-text text-foreground antialiased;
+    @apply bg-background font-text font-weight-text text-foreground antialiased overflow-x-hidden;
   }
   h1,
   h2,

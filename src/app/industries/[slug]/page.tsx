@@ -4,6 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc"
 import { getAllFeatures } from "@/lib/features"
 import {
   getAllIndustries,
+  getIndustriesPageHero,
   getIndustryBySlug,
   getIndustrySlugs,
 } from "@/lib/industries"
@@ -31,10 +32,11 @@ export default async function IndustryPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const [industry, all, features] = await Promise.all([
+  const [industry, all, features, hero] = await Promise.all([
     getIndustryBySlug(slug),
     getAllIndustries(),
     getAllFeatures(),
+    getIndustriesPageHero(),
   ])
 
   if (!industry) {
@@ -50,7 +52,7 @@ export default async function IndustryPage({
 
   return (
     <>
-      <IndustryHero frontmatter={industry.frontmatter}>
+      <IndustryHero frontmatter={industry.frontmatter} hero={hero}>
         <div
           className={[
             "prose mx-auto max-w-2xl text-center prose-neutral",
@@ -61,15 +63,29 @@ export default async function IndustryPage({
         </div>
       </IndustryHero>
 
-      <TrustBar />
-      <MainFeatures features={features.slice(0, 4)} />
-      <UseCases frontmatter={industry.frontmatter} />
+      <TrustBar text={hero.trustBarText} />
+      <MainFeatures
+        features={features.slice(0, 4)}
+        heading={hero.mainFeaturesHeading}
+        subheading={hero.mainFeaturesSubheading}
+      />
+      <UseCases
+        frontmatter={industry.frontmatter}
+        headingTemplate={hero.useCasesHeadingTemplate}
+        subheadingTemplate={hero.useCasesSubheadingTemplate}
+      />
       <Testimonial
         testimonial={industry.frontmatter.testimonial}
         name={industry.frontmatter.name}
+        ctaLabelTemplate={hero.testimonialCtaLabelTemplate}
+        ctaHref={hero.testimonialCtaHref}
       />
-      <IndustryStats />
-      <MoreIndustries industries={others} />
+      <IndustryStats items={hero.statsItems} />
+      <MoreIndustries
+        industries={others}
+        heading={hero.moreIndustriesHeading}
+        viewAllLabel={hero.moreIndustriesViewAllLabel}
+      />
     </>
   )
 }

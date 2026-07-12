@@ -1,11 +1,20 @@
 import { createElement } from "react"
 
+import { interpolateIndustryTemplate } from "@/lib/industries"
 import type { IndustryFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 import { resolveIndustryIcon } from "../data"
 
-function UseCases({ frontmatter }: { frontmatter: IndustryFrontmatter }) {
+function UseCases({
+  frontmatter,
+  headingTemplate,
+  subheadingTemplate,
+}: {
+  frontmatter: IndustryFrontmatter
+  headingTemplate: string
+  subheadingTemplate: string
+}) {
   const { useCases } = frontmatter
   if (useCases.length === 0) return null
 
@@ -16,10 +25,10 @@ function UseCases({ frontmatter }: { frontmatter: IndustryFrontmatter }) {
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl leading-tight font-light tracking-tight md:text-4xl">
-            {frontmatter.name} use cases.
+            {interpolateIndustryTemplate(headingTemplate, frontmatter.name)}
           </h2>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            {`Where CallKaro AI fits into your ${frontmatter.name} team's daily calls.`}
+            {interpolateIndustryTemplate(subheadingTemplate, frontmatter.name)}
           </p>
         </div>
 
@@ -31,14 +40,14 @@ function UseCases({ frontmatter }: { frontmatter: IndustryFrontmatter }) {
                 key={uc.title}
                 className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16"
               >
-                <div className={cn(reversed && "lg:order-2")}>
+                <div className={cn("min-w-0", reversed && "lg:order-2")}>
                   <span className="font-mono text-sm text-accent tabular-nums">
                     0{i + 1}
                   </span>
-                  <h3 className="mt-3 text-2xl leading-tight font-light tracking-tight md:text-3xl">
+                  <h3 className="mt-3 wrap-break-word text-2xl leading-tight font-light tracking-tight md:text-3xl">
                     {uc.title}
                   </h3>
-                  <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-4 max-w-md wrap-break-word text-base leading-relaxed text-muted-foreground">
                     {uc.description}
                   </p>
                 </div>

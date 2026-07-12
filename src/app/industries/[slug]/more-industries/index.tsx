@@ -8,7 +8,15 @@ import type { IndustryFrontmatter } from "@/lib/types"
 
 import { resolveIndustryIcon } from "../data"
 
-function MoreIndustries({ industries }: { industries: IndustryFrontmatter[] }) {
+function MoreIndustries({
+  industries,
+  heading,
+  viewAllLabel,
+}: {
+  industries: IndustryFrontmatter[]
+  heading: string
+  viewAllLabel: string
+}) {
   if (industries.length === 0) return null
 
   return (
@@ -16,13 +24,13 @@ function MoreIndustries({ industries }: { industries: IndustryFrontmatter[] }) {
       <div className="container">
         <div className="flex items-baseline justify-between gap-4">
           <h2 className="text-2xl leading-tight font-light tracking-tight md:text-3xl">
-            Other industries.
+            {heading}
           </h2>
           <Link
             href="/industries"
             className="group/all inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            View all
+            {viewAllLabel}
             <MoveUpRight className="size-3.5 transition-transform group-hover/all:translate-x-0.5 group-hover/all:-translate-y-0.5" />
           </Link>
         </div>
@@ -41,9 +49,9 @@ function MoreIndustries({ industries }: { industries: IndustryFrontmatter[] }) {
                       className="object-cover transition duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform group-hover/card:scale-[1.04]"
                     />
                   </div>
-                  <div className="mt-5 flex flex-1 flex-col">
+                  <div className="mt-5 flex min-w-0 flex-1 flex-col">
                     <div className="flex items-start justify-between gap-3">
-                      <span className="grid size-9 place-items-center rounded-full bg-muted/60 text-foreground/85">
+                      <span className="grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
                         {createElement(resolveIndustryIcon(s.icon), {
                           className: "size-4",
                           strokeWidth: 1.5,
@@ -53,10 +61,10 @@ function MoreIndustries({ industries }: { industries: IndustryFrontmatter[] }) {
                         {s.id}
                       </span>
                     </div>
-                    <h3 className="mt-4 text-lg leading-tight font-light tracking-tight md:text-xl">
+                    <h3 className="mt-4 wrap-break-word text-lg leading-tight font-light tracking-tight md:text-xl">
                       {s.name}.
                     </h3>
-                    <p className="mt-2 text-sm leading-snug text-muted-foreground">
+                    <p className="mt-2 wrap-break-word text-sm leading-snug text-muted-foreground">
                       {s.tagline}
                     </p>
                   </div>

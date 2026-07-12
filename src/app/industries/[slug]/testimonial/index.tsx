@@ -2,14 +2,19 @@ import Link from "next/link"
 import { MoveUpRight } from "lucide-react"
 
 import { Button } from "@/common/shadcnUI/button"
+import { interpolateIndustryTemplate } from "@/lib/industries"
 import type { IndustryTestimonial } from "@/lib/types"
 
 function Testimonial({
   testimonial,
   name,
+  ctaLabelTemplate,
+  ctaHref,
 }: {
   testimonial: IndustryTestimonial
   name: string
+  ctaLabelTemplate: string
+  ctaHref: string
 }) {
   return (
     <section className="section-padding border-t">
@@ -21,14 +26,16 @@ function Testimonial({
           >
             &ldquo;
           </span>
-          <blockquote className="mx-auto mt-2 max-w-3xl text-xl leading-snug font-light md:text-2xl lg:text-3xl">
+          <blockquote className="mx-auto mt-2 max-w-3xl wrap-break-word text-xl leading-snug font-light md:text-2xl lg:text-3xl">
             {testimonial.quote}
           </blockquote>
           <footer className="mt-8 flex items-center justify-center gap-3">
-            <span aria-hidden className="block h-px w-8 bg-accent" />
-            <div>
-              <p className="text-sm font-medium">{testimonial.author}</p>
-              <p className="mt-0.5 text-xs text-foreground/60">
+            <span aria-hidden className="block h-px w-8 shrink-0 bg-accent" />
+            <div className="min-w-0 max-w-sm">
+              <p className="wrap-break-word text-sm font-medium">
+                {testimonial.author}
+              </p>
+              <p className="mt-0.5 wrap-break-word text-xs text-foreground/60">
                 {testimonial.role}
               </p>
             </div>
@@ -36,8 +43,8 @@ function Testimonial({
 
           <div className="mt-10">
             <Button asChild variant="secondary" size="lg">
-              <Link href="/case-studies">
-                Read more {name.toLowerCase()} stories
+              <Link href={ctaHref}>
+                {interpolateIndustryTemplate(ctaLabelTemplate, name.toLowerCase())}
                 <MoveUpRight />
               </Link>
             </Button>

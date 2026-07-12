@@ -93,6 +93,40 @@ export interface IndustryArticle {
   frontmatter: IndustryFrontmatter
 }
 
+export interface IndustryStatItem {
+  number: number
+  prefix: string
+  suffix: string
+  labelLine1: string
+  labelLine2: string
+}
+
+export interface IndustriesPageHero {
+  badgeLabel: string
+  heading: string
+  headingAccent: string
+  description: string
+  primaryCtaLabel: string
+  primaryCtaHref: string
+  secondaryCtaLabel: string
+  secondaryCtaHref: string
+  detailHeroBadgeLabel: string
+  detailHeroPrimaryCtaLabel: string
+  detailHeroPrimaryCtaHref: string
+  detailHeroSecondaryCtaLabel: string
+  detailHeroSecondaryCtaHref: string
+  trustBarText: string
+  statsItems: IndustryStatItem[]
+  mainFeaturesHeading: string
+  mainFeaturesSubheading: string
+  useCasesHeadingTemplate: string
+  useCasesSubheadingTemplate: string
+  testimonialCtaLabelTemplate: string
+  testimonialCtaHref: string
+  moreIndustriesHeading: string
+  moreIndustriesViewAllLabel: string
+}
+
 export interface BlogAuthor {
   name: string
   role: string

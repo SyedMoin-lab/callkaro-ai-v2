@@ -1,12 +1,12 @@
 import { Marquee } from "@/common/customUI/marquee"
 import { CompanyLogos } from "@/common/icons/companies"
 
-function TrustBar() {
+function TrustBar({ text }: { text: string }) {
   return (
     <section className="border-t py-10 md:py-12">
       <div className="container">
         <p className="text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-          Trusted by 1,000+ businesses across 15+ countries
+          {text}
         </p>
       </div>
 

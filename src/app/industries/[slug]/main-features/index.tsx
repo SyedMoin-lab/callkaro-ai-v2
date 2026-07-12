@@ -8,7 +8,15 @@ import { cn } from "@/lib/utils"
 // first card in the row carries the big content, the rest sit narrow.
 const WIDE = new Set([0])
 
-function MainFeatures({ features }: { features: FeatureItem[] }) {
+function MainFeatures({
+  features,
+  heading,
+  subheading,
+}: {
+  features: FeatureItem[]
+  heading: string
+  subheading: string
+}) {
   if (features.length === 0) return null
 
   return (
@@ -16,11 +24,10 @@ function MainFeatures({ features }: { features: FeatureItem[] }) {
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl leading-tight font-light tracking-tight md:text-4xl">
-            Everything your team needs, in every call.
+            {heading}
           </h2>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            The same core platform, tuned to how your industry actually
-            answers the phone.
+            {subheading}
           </p>
         </div>
 

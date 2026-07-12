@@ -86,7 +86,7 @@ export default function Calculator() {
   }, [callType, minutes, addons, billing])
 
   return (
-    <section className="pb-24 md:pb-32">
+    <section id="calculator" className="scroll-mt-24 pb-24 md:pb-32">
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">

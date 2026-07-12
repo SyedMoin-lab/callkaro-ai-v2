@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Check } from "lucide-react"
+import { Calculator as CalculatorIcon, Check } from "lucide-react"
 
 import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
@@ -13,6 +13,7 @@ type Plan = {
   description: string
   features: string[]
   cta: { label: string; href: string }
+  secondaryLink?: { label: string; href: string }
   popular?: boolean
 }
 
@@ -58,10 +59,9 @@ const PLANS: Plan[] = [
     popular: true,
   },
   {
-    name: "Scale",
+    name: "Enterprise",
     price: "Custom",
-    description:
-      "Comprehensive solution for businesses with high call volumes and complex requirements.",
+    description: "For teams interested in the white-glove treatment.",
     features: [
       "Custom minutes",
       "Custom phone numbers",
@@ -75,6 +75,7 @@ const PLANS: Plan[] = [
       "Custom Telephony Integration",
     ],
     cta: { label: "Contact Sales", href: "/contact-us" },
+    secondaryLink: { label: "Try the cost calculator", href: "#calculator" },
   },
 ]
 
@@ -156,6 +157,16 @@ function PlanCard({ plan }: { plan: Plan }) {
           >
             <Link href={plan.cta.href}>{plan.cta.label}</Link>
           </Button>
+
+          {plan.secondaryLink && (
+            <Link
+              href={plan.secondaryLink.href}
+              className="mt-3 flex items-center justify-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <CalculatorIcon className="size-3.5" strokeWidth={2} />
+              {plan.secondaryLink.label}
+            </Link>
+          )}
         </div>
       </Card>
     </div>

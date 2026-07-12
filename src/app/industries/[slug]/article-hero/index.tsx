@@ -14,15 +14,17 @@ import {
 } from "@/common/shadcnUI/breadCrumb"
 import { Button } from "@/common/shadcnUI/button"
 import { Card } from "@/common/shadcnUI/card"
-import type { IndustryFrontmatter } from "@/lib/types"
+import type { IndustriesPageHero, IndustryFrontmatter } from "@/lib/types"
 
 import { resolveIndustryIcon } from "../data"
 
 function IndustryHero({
   frontmatter,
+  hero,
   children,
 }: {
   frontmatter: IndustryFrontmatter
+  hero: IndustriesPageHero
   children?: ReactNode
 }) {
   const Icon = resolveIndustryIcon(frontmatter.icon)
@@ -47,10 +49,10 @@ function IndustryHero({
         </Breadcrumb>
 
         <div className="mt-10 grid grid-cols-1 items-center gap-10 md:mt-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <Badge variant="outline" size="lg">
               <Zap aria-hidden className="size-3" strokeWidth={2} />
-              Powered by CallKaro AI Voice Agents
+              {hero.detailHeroBadgeLabel}
             </Badge>
 
             <h1 className="mt-8 text-4xl leading-[1.05] font-light tracking-tight md:text-5xl lg:text-6xl">
@@ -58,19 +60,21 @@ function IndustryHero({
               with AI voice agents.
             </h1>
 
-            <p className="mt-6 max-w-lg text-base text-muted-foreground md:text-lg">
+            <p className="mt-6 max-w-lg text-base wrap-break-word text-muted-foreground md:text-lg">
               {frontmatter.description}
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <Link href="/contact-us">
-                  Book a demo
+                <Link href={hero.detailHeroPrimaryCtaHref}>
+                  {hero.detailHeroPrimaryCtaLabel}
                   <MoveUpRight />
                 </Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/features">See how it works</Link>
+                <Link href={hero.detailHeroSecondaryCtaHref}>
+                  {hero.detailHeroSecondaryCtaLabel}
+                </Link>
               </Button>
             </div>
           </div>
