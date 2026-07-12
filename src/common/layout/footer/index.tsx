@@ -13,6 +13,29 @@ const ELEVENLABS_MASK = "url(https://cdn.simpleicons.org/elevenlabs)"
 const STATEMENT =
   "AI voice agents that answer every call, day or night, so your team can focus on the conversations that matter most."
 
+const SOCIAL_LINKS = [
+  {
+    label: "Instagram",
+    href: "https://instagram.com",
+    icon: "https://svgl.app/library/instagram-icon.svg",
+  },
+  {
+    label: "X",
+    href: "https://x.com",
+    icon: "https://svgl.app/library/x.svg",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com",
+    icon: "https://svgl.app/library/linkedin.svg",
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com",
+    icon: "https://svgl.app/library/youtube.svg",
+  },
+]
+
 const FIRM_LINKS = [
   { label: "About", href: "/about-us" },
   { label: "Services", href: "/services" },
@@ -27,7 +50,7 @@ const FIRM_LINKS = [
 const CONTACT_LINKS = [
   { label: SUPPORT_EMAIL, href: SUPPORT_EMAIL_HREF },
   { label: PRIMARY_OFFICE.phone.display, href: PRIMARY_OFFICE.phone.href },
-  { label: "LinkedIn", href: "#" },
+  { label: "LinkedIn", href: "https://linkedin.com" },
   { label: "Book a demo", href: "/contact-us" },
 ]
 
@@ -96,7 +119,7 @@ function FooterPartners() {
     <div className="rounded-t-[2.5rem] bg-muted/60 py-10 md:rounded-t-[3.5rem] md:py-14">
       <div className="container flex flex-col items-center gap-8 text-center md:flex-row md:justify-between md:text-left">
         <div className="min-w-0">
-          <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
+          <p className="text-xs font-medium text-muted-foreground">
             Proud partners in innovation
           </p>
           <a
@@ -121,7 +144,7 @@ function FooterPartners() {
         </div>
 
         <div className="shrink-0">
-          <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
+          <p className="text-xs font-medium text-muted-foreground">
             Trusted worldwide
           </p>
           <p className="mt-2 text-2xl font-light tracking-tight">
@@ -168,15 +191,40 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 
 function Baseline() {
   return (
-    <div className="mt-16 flex flex-col gap-3 border-t border-foreground/12 pt-6 text-xs text-foreground/40 sm:flex-row sm:items-center sm:justify-between md:mt-20">
+    <div className="mt-16 flex flex-col gap-6 border-t border-foreground/12 pt-6 text-xs text-foreground/40 sm:flex-row sm:items-center sm:justify-between md:mt-20">
       <span>© CallKaro AI. All rights reserved.</span>
-      <span className="flex items-center gap-2">
-        <span
-          aria-hidden
-          className="size-1.5 animate-pulse rounded-full bg-accent"
-        />
-        AI voice agents for every business call.
-      </span>
+
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+        <span className="flex items-center gap-2">
+          <span
+            aria-hidden
+            className="size-1.5 animate-pulse rounded-full bg-accent"
+          />
+          AI voice agents for every business call.
+        </span>
+
+        <div className="flex items-center gap-4">
+          {SOCIAL_LINKS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="text-foreground/45 transition-colors hover:text-foreground"
+            >
+              <span
+                aria-hidden
+                className="block size-4 bg-current mask-contain mask-center mask-no-repeat"
+                style={{
+                  maskImage: `url(${s.icon})`,
+                  WebkitMaskImage: `url(${s.icon})`,
+                }}
+              />
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
