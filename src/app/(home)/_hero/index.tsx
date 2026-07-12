@@ -10,30 +10,7 @@ import {
 import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
 
-const stats = [
-  { value: "1M+", label: "Calls answered" },
-  { value: "24/7", label: "Always available" },
-  { value: "98%", label: "Leads captured" },
-]
-
-const trustAvatars = [
-  {
-    name: "Jane Anderson",
-    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces&q=80",
-  },
-  {
-    name: "Marcus Klein",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces&q=80",
-  },
-  {
-    name: "Rachel Lee",
-    src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces&q=80",
-  },
-  {
-    name: "Tom Singh",
-    src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=faces&q=80",
-  },
-]
+import { params } from "./params"
 
 function Hero() {
   return (
@@ -55,26 +32,28 @@ function Hero() {
         <div className="container flex flex-1 flex-col">
           <div className="hero-padding max-w-5xl">
             <Badge variant="outline" size="lg">
-              Always-on Voice AI
+              {params.badge}
             </Badge>
 
             <h1 className="mt-8 text-5xl leading-[1.05] font-medium tracking-tight md:text-6xl lg:text-7xl">
-              Revolutionize Your <br className="hidden md:block" />
-              Call Handling with Voice AI
+              {params.heading.line1} <br className="hidden md:block" />
+              {params.heading.line2}
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg text-foreground/70">
-              CallKaro AI delivers 24/7 AI Voice agents for your business so
-              that it stays responsive and never miss a call, lead, or
-              opportunity
+              {params.body}
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <Link href="/contact-us">Get started</Link>
+                <Link href={params.ctaPrimary.href}>
+                  {params.ctaPrimary.label}
+                </Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link href="#practice-areas">See how it works</Link>
+                <Link href={params.ctaSecondary.href}>
+                  {params.ctaSecondary.label}
+                </Link>
               </Button>
             </div>
           </div>
@@ -82,10 +61,10 @@ function Hero() {
           <div className="mt-auto flex justify-between gap-2 border-t border-foreground/10 py-6 text-sm">
             <div className="flex items-center gap-3">
               <span className="size-1.5 rounded-full bg-foreground" />
-              <span>Never miss another call.</span>
+              <span>{params.bottomBar.text}</span>
             </div>
             <div className="flex flex-col items-center gap-1 text-foreground/60">
-              <span>Scroll to explore</span>
+              <span>{params.bottomBar.scrollLabel}</span>
               <ArrowDown className="size-4" strokeWidth={1.25} />
             </div>
           </div>
@@ -96,12 +75,14 @@ function Hero() {
         <div className="container grid grid-cols-1 items-center gap-10 py-10 lg:grid-cols-[1fr_2fr]">
           <div className="space-y-4">
             <p className="text-base">
-              <span className="font-semibold">Trusted</span>
-              <span className="ml-3 text-foreground/80">by growing teams</span>
+              <span className="font-semibold">{params.trustedLabel.prefix}</span>
+              <span className="ml-3 text-foreground/80">
+                {params.trustedLabel.suffix}
+              </span>
             </p>
             <div className="flex items-center gap-4">
               <AvatarGroup>
-                {trustAvatars.map((a) => (
+                {params.trustAvatars.map((a) => (
                   <Avatar key={a.name}>
                     <AvatarImage src={a.src} alt={a.name} />
                     <AvatarFallback>
@@ -114,16 +95,18 @@ function Hero() {
                 ))}
               </AvatarGroup>
               <div>
-                <p className="text-2xl leading-none font-semibold">1,000+</p>
+                <p className="text-2xl leading-none font-semibold">
+                  {params.businesses.value}
+                </p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  businesses automated
+                  {params.businesses.label}
                 </p>
               </div>
             </div>
           </div>
 
           <ul className="grid grid-cols-3 text-center lg:w-fit lg:justify-self-end lg:text-end">
-            {stats.map((s, i) => (
+            {params.stats.map((s, i) => (
               <li
                 key={s.label}
                 className="relative px-3 last:pr-0 sm:px-5 md:px-6 lg:px-8"

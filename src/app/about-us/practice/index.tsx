@@ -13,52 +13,11 @@ import {
   AvatarImage,
 } from "@/common/shadcnUI/avatar"
 
+import { params as pageParams } from "../params"
+
+const params = pageParams.practice
+
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
-
-const PRACTICE_AREAS = [
-  {
-    roman: "I",
-    slug: "multilingual",
-    title: "Inbound Support",
-    summary: "Every call answered, day or night.",
-    image: "/images/services/i-corporate.webp",
-  },
-  {
-    roman: "II",
-    slug: "low-latency",
-    title: "Outbound Campaigns",
-    summary: "Reach every lead at real scale.",
-    image: "/images/services/ii-litigation.webp",
-  },
-  {
-    roman: "III",
-    slug: "natural-voice",
-    title: "Reminders & Bookings",
-    summary: "Confirm visits, fill the calendar.",
-    image: "/images/services/iii-compliance.webp",
-  },
-  {
-    roman: "IV",
-    slug: "interrupt-friendly",
-    title: "Batch & Payment Calls",
-    summary: "Bulk dialing and gentle payment nudges.",
-    image: "/images/services/iv-ip.webp",
-  },
-  {
-    roman: "V",
-    slug: "context-aware",
-    title: "Analytics & Integrations",
-    summary: "Call insights synced to your CRM.",
-    image: "/images/services/v-restructuring.webp",
-  },
-]
-
-const TEAM = [
-  { name: "Jane Anderson", src: "/images/partners/01-anderson.webp" },
-  { name: "Marcus Klein", src: "/images/partners/02-klein.webp" },
-  { name: "Rachel Lee", src: "/images/partners/03-lee.webp" },
-  { name: "Tom Singh", src: "/images/partners/04-singh.webp" },
-]
 
 function AboutPractice() {
   return (
@@ -72,20 +31,19 @@ function AboutPractice() {
           className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <Eyebrow>What We Do</Eyebrow>
+            <Eyebrow>{params.eyebrow}</Eyebrow>
             <h2 className="mt-8 max-w-2xl text-4xl leading-[1.05] font-light tracking-tight md:text-5xl">
-              When our AI picks up your calls,{" "}
-              <span className="text-accent">we mean it.</span>
+              {params.heading.prefix}{" "}
+              <span className="text-accent">{params.heading.highlight}</span>
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-muted-foreground md:text-right">
-            Five core capabilities, one standard, natural, reliable, and in 20+
-            languages.
+            {params.subheading}
           </p>
         </motion.div>
 
         <ul className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
-          {PRACTICE_AREAS.map((area, i) => (
+          {params.practiceAreas.map((area, i) => (
             <motion.li
               key={area.slug}
               initial={{ opacity: 0, y: 16 }}
@@ -138,11 +96,11 @@ function AboutPractice() {
               className="group/people flex h-full flex-col justify-between gap-8 rounded-xl bg-foreground p-6 text-background transition-colors hover:bg-foreground/90"
             >
               <p className="text-lg leading-snug font-light tracking-tight transition-transform duration-300 group-hover/people:-translate-y-0.5 md:text-xl">
-                Meet the team behind the voice agents.
+                {params.peopleCard.text}
               </p>
               <div className="flex items-center justify-between gap-4">
                 <AvatarGroup className="translate-x-1 opacity-0 transition-all duration-300 group-hover/people:translate-x-0 group-hover/people:opacity-100">
-                  {TEAM.map((p) => (
+                  {params.team.map((p) => (
                     <Avatar key={p.name} size="sm">
                       <AvatarImage src={p.src} alt={p.name} />
                       <AvatarFallback>
@@ -156,7 +114,7 @@ function AboutPractice() {
                 </AvatarGroup>
 
                 <span className="inline-flex items-center gap-3 text-sm tracking-tight">
-                  Our people
+                  {params.peopleCard.ctaLabel}
                   <span className="grid size-10 place-items-center rounded-full bg-accent text-accent-foreground transition-transform group-hover/people:translate-x-0.5 group-hover/people:-translate-y-0.5">
                     <MoveUpRight className="size-4" strokeWidth={1.5} />
                   </span>

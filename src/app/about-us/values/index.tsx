@@ -5,13 +5,11 @@ import { motion } from "motion/react"
 
 import Eyebrow from "@/common/elements/eyebrow"
 
-const EASE_OUT = [0.23, 1, 0.32, 1] as const
+import { params as pageParams } from "../params"
 
-const STATS = [
-  { value: "50+", label: "Enterprise clients" },
-  { value: "200+", label: "Businesses onboarded" },
-  { value: "1,000+", label: "Calls handled daily" },
-]
+const params = pageParams.values
+
+const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 function AboutValues() {
   return (
@@ -25,8 +23,8 @@ function AboutValues() {
           className="relative aspect-[16/9] overflow-hidden rounded-xl ring-1 ring-foreground/10"
         >
           <Image
-            src="/images/process/005-verdict.webp"
-            alt=""
+            src={params.image.src}
+            alt={params.image.alt}
             fill
             sizes="100vw"
             className="object-cover"
@@ -40,9 +38,9 @@ function AboutValues() {
             viewport={{ once: true, margin: "-15%" }}
             transition={{ duration: 0.8, ease: EASE_OUT }}
           >
-            <Eyebrow>Values</Eyebrow>
+            <Eyebrow>{params.eyebrow}</Eyebrow>
             <h2 className="mt-8 text-4xl leading-[1.05] font-light tracking-tight md:text-5xl lg:text-6xl">
-              Every conversation, natural and reliable.
+              {params.heading}
             </h2>
           </motion.div>
 
@@ -53,14 +51,11 @@ function AboutValues() {
             transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.1 }}
           >
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Business calls should feel effortless: answered in seconds, spoken
-              in a genuinely human voice, and handled with care. We build AI
-              voice agents customers trust, backed by dependable uptime,
-              transparent pricing, and strict privacy.
+              {params.body}
             </p>
 
             <ul className="mt-10 grid grid-cols-3 gap-x-6 border-t pt-8">
-              {STATS.map((s) => (
+              {params.stats.map((s) => (
                 <li key={s.label}>
                   <p className="text-3xl leading-none font-light tracking-tight md:text-4xl lg:text-5xl">
                     {s.value}

@@ -5,40 +5,11 @@ import { motion } from "motion/react"
 
 import Eyebrow from "@/common/elements/eyebrow"
 
-const EASE_OUT = [0.23, 1, 0.32, 1] as const
+import { params as pageParams } from "../params"
 
-const TEAM = [
-  {
-    name: "Aarav Mehta",
-    role: "Founder & CEO",
-    portrait: "/images/partners/01-anderson.webp",
-  },
-  {
-    name: "Neha Kapoor",
-    role: "Head of AI & Voice",
-    portrait: "/images/partners/02-klein.webp",
-  },
-  {
-    name: "Rohan Iyer",
-    role: "Head of Engineering",
-    portrait: "/images/partners/03-lee.webp",
-  },
-  {
-    name: "Priya Nair",
-    role: "Head of Product",
-    portrait: "/images/partners/04-singh.webp",
-  },
-  {
-    name: "Ananya Rao",
-    role: "Head of Customer Success",
-    portrait: "/images/partners/05-petrova.webp",
-  },
-  {
-    name: "Vikram Sharma",
-    role: "Head of Growth",
-    portrait: "/images/partners/06-okonkwo.webp",
-  },
-]
+const params = pageParams.team
+
+const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 function AboutTeam() {
   return (
@@ -48,7 +19,7 @@ function AboutTeam() {
     >
       <div className="container">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2.6fr] md:gap-16">
-          <Eyebrow>Our Team</Eyebrow>
+          <Eyebrow>{params.eyebrow}</Eyebrow>
 
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -57,12 +28,12 @@ function AboutTeam() {
             transition={{ duration: 0.8, ease: EASE_OUT }}
             className="text-4xl leading-[1.05] font-light tracking-tight md:text-5xl lg:text-6xl"
           >
-            The people making every business call effortless.
+            {params.heading}
           </motion.h2>
         </div>
 
         <ul className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-16 md:grid-cols-3 lg:mt-20">
-          {TEAM.map((p, i) => (
+          {params.team.map((p, i) => (
             <motion.li
               key={p.name}
               initial={{ opacity: 0, y: 24 }}

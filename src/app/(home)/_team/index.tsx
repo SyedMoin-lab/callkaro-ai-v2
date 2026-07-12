@@ -9,50 +9,9 @@ import SectionHeader from "@/common/elements/sectionHeader"
 import { Button } from "@/common/shadcnUI/button"
 import { cn } from "@/lib/utils"
 
-const team = [
-  {
-    id: "I",
-    name: "Jane Anderson",
-    role: "Founder & CEO",
-    practice: "Vision & Strategy",
-    portrait: "/images/partners/01-anderson.webp",
-  },
-  {
-    id: "II",
-    name: "Marcus Klein",
-    role: "Head of AI & Voice",
-    practice: "Voice AI",
-    portrait: "/images/partners/02-klein.webp",
-  },
-  {
-    id: "III",
-    name: "Rachel Lee",
-    role: "Head of Engineering",
-    practice: "Engineering",
-    portrait: "/images/partners/03-lee.webp",
-  },
-  {
-    id: "IV",
-    name: "Tom Singh",
-    role: "Head of Customer Success",
-    practice: "Customer Success",
-    portrait: "/images/partners/04-singh.webp",
-  },
-  {
-    id: "V",
-    name: "Anna Petrova",
-    role: "Head of Product",
-    practice: "Product",
-    portrait: "/images/partners/05-petrova.webp",
-  },
-  {
-    id: "VI",
-    name: "Daniel Okonkwo",
-    role: "Head of Sales",
-    practice: "Growth & Partnerships",
-    portrait: "/images/partners/06-okonkwo.webp",
-  },
-]
+import { params } from "./params"
+
+const team = params.team
 
 type Member = (typeof team)[number]
 
@@ -75,9 +34,9 @@ function Team() {
     <section className="section-padding overflow-hidden">
       <div className="container">
         <SectionHeader
-          badge="Our Team"
-          heading={<>The people building CallKaro AI.</>}
-          description="From the first ring to the final analytics, our team designs voice agents that sound human and get work done. Meet the people making every conversation count."
+          badge={params.badge}
+          heading={<>{params.heading}</>}
+          description={params.description}
           mark={
             <Scan
               aria-hidden
@@ -97,8 +56,8 @@ function Team() {
 
         <div className="mt-10 flex justify-center md:mt-14">
           <Button size="lg" variant="secondary" asChild>
-            <Link href="/contact-us">
-              Connect with us
+            <Link href={params.cta.href}>
+              {params.cta.label}
               <MoveRight className="size-5" strokeWidth={1.25} />
             </Link>
           </Button>

@@ -22,7 +22,7 @@ function ContactOffices() {
             Our offices.
           </h2>
           <p className="mt-6 text-base text-muted-foreground md:text-lg">
-            Senior counsel on the ground in each jurisdiction we accept work in.
+            Real people behind the AI, based right here in Greater Noida.
             Walk in, write in, or call, the response is the same.
           </p>
         </motion.div>
@@ -32,11 +32,13 @@ function ContactOffices() {
           whileInView="show"
           viewport={{ once: true, margin: "-10%" }}
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
-          className="mt-12 grid grid-cols-1 gap-14 md:mt-16 md:grid-cols-3 md:gap-5 lg:mt-20"
+          className="mx-auto mt-12 max-w-4xl md:mt-16 lg:mt-20"
         >
-          {OFFICES.map((office) => (
-            <OfficeCard key={office.city} office={office} />
-          ))}
+          {OFFICES.filter((office) => office.city === "Greater Noida").map(
+            (office) => (
+              <OfficeCard key={office.city} office={office} />
+            )
+          )}
         </motion.ul>
       </div>
     </section>
@@ -51,9 +53,9 @@ function OfficeCard({ office }: { office: Office }) {
         show: { opacity: 1, y: 0 },
       }}
       transition={{ duration: 0.7, ease: EASE_OUT }}
-      className="group/office"
+      className="group/office grid grid-cols-1 items-center gap-10 sm:grid-cols-2 sm:gap-14"
     >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-xl ring-1 ring-foreground/10">
+      <div className="relative aspect-4/5 overflow-hidden rounded-xl ring-1 ring-foreground/10 sm:aspect-square">
         <iframe
           src={office.mapSrc}
           title={`Map of the ${office.city} office`}
@@ -74,7 +76,7 @@ function OfficeCard({ office }: { office: Office }) {
         </div>
       </div>
 
-      <div className="mt-6 border-t pt-5">
+      <div className="border-t pt-5 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-14">
         <div className="text-sm text-muted-foreground">Contact information</div>
 
         <address className="mt-3 text-base leading-snug text-foreground not-italic">

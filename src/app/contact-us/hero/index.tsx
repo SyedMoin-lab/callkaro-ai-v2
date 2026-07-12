@@ -16,9 +16,9 @@ import ContactForm from "../contact-form"
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 const QUOTE = {
-  text: "The first call should reach a partner. Not an assistant, not a queue.",
-  author: "Jane Anderson",
-  role: "Managing Partner",
+  text: "We called at 11 p.m. on a Sunday, mostly to test it. It answered on the first ring.",
+  role: "Operations Director",
+  sector: "E-commerce Brand",
 }
 
 function ContactHero() {
@@ -68,9 +68,9 @@ function PortraitPanel() {
           {QUOTE.text}
         </blockquote>
         <figcaption className="mt-5 text-sm leading-tight">
-          <div className="font-light text-foreground">{QUOTE.author}</div>
+          <div className="font-light text-foreground">{QUOTE.role}</div>
           <div className="mt-1 text-xs text-muted-foreground md:text-sm">
-            {QUOTE.role}
+            {QUOTE.sector}
           </div>
         </figcaption>
       </motion.figure>

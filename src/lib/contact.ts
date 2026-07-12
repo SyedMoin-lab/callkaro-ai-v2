@@ -30,11 +30,11 @@ export const OFFICES: Office[] = [
     email: "mumbai@callkaro.ai",
   },
   {
-    city: "New Delhi",
+    city: "Greater Noida",
     region: "India",
     mapSrc:
-      "https://www.openstreetmap.org/export/embed.html?bbox=77.1990%2C28.6039%2C77.2190%2C28.6239&layer=mapnik&marker=28.6139%2C77.2090",
-    address: { line1: "Connaught Place", line2: "New Delhi, DL 110001" },
+      "https://www.openstreetmap.org/export/embed.html?bbox=77.4940%2C28.4644%2C77.5140%2C28.4844&layer=mapnik&marker=28.4744%2C77.5040",
+    address: { line1: "A-67, XU-3", line2: "Greater Noida, UP 201312" },
     phone: { display: "+91 11 4200 6600", href: "tel:+911142006600" },
     email: "delhi@callkaro.ai",
   },

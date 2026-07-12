@@ -14,57 +14,9 @@ import {
 } from "@/common/shadcnUI/accordion"
 import { cn } from "@/lib/utils"
 
-// TODO: images are placeholders reused from the old template; the user will change them later.
-const services = [
-  {
-    roman: "I",
-    slug: "multilingual",
-    title: "Multilingual & Accent-Adaptive",
-    summary:
-      "Our AI voice agent supports 20+ languages and understands diverse regional accents for seamless, inclusive conversations.",
-    image: "/images/services/i-corporate.webp",
-  },
-  {
-    roman: "II",
-    slug: "low-latency",
-    title: "Low Latency",
-    summary:
-      "Fast responses, no matter the query. Experience real-time interactions with near-zero delay.",
-    image: "/images/services/ii-litigation.webp",
-  },
-  {
-    roman: "III",
-    slug: "natural-voice",
-    title: "Natural, Human-Sounding Voice",
-    summary:
-      "No robotic tones. Our voice agents sound genuinely human, engaging customers with warmth, clarity, and emotion.",
-    image: "/images/services/iii-compliance.webp",
-  },
-  {
-    roman: "IV",
-    slug: "interrupt-friendly",
-    title: "Interrupt-Friendly & Intuitive",
-    summary:
-      "Just like a real human, the AI can handle interruptions mid-sentence, adapt, and pick up the conversation naturally.",
-    image: "/images/services/iv-ip.webp",
-  },
-  {
-    roman: "V",
-    slug: "context-aware",
-    title: "Context-Aware & Customisable",
-    summary:
-      "Tailor every conversation to suit your business logic. Our AI adapts fluidly to user intent, context, and tone.",
-    image: "/images/services/v-restructuring.webp",
-  },
-  {
-    roman: "VI",
-    slug: "api-integration",
-    title: "Simple API Integration",
-    summary:
-      "Plug into your existing CRM, databases, and knowledge bases effortlessly, with flexible, developer-friendly APIs.",
-    image: "/images/services/i-corporate.webp",
-  },
-]
+import { params } from "./params"
+
+const services = params.services
 
 const EASE_LAYOUT = "cubic-bezier(0, 0, 0.2, 1)"
 
@@ -81,9 +33,9 @@ function Services() {
     <section id="practice-areas" className="section-padding">
       <div className="container">
         <SectionHeader
-          badge="Capabilities"
-          heading="Deliver Truly Human-Like Customer Service with AI Voice Agents"
-          description="Power your customer interactions with best-in-class capabilities that drive real business outcomes."
+          badge={params.badge}
+          heading={params.heading}
+          description={params.description}
           mark={
             <Plus
               aria-hidden
@@ -261,10 +213,10 @@ function Services() {
         </div>
 
         <p className="mt-12 hidden max-w-md font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase md:block">
-          Hover to preview. Click to select.
+          {params.hoverHint.desktop}
         </p>
         <p className="mt-8 max-w-md font-mono text-[0.625rem] tracking-widest text-muted-foreground uppercase md:hidden">
-          Tap to select.
+          {params.hoverHint.mobile}
         </p>
       </div>
     </section>

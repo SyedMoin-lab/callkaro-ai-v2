@@ -12,9 +12,9 @@ import { SUPPORT_EMAIL } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
 export const SUCCESS_MESSAGE =
-  "Brief received. A senior member of our team will respond within seventy-two hours."
+  "Message received. A member of our team will respond within seventy-two hours."
 
-export const ERROR_MESSAGE = `We couldn't transmit your brief. Please try again, or write to ${SUPPORT_EMAIL} directly.`
+export const ERROR_MESSAGE = `We couldn't send your message. Please try again, or write to ${SUPPORT_EMAIL} directly.`
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
@@ -146,7 +146,7 @@ function SubmitButton({ status, label }: { status: Status; label: string }) {
       {busy ? (
         <>
           <Loader2 className="animate-spin" />
-          Transmitting…
+          Sending…
         </>
       ) : (
         <>

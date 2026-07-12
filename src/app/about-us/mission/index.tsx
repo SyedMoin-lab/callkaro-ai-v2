@@ -6,16 +6,11 @@ import { motion } from "motion/react"
 
 import Eyebrow from "@/common/elements/eyebrow"
 
-const EASE_OUT = [0.23, 1, 0.32, 1] as const
+import { params as pageParams } from "../params"
 
-const VALUE_PAIRS = [
-  "Instant. Natural. Effortless.",
-  "Trust. Commitment. Results.",
-  "Respect. Care. Honesty.",
-  "Presence. Patience. Calm.",
-  "Service. Skill. Empathy.",
-  "Honesty. Reliability. Clarity.",
-]
+const params = pageParams.mission
+
+const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 function AboutMission() {
   return (
@@ -30,8 +25,8 @@ function AboutMission() {
             className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-foreground/10"
           >
             <Image
-              src="/images/about/team-photo.webp"
-              alt=""
+              src={params.image.src}
+              alt={params.image.alt}
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
               className="object-cover"
@@ -44,23 +39,18 @@ function AboutMission() {
             viewport={{ once: true, margin: "-15%" }}
             transition={{ duration: 0.8, ease: EASE_OUT }}
           >
-            <Eyebrow>Our Mission</Eyebrow>
+            <Eyebrow>{params.eyebrow}</Eyebrow>
 
             <h2 className="mt-8 text-3xl leading-[1.05] font-light tracking-tight md:text-4xl lg:text-5xl">
-              Guided by purpose, driven by technology, dedicated to making every
-              business call effortless.
+              {params.heading}
             </h2>
 
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Our mission is simple, every business call should be answered
-              instantly, sound genuinely human, and move people forward. We go
-              beyond automation to build trust, real conversations, and outcomes
-              our customers can stand behind, so no lead or customer is ever left
-              waiting.
+              {params.body}
             </p>
 
             <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-              {VALUE_PAIRS.map((pair, i) => (
+              {params.valuePairs.map((pair, i) => (
                 <motion.li
                   key={pair}
                   initial={{ opacity: 0, x: -8 }}

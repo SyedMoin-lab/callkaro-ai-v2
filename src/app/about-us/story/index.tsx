@@ -14,60 +14,11 @@ import {
 } from "@/common/shadcnUI/avatar"
 import { Button } from "@/common/shadcnUI/button"
 
+import { params as pageParams } from "../params"
+
+const params = pageParams.story
+
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
-
-type Part =
-  { type: "word"; text: string } | { type: "image"; src: string; alt: string }
-
-const HEADLINE_PARTS: Part[] = [
-  { type: "word", text: "From" },
-  { type: "word", text: "one" },
-  { type: "word", text: "missed" },
-  { type: "word", text: "customer" },
-  { type: "word", text: "call," },
-  {
-    type: "image",
-    src: "/images/process/001-intake.webp",
-    alt: "",
-  },
-  { type: "word", text: "to" },
-  { type: "word", text: "millions" },
-  {
-    type: "image",
-    src: "/images/process/005-verdict.webp",
-    alt: "",
-  },
-  { type: "word", text: "of" },
-  { type: "word", text: "calls" },
-  { type: "word", text: "answered" },
-  { type: "word", text: "instantly" },
-  { type: "word", text: ", " },
-  { type: "word", text: "our" },
-  { type: "word", text: "mission" },
-  { type: "word", text: "is" },
-  { type: "word", text: "built" },
-  { type: "word", text: "on" },
-  { type: "word", text: "natural" },
-  { type: "word", text: "voice," },
-  {
-    type: "image",
-    src: "/images/about/hero-1.webp",
-    alt: "",
-  },
-  { type: "word", text: "and" },
-  { type: "word", text: "conversations" },
-  { type: "word", text: "that" },
-  { type: "word", text: "always" },
-  { type: "word", text: "connect." },
-]
-
-const TRUST_AVATARS = [
-  { name: "Jane Anderson", src: "/images/partners/01-anderson.webp" },
-  { name: "Marcus Klein", src: "/images/partners/02-klein.webp" },
-  { name: "Rachel Lee", src: "/images/partners/03-lee.webp" },
-  { name: "Tom Singh", src: "/images/partners/04-singh.webp" },
-  { name: "Anna Petrova", src: "/images/partners/05-petrova.webp" },
-]
 
 const containerVariants = {
   hidden: {},
@@ -104,11 +55,11 @@ function AboutStory() {
           className="mx-auto max-w-4xl text-center"
         >
           <motion.div variants={wordVariants}>
-            <Eyebrow className="justify-center">Our Story</Eyebrow>
+            <Eyebrow className="justify-center">{params.eyebrow}</Eyebrow>
           </motion.div>
 
           <h2 className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-3 text-3xl leading-[1.15] font-light tracking-tight md:gap-x-4 md:text-4xl lg:text-5xl">
-            {HEADLINE_PARTS.map((p, i) => {
+            {params.headlineParts.map((p, i) => {
               if (p.type === "image") {
                 return (
                   <motion.span
@@ -144,7 +95,7 @@ function AboutStory() {
         >
           <div className="flex items-center gap-4">
             <AvatarGroup>
-              {TRUST_AVATARS.map((a) => (
+              {params.trustAvatars.map((a) => (
                 <Avatar key={a.name}>
                   <AvatarImage src={a.src} alt={a.name} />
                   <AvatarFallback>
@@ -169,14 +120,14 @@ function AboutStory() {
                 ))}
               </div>
               <span className="font-mono text-[0.625rem] tracking-[0.2em] text-foreground/65 uppercase">
-                Trusted by modern teams
+                {params.trustLabel}
               </span>
             </div>
           </div>
 
           <Button asChild size="lg" className="mt-14 md:mt-16">
-            <Link href="/contact-us">
-              Book a demo
+            <Link href={params.cta.href}>
+              {params.cta.label}
               <MoveUpRight className="size-4" strokeWidth={1.5} />
             </Link>
           </Button>

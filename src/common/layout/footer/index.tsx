@@ -1,4 +1,3 @@
-import { type ReactNode } from "react"
 import Link from "next/link"
 
 import {
@@ -13,45 +12,87 @@ const ELEVENLABS_MASK = "url(https://cdn.simpleicons.org/elevenlabs)"
 const STATEMENT =
   "AI voice agents that answer every call, day or night, so your team can focus on the conversations that matter most."
 
-const SOCIAL_LINKS = [
+const LINK_GROUPS = [
   {
-    label: "Instagram",
-    href: "https://instagram.com",
-    icon: "https://svgl.app/library/instagram-icon.svg",
+    group: "Product",
+    items: [
+      { title: "Features", href: "/features" },
+      { title: "Pricing", href: "/pricing" },
+      { title: "Industries", href: "/industries" },
+      { title: "Case studies", href: "/case-studies" },
+    ],
   },
+  {
+    group: "Company",
+    items: [
+      { title: "About", href: "/about-us" },
+      { title: "Services", href: "/services" },
+      { title: "Blog", href: "/blog" },
+      { title: "Contact", href: "/contact-us" },
+    ],
+  },
+  {
+    group: "Offices",
+    items: OFFICES.map((o) => ({ title: o.city, href: "/contact-us" })),
+  },
+  {
+    group: "Contact",
+    items: [
+      { title: SUPPORT_EMAIL, href: SUPPORT_EMAIL_HREF },
+      {
+        title: PRIMARY_OFFICE.phone.display,
+        href: PRIMARY_OFFICE.phone.href,
+      },
+      {
+        title: "LinkedIn",
+        href: "https://www.linkedin.com/company/callkaro-ai/",
+      },
+      { title: "Book a demo", href: "/contact-us" },
+    ],
+  },
+]
+
+const SOCIAL_LINKS = [
   {
     label: "X",
     href: "https://x.com",
-    icon: "https://svgl.app/library/x_dark.svg",
+    icon: (
+      <path
+        fill="currentColor"
+        d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z"
+      />
+    ),
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
-    icon: "https://svgl.app/library/linkedin.svg",
+    href: "https://www.linkedin.com/company/callkaro-ai/",
+    icon: (
+      <path
+        fill="currentColor"
+        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"
+      />
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com",
+    icon: (
+      <path
+        fill="currentColor"
+        d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+      />
+    ),
   },
   {
     label: "YouTube",
     href: "https://youtube.com",
-    icon: "https://svgl.app/library/youtube.svg",
+    icon: (
+      <path
+        fill="currentColor"
+        d="M23.498 6.186a2.994 2.994 0 0 0-2.088-2.088C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.41.553A2.994 2.994 0 0 0 .502 6.186C0 8.09 0 12 0 12s0 3.91.502 5.814a2.994 2.994 0 0 0 2.088 2.088c1.905.553 9.41.553 9.41.553s7.505 0 9.41-.553a2.994 2.994 0 0 0 2.088-2.088C24 15.91 24 12 24 12s0-3.91-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+      />
+    ),
   },
-]
-
-const FIRM_LINKS = [
-  { label: "About", href: "/about-us" },
-  { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
-  { label: "Features", href: "/features" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Case studies", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact-us" },
-]
-
-const CONTACT_LINKS = [
-  { label: SUPPORT_EMAIL, href: SUPPORT_EMAIL_HREF },
-  { label: PRIMARY_OFFICE.phone.display, href: PRIMARY_OFFICE.phone.href },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Book a demo", href: "/contact-us" },
 ]
 
 function Footer() {
@@ -59,55 +100,69 @@ function Footer() {
     <footer>
       <FooterPartners />
 
-      <div className="dark rounded-[3rem] bg-background pt-20 pb-12 text-foreground md:rounded-[5rem] md:pt-32 md:pb-20">
+      <div className="dark rounded-t-[3rem] bg-background pt-20 pb-12 text-foreground md:rounded-t-[5rem] md:pt-32 md:pb-20">
         <div className="container">
-          <div className="grid gap-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1.1fr_1fr] lg:gap-14">
-            <div className="flex flex-col gap-6">
-              <Link href="/" className="flex w-fit items-center gap-2.5">
+          <div className="grid gap-12 md:grid-cols-5">
+            <div className="md:col-span-2">
+              <Link
+                href="/"
+                aria-label="CallKaro AI home"
+                className="flex w-fit items-center gap-2.5"
+              >
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
                 </span>
               </Link>
-              <p className="max-w-xs text-sm leading-relaxed text-foreground/60">
+              <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
                 {STATEMENT}
               </p>
             </div>
 
-            <FooterColumn label="Company">
-              <ul className="space-y-3 text-sm">
-                {FIRM_LINKS.map((l) => (
-                  <li key={l.label}>
-                    <FooterLink href={l.href}>{l.label}</FooterLink>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
-
-            <FooterColumn label="Offices">
-              <ul className="space-y-5">
-                {OFFICES.map((o) => (
-                  <li key={o.city}>
-                    <p className="text-sm text-foreground/85">{o.city}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-foreground/45">
-                      {o.address.line1}, {o.address.line2}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
-
-            <FooterColumn label="Contact">
-              <ul className="space-y-3 text-sm">
-                {CONTACT_LINKS.map((l) => (
-                  <li key={l.label}>
-                    <FooterLink href={l.href}>{l.label}</FooterLink>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 md:col-span-3">
+              {LINK_GROUPS.map((link) => (
+                <div key={link.group} className="space-y-4 text-sm">
+                  <span className="block font-medium">{link.group}</span>
+                  {link.items.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="text-muted-foreground hover:text-foreground block duration-150"
+                    >
+                      <span>{item.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
 
-          <Baseline />
+          <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-foreground/12 py-6">
+            <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
+              © {new Date().getFullYear()} CallKaro AI, All rights reserved
+            </span>
+            <div className="order-first flex flex-wrap justify-center gap-6 text-sm md:order-last">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="text-muted-foreground hover:text-foreground block"
+                >
+                  <svg
+                    className="size-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                  >
+                    {s.icon}
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -151,71 +206,6 @@ function FooterPartners() {
             1,000+ businesses
           </p>
           <p className="text-sm text-muted-foreground">across 15+ countries</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function FooterColumn({
-  label,
-  children,
-}: {
-  label: string
-  children: ReactNode
-}) {
-  return (
-    <div>
-      <p className="text-xs tracking-[0.2em] text-foreground/45 uppercase">
-        {label}
-      </p>
-      <div className="mt-5">{children}</div>
-    </div>
-  )
-}
-
-function FooterLink({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="group relative inline-flex w-fit text-foreground/65 transition-colors hover:text-foreground"
-    >
-      {children}
-      <span
-        aria-hidden
-        className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100"
-      />
-    </Link>
-  )
-}
-
-function Baseline() {
-  return (
-    <div className="mt-16 flex flex-col gap-6 border-t border-foreground/12 pt-6 text-xs text-foreground/40 sm:flex-row sm:items-center sm:justify-between md:mt-20">
-      <span>© CallKaro AI. All rights reserved.</span>
-
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-        <span className="flex items-center gap-2">
-          <span
-            aria-hidden
-            className="size-1.5 animate-pulse rounded-full bg-accent"
-          />
-          AI voice agents for every business call.
-        </span>
-
-        <div className="flex items-center gap-4">
-          {SOCIAL_LINKS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="opacity-60 transition-opacity hover:opacity-100"
-            >
-              <img src={s.icon} alt="" className="size-4" />
-            </a>
-          ))}
         </div>
       </div>
     </div>

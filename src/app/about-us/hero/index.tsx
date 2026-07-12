@@ -6,61 +6,11 @@ import { motion } from "motion/react"
 import Eyebrow from "@/common/elements/eyebrow"
 import { cn } from "@/lib/utils"
 
+import { params as pageParams, type HeroCell as Cell } from "../params"
+
+const params = pageParams.hero
+
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
-
-type Cell =
-  | { type: "stat"; eyebrow: string; value: string; body: string }
-  | { type: "image"; src: string; alt: string }
-
-const ROW_DARK: Cell[] = [
-  {
-    type: "stat",
-    eyebrow: "Calls handled",
-    value: "10M+",
-    body: "Conversations handled end to end by our AI voice agents, from first ring to final follow-up.",
-  },
-  {
-    type: "image",
-    src: "/images/about/hero-1.webp",
-    alt: "",
-  },
-  {
-    type: "stat",
-    eyebrow: "Businesses",
-    value: "500+",
-    body: "Teams that trust CallKaro AI to answer inbound support, run campaigns, and book appointments.",
-  },
-  {
-    type: "image",
-    src: "/images/about/hero-2.webp",
-    alt: "",
-  },
-]
-
-const ROW_WARM: Cell[] = [
-  {
-    type: "image",
-    src: "/images/about/team.webp",
-    alt: "",
-  },
-  {
-    type: "stat",
-    eyebrow: "Languages",
-    value: "20+",
-    body: "Natural, human-sounding conversations in the language each of your customers speaks best.",
-  },
-  {
-    type: "image",
-    src: "/images/about/hero-3.webp",
-    alt: "",
-  },
-  {
-    type: "stat",
-    eyebrow: "Uptime",
-    value: "99.9%",
-    body: "Always-on voice agents that pick up every call, day or night, so no opportunity slips away.",
-  },
-]
 
 function AboutHero() {
   return (
@@ -72,10 +22,10 @@ function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: EASE_OUT }}
           >
-            <Eyebrow>About</Eyebrow>
+            <Eyebrow>{params.eyebrow}</Eyebrow>
             <h1 className="mt-8 text-5xl leading-[0.95] font-light tracking-tight md:text-7xl lg:text-8xl">
-              Voice AI that <br className="hidden md:block" />
-              answers &amp; delivers.
+              {params.heading.line1} <br className="hidden md:block" />
+              {params.heading.line2}
             </h1>
           </motion.div>
 
@@ -85,15 +35,13 @@ function AboutHero() {
             transition={{ duration: 0.85, ease: EASE_OUT, delay: 0.15 }}
             className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg"
           >
-            CallKaro AI builds human-sounding voice agents that handle every
-            business call, so teams stop losing calls and stop wasting time on
-            repetitive phone work.
+            {params.body}
           </motion.p>
         </div>
       </div>
 
-      <CellRow tone="dark" cells={ROW_DARK} />
-      <CellRow tone="warm" cells={ROW_WARM} />
+      <CellRow tone="dark" cells={params.rowDark} />
+      <CellRow tone="warm" cells={params.rowWarm} />
     </section>
   )
 }
