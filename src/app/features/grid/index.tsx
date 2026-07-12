@@ -1,22 +1,18 @@
 import { createElement } from "react"
-import Link from "next/link"
 import {
   BadgeCheck,
   BarChart3,
   BookOpen,
   CalendarClock,
-  ChevronRight,
   Code2,
   type LucideIcon,
   Megaphone,
   PhoneForwarded,
   PhoneIncoming,
-  SquareDashedMousePointer,
   Voicemail,
   Webhook,
 } from "lucide-react"
 
-import { Separator } from "@/common/shadcnUI/separator"
 import type { FeatureItem } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -64,35 +60,9 @@ export function resolveFeatureIcon(name: string): LucideIcon {
 
 export default function FeatureGrid({ features }: { features: FeatureItem[] }) {
   return (
-    <section className="pt-32 pb-20 md:pt-44 md:pb-28">
+    <section id="browse" className="section-padding overflow-hidden pt-0">
       <div className="container">
         <div className="mx-auto max-w-5xl">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-1.5 text-muted-foreground">
-              <SquareDashedMousePointer className="size-5 text-accent" />
-              <p>Features</p>
-            </div>
-            <Link
-              href="/services"
-              className="flex items-center gap-1 transition-colors hover:text-accent hover:underline"
-            >
-              Learn more
-              <ChevronRight className="inline-block size-4" />
-            </Link>
-          </div>
-
-          <Separator className="mt-3 mb-8" />
-
-          <div className="mb-9 flex flex-col justify-between gap-6 md:flex-row lg:mb-14">
-            <h2 className="text-3xl font-light tracking-tight text-balance md:w-1/2 md:text-4xl">
-              Powerful Features
-            </h2>
-            <p className="text-balance text-muted-foreground md:w-1/2">
-              Explore our comprehensive suite of AI-powered tools designed to
-              transform your business communication strategy.
-            </p>
-          </div>
-
           <div className="grid grid-flow-dense grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
               <FeatureCard

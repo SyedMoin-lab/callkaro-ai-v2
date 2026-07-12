@@ -2,79 +2,45 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { LayoutGrid, MoveUpRight } from "lucide-react"
+import { MoveUpRight } from "lucide-react"
 import { motion } from "motion/react"
 
-import SectionHeader from "@/common/elements/sectionHeader"
-import { Button } from "@/common/shadcnUI/button"
 import { Card } from "@/common/shadcnUI/card"
 import type { IndustryFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
-function IndustriesFeatured({
-  industries,
-}: {
-  industries: IndustryFrontmatter[]
-}) {
+function IndustriesGrid({ industries }: { industries: IndustryFrontmatter[] }) {
   const featured = industries.slice(0, 2)
   const secondary = industries.slice(2)
 
   return (
-    <>
-      <section className="hero-padding overflow-hidden">
-        <div className="container">
-          <SectionHeader
-            badge="Industries"
-            heading={<>AI voice agents for every industry.</>}
-            description="CallKaro AI adapts to how your business actually takes calls, whatever industry you are in."
-            mark={
-              <LayoutGrid
-                aria-hidden
-                className="size-10 text-foreground/30"
-                strokeWidth={1}
-              />
-            }
-          />
-
-          <div className="mt-10 md:mt-14">
-            <Button asChild variant="outline" size="lg">
-              <Link href="/contact-us">
-                Talk to our team
-                <MoveUpRight />
-              </Link>
-            </Button>
-          </div>
+    <section id="browse" className="section-padding overflow-hidden pt-0">
+      <div className="container">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
+          {featured.map((s, i) => (
+            <IndustryTile
+              key={s.slug}
+              industry={s}
+              variant="featured"
+              delay={i * 0.06}
+            />
+          ))}
         </div>
-      </section>
 
-      <section className="section-padding overflow-hidden pt-0">
-        <div className="container">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
-            {featured.map((s, i) => (
-              <IndustryTile
-                key={s.slug}
-                industry={s}
-                variant="featured"
-                delay={i * 0.06}
-              />
-            ))}
-          </div>
-
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-5 md:gap-5 lg:grid-cols-3">
-            {secondary.map((s, i) => (
-              <IndustryTile
-                key={s.slug}
-                industry={s}
-                variant="secondary"
-                delay={(i + 2) * 0.06}
-              />
-            ))}
-          </div>
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-5 md:gap-5 lg:grid-cols-3">
+          {secondary.map((s, i) => (
+            <IndustryTile
+              key={s.slug}
+              industry={s}
+              variant="secondary"
+              delay={(i + 2) * 0.06}
+            />
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 
@@ -162,4 +128,4 @@ function IndustryTile({
   )
 }
 
-export default IndustriesFeatured
+export default IndustriesGrid

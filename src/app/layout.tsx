@@ -8,6 +8,7 @@ import Navbar from "@/common/layout/navbar"
 import SiteChrome from "@/common/layout/siteChrome"
 import { StyleGlideProvider } from "@/common/providers/styleglideProvider"
 import { ThemeProvider } from "@/common/providers/themeProvider"
+import { getAllIndustries } from "@/lib/industries"
 import { cn } from "@/lib/utils"
 
 import "./globals.css"
@@ -95,7 +96,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const cookieStore = await cookies()
+  const [cookieStore, industries] = await Promise.all([
+    cookies(),
+    getAllIndustries(),
+  ])
   const bannerDismissed = cookieStore.get("banner-dismissed")?.value === "true"
 
   return (
@@ -109,7 +113,12 @@ export default async function RootLayout({
           <StyleGlideProvider />
           <SiteChrome
             banner={<Banner initialVisible={!bannerDismissed} />}
-            navbar={<Navbar initialBannerVisible={!bannerDismissed} />}
+            navbar={
+              <Navbar
+                initialBannerVisible={!bannerDismissed}
+                industries={industries}
+              />
+            }
             footer={<Footer />}
           >
             {children}

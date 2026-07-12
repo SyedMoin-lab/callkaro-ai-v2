@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation"
 import { X } from "lucide-react"
 
+import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
 import { useBannerVisibility } from "@/hooks/use-banner-visibility"
 import { cn } from "@/lib/utils"
@@ -29,9 +30,12 @@ function Banner({
     >
       <div className="container flex h-14 items-center justify-between gap-4 pr-12">
         <div className="flex flex-1 items-center justify-center gap-3 sm:gap-4">
-          <span className="hidden rounded-full border border-current/40 px-2.5 py-0.5 text-[0.65rem] font-semibold tracking-wider uppercase sm:inline-block">
+          <Badge
+            variant="outline"
+            className="hidden border-current/40 bg-transparent px-2.5 py-0.5 text-[0.65rem] font-semibold tracking-wider text-current uppercase sm:inline-flex"
+          >
             Introducing
-          </span>
+          </Badge>
           <span className="text-center text-sm">
             Give every incoming call a smart voice agent that turns callers into
             customers, nonstop.

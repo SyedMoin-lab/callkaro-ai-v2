@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 
 import { getAllFeatures } from "@/lib/features"
 
-import FeatureGrid from "./_featureGrid"
+import FeatureGrid from "./grid"
+import FeaturesHero from "./hero"
 
 export const metadata: Metadata = {
   title: "Features",
@@ -13,5 +14,10 @@ export const metadata: Metadata = {
 export default async function FeaturesPage() {
   const features = await getAllFeatures()
 
-  return <FeatureGrid features={features} />
+  return (
+    <>
+      <FeaturesHero />
+      <FeatureGrid features={features} />
+    </>
+  )
 }

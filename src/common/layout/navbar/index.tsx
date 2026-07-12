@@ -3,21 +3,7 @@
 import { createElement, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import {
-  CalendarDays,
-  Car,
-  ChevronDown,
-  GraduationCap,
-  HeartPulse,
-  Home,
-  Landmark,
-  LayoutGrid,
-  type LucideIcon,
-  Menu,
-  ShoppingCart,
-  Wifi,
-  X,
-} from "lucide-react"
+import { ChevronDown, LayoutGrid, Menu, X } from "lucide-react"
 import {
   AnimatePresence,
   motion,
@@ -28,6 +14,8 @@ import {
 import { CallKaroLogo } from "@/common/layout/logo"
 import { Button } from "@/common/shadcnUI/button"
 import { useBannerVisibility } from "@/hooks/use-banner-visibility"
+import { resolveIndustryIcon } from "@/lib/industry-icons"
+import type { IndustryFrontmatter } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
@@ -42,74 +30,27 @@ const navItems = [
   { label: "Blog", href: "/blog" },
 ]
 
-const industriesMenu: {
-  label: string
-  description: string
-  href: string
-  icon: LucideIcon
-}[] = [
-  {
-    label: "All Industries",
-    description: "Browse every industry we serve",
-    href: "/industries",
-    icon: LayoutGrid,
-  },
-  {
-    label: "Education",
-    description: "Admissions, fees, and class scheduling",
-    href: "/industries/education",
-    icon: GraduationCap,
-  },
-  {
-    label: "E-commerce",
-    description: "Order status, returns, and cart recovery",
-    href: "/industries/e-commerce",
-    icon: ShoppingCart,
-  },
-  {
-    label: "Finance & Insurance",
-    description: "Payment reminders and claims intake",
-    href: "/industries/finance-insurance",
-    icon: Landmark,
-  },
-  {
-    label: "Healthcare",
-    description: "Appointment booking and patient follow-ups",
-    href: "/industries/healthcare",
-    icon: HeartPulse,
-  },
-  {
-    label: "Automobile",
-    description: "Test-drive booking and service scheduling",
-    href: "/industries/automobile",
-    icon: Car,
-  },
-  {
-    label: "Real Estate",
-    description: "Viewing scheduling and lead screening",
-    href: "/industries/real-estate",
-    icon: Home,
-  },
-  {
-    label: "IT Services & Internet",
-    description: "Outage triage and first-line support",
-    href: "/industries/it-services-internet",
-    icon: Wifi,
-  },
-  {
-    label: "Events & Webinar",
-    description: "RSVP confirmations and reminder calls",
-    href: "/industries/events-webinar",
-    icon: CalendarDays,
-  },
-]
-
 function Navbar({
   initialBannerVisible = true,
+  industries = [],
 }: {
   initialBannerVisible?: boolean
+  industries?: IndustryFrontmatter[]
 }) {
-  const [hidden, setHidden] = useState(false)
+  const industriesMenu = [
+    {
+      label: "All Industries",
+      description: "Browse every industry we serve",
+      href: "/industries",
+      icon: LayoutGrid,
+    },
+    ...industries.map((industry) => ({
+      label: industry.name,
+      description: industry.tagline,
+      href: `/industries/${industry.slug}`,
+      icon: resolveIndustryIcon(industry.icon),
+    })),
+  ]
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [hovered, setHovered] = useState<string | null>(null)
@@ -118,25 +59,16 @@ function Navbar({
   const industriesRef = useRef<HTMLLIElement>(null)
   const { scrollY } = useScroll()
   const { isBannerVisible } = useBannerVisibility(initialBannerVisible)
-  const lastY = useRef(0)
   const pathname = usePathname()
   const isDarkHero = pathname === "/"
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/")
   const activeHref = navItems.find((item) => isActive(item.href))?.href
 
+  // Drives the compact/pill style and reclaims the banner's space once
+  // scrolled — the header itself always stays pinned in place, never hides.
   useMotionValueEvent(scrollY, "change", (y) => {
-    const delta = y - lastY.current
-    lastY.current = y
-    if (y < 20) {
-      setHidden(false)
-      setScrolled(false)
-    } else if (delta > 3) {
-      setHidden(true)
-      setScrolled(true)
-    } else if (delta < -3) {
-      setHidden(false)
-    }
+    setScrolled(y >= 20)
   })
 
   // Close the mobile menu and industries dropdown when the route changes.
@@ -190,8 +122,6 @@ function Navbar({
           (isDarkHero || scrolled) && "dark",
           scrolled ? "mt-4" : isBannerVisible ? "mt-14" : "mt-0"
         )}
-        animate={{ y: hidden ? "-150%" : "0%" }}
-        transition={{ type: "spring", stiffness: 200, damping: 30 }}
       >
         <div
           className={cn(

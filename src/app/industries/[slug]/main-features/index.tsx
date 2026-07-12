@@ -1,6 +1,6 @@
 import { createElement } from "react"
 
-import { resolveFeatureIcon } from "@/app/features/_featureGrid"
+import { resolveFeatureIcon } from "@/app/features/grid"
 import type { FeatureItem } from "@/lib/types"
 import { cn } from "@/lib/utils"
 

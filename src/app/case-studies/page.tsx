@@ -1,9 +1,15 @@
 import { getAllCaseStudies } from "@/lib/case-studies"
 
-import CaseStudiesFolio from "./folio"
+import CaseStudiesGrid from "./grid"
+import CaseStudiesHero from "./hero"
 
 export default async function CaseStudiesPage() {
   const cases = await getAllCaseStudies()
 
-  return <CaseStudiesFolio cases={cases} />
+  return (
+    <>
+      <CaseStudiesHero />
+      <CaseStudiesGrid cases={cases} />
+    </>
+  )
 }

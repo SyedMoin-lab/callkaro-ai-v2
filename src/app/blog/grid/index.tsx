@@ -6,85 +6,31 @@ import { MoveUpRight } from "lucide-react"
 import { motion } from "motion/react"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/common/shadcnUI/avatar"
-import { Badge } from "@/common/shadcnUI/badge"
 import { Card } from "@/common/shadcnUI/card"
 import type { BlogFrontmatter } from "@/lib/types"
 import { formatDate, initialsOf } from "@/lib/utils"
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
-function BlogFeatured({ posts }: { posts: BlogFrontmatter[] }) {
+function BlogGrid({ posts }: { posts: BlogFrontmatter[] }) {
   const [hero, ...rest] = posts
 
   return (
-    <section className="hero-padding overflow-hidden">
+    <section id="browse" className="section-padding overflow-hidden pt-0">
       <div className="container">
-        <BlogIntro />
+        {hero && <HeroPost post={hero} />}
 
-        {hero && (
+        {rest.length > 0 && (
           <div className="mt-12 md:mt-16 lg:mt-20">
-            <HeroPost post={hero} />
+            <ul className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+              {rest.map((post, i) => (
+                <PostCard key={post.slug} post={post} delay={i * 0.05} />
+              ))}
+            </ul>
           </div>
         )}
       </div>
-
-      {rest.length > 0 && (
-        <div className="container mt-12 md:mt-16 lg:mt-20">
-          <ul className="grid grid-cols-1 gap-x-5 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-            {rest.map((post, i) => (
-              <PostCard key={post.slug} post={post} delay={i * 0.05} />
-            ))}
-          </ul>
-        </div>
-      )}
     </section>
-  )
-}
-
-function BlogIntro() {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-15%" }}
-      variants={{ show: { transition: { staggerChildren: 0.08 } } }}
-      className="max-w-4xl"
-    >
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 14 },
-          show: { opacity: 1, y: 0 },
-        }}
-        transition={{ duration: 0.6, ease: EASE_OUT }}
-      >
-        <Badge variant="outline" size="lg">
-          <span className="size-1 rounded-full bg-foreground/40" />
-          Blog
-          <span className="size-1 rounded-full bg-foreground/40" />
-        </Badge>
-      </motion.div>
-      <motion.h1
-        variants={{
-          hidden: { opacity: 0, y: 18 },
-          show: { opacity: 1, y: 0 },
-        }}
-        transition={{ duration: 0.7, ease: EASE_OUT }}
-        className="mt-8 text-4xl leading-[1.02] font-light tracking-tight md:text-6xl lg:text-7xl"
-      >
-        Notes from counsel.
-      </motion.h1>
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 14 },
-          show: { opacity: 1, y: 0 },
-        }}
-        transition={{ duration: 0.7, ease: EASE_OUT }}
-        className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg"
-      >
-        Practice notes, case framings, and process pieces, written by the
-        partners who tried the matters they describe.
-      </motion.p>
-    </motion.div>
   )
 }
 
@@ -108,7 +54,7 @@ function HeroPost({ post }: { post: BlogFrontmatter }) {
               fill
               priority
               sizes="(min-width: 768px) 55vw, 100vw"
-              className="object-cover transition duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform group-hover/card:scale-[1.03]"
+              className="object-cover transition duration-500 ease-in-out will-change-transform group-hover/card:scale-[1.03]"
             />
           </div>
 
@@ -153,7 +99,7 @@ function PostCard({ post, delay }: { post: BlogFrontmatter; delay: number }) {
               alt=""
               fill
               sizes="(min-width: 1024px) 30vw, 50vw"
-              className="object-cover transition duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform group-hover/card:scale-[1.04]"
+              className="object-cover transition duration-500 ease-in-out will-change-transform group-hover/card:scale-[1.04]"
             />
           </div>
 
@@ -234,4 +180,4 @@ function AuthorRow({
   )
 }
 
-export default BlogFeatured
+export default BlogGrid

@@ -1,9 +1,15 @@
 import { getAllPosts } from "@/lib/blog"
 
-import BlogFeatured from "./featured"
+import BlogGrid from "./grid"
+import BlogHero from "./hero"
 
 export default async function BlogPage() {
   const posts = await getAllPosts()
 
-  return <BlogFeatured posts={posts} />
+  return (
+    <>
+      <BlogHero />
+      <BlogGrid posts={posts} />
+    </>
+  )
 }
