@@ -1,6 +1,7 @@
 "use client"
 
 import { createElement, useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
@@ -155,7 +156,7 @@ function Navbar({
   const [productsMobileOpen, setProductsMobileOpen] = useState(false)
   const productsRef = useRef<HTMLLIElement>(null)
   const navRef = useRef<HTMLElement>(null)
-  const [productsMenuTop, setProductsMenuTop] = useState(0)
+  const [megaMenuTop, setMegaMenuTop] = useState(0)
   const { scrollY } = useScroll()
   const { isBannerVisible } = useBannerVisibility(initialBannerVisible)
   const pathname = usePathname()
@@ -234,13 +235,13 @@ function Navbar({
     }
   }, [productsOpen])
 
-  // Track the nav bar's bottom edge so the full-width products panel can
+  // Track the nav bar's bottom edge so the full-width mega menu panels can
   // hang flush beneath it, even while the pill's size animates on scroll.
   useEffect(() => {
-    if (!productsOpen || !navRef.current) return
+    if ((!productsOpen && !industriesOpen) || !navRef.current) return
     const update = () => {
       if (navRef.current) {
-        setProductsMenuTop(navRef.current.getBoundingClientRect().bottom)
+        setMegaMenuTop(navRef.current.getBoundingClientRect().bottom)
       }
     }
     update()
@@ -251,13 +252,20 @@ function Navbar({
       observer.disconnect()
       window.removeEventListener("resize", update)
     }
-  }, [productsOpen])
+  }, [productsOpen, industriesOpen])
 
   const openProducts = () => {
     if (navRef.current) {
-      setProductsMenuTop(navRef.current.getBoundingClientRect().bottom)
+      setMegaMenuTop(navRef.current.getBoundingClientRect().bottom)
     }
     setProductsOpen(true)
+  }
+
+  const openIndustries = () => {
+    if (navRef.current) {
+      setMegaMenuTop(navRef.current.getBoundingClientRect().bottom)
+    }
+    setIndustriesOpen(true)
   }
 
   return (
@@ -352,8 +360,8 @@ function Navbar({
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.18, ease: EASE_OUT }}
-                            style={{ top: productsMenuTop }}
-                            className="dark fixed inset-x-0 z-50 border-b border-foreground/10 bg-background/95 text-foreground shadow-2xl backdrop-blur-2xl"
+                            style={{ top: megaMenuTop }}
+                            className="dark fixed inset-x-0 z-50 border-b border-foreground/10 bg-background text-foreground shadow-2xl"
                           >
                             <div className="container grid grid-cols-[13rem_1fr] gap-8 py-8 lg:grid-cols-[15rem_1fr_18rem] lg:gap-10">
                               <ul className="space-y-1 border-r border-foreground/10 pr-6 lg:pr-8">
@@ -449,7 +457,15 @@ function Navbar({
                                 <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
                                   {productsFeatured.eyebrow}
                                 </span>
-                                <div className="mt-3 aspect-video w-full rounded-lg bg-muted/60" />
+                                <div className="relative mt-3 aspect-video w-full overflow-hidden rounded-lg bg-muted/60">
+                                  <Image
+                                    src="/images/hero/office.webp"
+                                    alt="CallKaro AI demo preview"
+                                    fill
+                                    sizes="288px"
+                                    className="object-cover"
+                                  />
+                                </div>
                                 <p className="mt-4 text-sm leading-snug text-foreground">
                                   {productsFeatured.heading}
                                 </p>
@@ -481,13 +497,13 @@ function Navbar({
                       className="relative"
                       onMouseEnter={() => {
                         setHovered(item.href)
-                        setIndustriesOpen(true)
+                        openIndustries()
                       }}
                       onMouseLeave={() => setIndustriesOpen(false)}
                     >
                       <button
                         type="button"
-                        onClick={() => setIndustriesOpen(true)}
+                        onClick={openIndustries}
                         aria-haspopup="true"
                         aria-expanded={industriesOpen}
                         className={cn(
@@ -521,38 +537,41 @@ function Navbar({
                       <AnimatePresence>
                         {industriesOpen && (
                           <motion.div
-                            initial={{ opacity: 0, y: 6 }}
+                            initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 6 }}
+                            exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.18, ease: EASE_OUT }}
-                            className="dark absolute top-full left-1/2 z-50 mt-4 w-88 -translate-x-1/3 rounded-xl border bg-background/95 p-2 text-foreground shadow-xl ring-1 ring-foreground/10 backdrop-blur-2xl"
+                            style={{ top: megaMenuTop }}
+                            className="dark fixed inset-x-0 z-50 border-b border-foreground/10 bg-background text-foreground shadow-2xl"
                           >
-                            <ul>
-                              {industriesMenu.map((it) => (
-                                <li key={it.href}>
-                                  <Link
-                                    href={it.href}
-                                    onClick={() => setIndustriesOpen(false)}
-                                    className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-foreground/5"
-                                  >
-                                    <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
-                                      {createElement(it.icon, {
-                                        className: "size-4",
-                                        strokeWidth: 1.5,
-                                      })}
-                                    </span>
-                                    <span>
-                                      <span className="block text-sm font-medium text-foreground">
-                                        {it.label}
+                            <div className="container py-8">
+                              <ul className="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
+                                {industriesMenu.map((it) => (
+                                  <li key={it.href}>
+                                    <Link
+                                      href={it.href}
+                                      onClick={() => setIndustriesOpen(false)}
+                                      className="flex items-start gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-foreground/5"
+                                    >
+                                      <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
+                                        {createElement(it.icon, {
+                                          className: "size-4",
+                                          strokeWidth: 1.5,
+                                        })}
                                       </span>
-                                      <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
-                                        {it.description}
+                                      <span>
+                                        <span className="block text-sm font-medium text-foreground">
+                                          {it.label}
+                                        </span>
+                                        <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
+                                          {it.description}
+                                        </span>
                                       </span>
-                                    </span>
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
