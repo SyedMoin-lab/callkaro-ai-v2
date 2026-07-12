@@ -1,14 +1,14 @@
 import { type ReactNode } from "react"
 import Link from "next/link"
 
-import { Marquee } from "@/common/customUI/marquee"
-import { CompanyLogos } from "@/common/icons/companies"
 import {
   OFFICES,
   PRIMARY_OFFICE,
   SUPPORT_EMAIL,
   SUPPORT_EMAIL_HREF,
 } from "@/lib/contact"
+
+const ELEVENLABS_MASK = "url(https://cdn.simpleicons.org/elevenlabs)"
 
 const STATEMENT =
   "AI voice agents that answer every call, day or night, so your team can focus on the conversations that matter most."
@@ -36,7 +36,7 @@ function Footer() {
     <footer>
       <FooterPartners />
 
-      <div className="dark bg-background pt-16 pb-10 text-foreground md:pt-24 md:pb-14">
+      <div className="dark rounded-[2.5rem] bg-background pt-16 pb-10 text-foreground md:rounded-[3.5rem] md:pt-24 md:pb-14">
         <div className="container">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1.1fr_1fr] lg:gap-10">
             <div className="flex flex-col gap-5">
@@ -99,11 +99,25 @@ function FooterPartners() {
           <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
             Proud partners in innovation
           </p>
-          <div className="mt-5 max-w-xl [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <Marquee pauseOnHover className="[--gap:3rem]">
-              <CompanyLogos />
-            </Marquee>
-          </div>
+          <a
+            href="https://elevenlabs.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ElevenLabs"
+            className="mt-5 inline-flex items-center gap-3 text-foreground/70 transition-opacity hover:opacity-70"
+          >
+            <span
+              aria-hidden
+              className="block size-7 bg-current mask-contain mask-center mask-no-repeat"
+              style={{
+                maskImage: ELEVENLABS_MASK,
+                WebkitMaskImage: ELEVENLABS_MASK,
+              }}
+            />
+            <span className="text-xl font-semibold tracking-tight">
+              ElevenLabs
+            </span>
+          </a>
         </div>
 
         <div className="shrink-0">
