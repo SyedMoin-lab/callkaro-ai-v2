@@ -22,7 +22,7 @@ const SOCIAL_LINKS = [
   {
     label: "X",
     href: "https://x.com",
-    icon: "https://svgl.app/library/x.svg",
+    icon: "https://svgl.app/library/x_dark.svg",
   },
   {
     label: "LinkedIn",
@@ -59,10 +59,10 @@ function Footer() {
     <footer>
       <FooterPartners />
 
-      <div className="dark rounded-[2.5rem] bg-background pt-16 pb-10 text-foreground md:rounded-[3.5rem] md:pt-24 md:pb-14">
+      <div className="dark rounded-[3rem] bg-background pt-20 pb-12 text-foreground md:rounded-[5rem] md:pt-32 md:pb-20">
         <div className="container">
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1.1fr_1fr] lg:gap-10">
-            <div className="flex flex-col gap-5">
+          <div className="grid gap-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1.1fr_1fr] lg:gap-14">
+            <div className="flex flex-col gap-6">
               <Link href="/" className="flex w-fit items-center gap-2.5">
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
@@ -211,16 +211,9 @@ function Baseline() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={s.label}
-              className="text-foreground/45 transition-colors hover:text-foreground"
+              className="opacity-60 transition-opacity hover:opacity-100"
             >
-              <span
-                aria-hidden
-                className="block size-4 bg-current mask-contain mask-center mask-no-repeat"
-                style={{
-                  maskImage: `url(${s.icon})`,
-                  WebkitMaskImage: `url(${s.icon})`,
-                }}
-              />
+              <img src={s.icon} alt="" className="size-4" />
             </a>
           ))}
         </div>
