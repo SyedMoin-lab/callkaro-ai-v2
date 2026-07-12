@@ -160,3 +160,11 @@ export interface FeatureItem {
   order?: number
   wide?: boolean
 }
+
+export interface PolicyPage {
+  slug: string
+  title: string
+  lastUpdated: string
+  metaDescription?: string
+  content: string
+}

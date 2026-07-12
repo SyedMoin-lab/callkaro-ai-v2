@@ -9,6 +9,7 @@ import {
 } from "@/common/shadcnUI/avatar"
 import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
+import { AnimatedGridPattern } from "@/common/customUI/animatedGridPattern"
 
 import { params } from "./params"
 
@@ -16,13 +17,12 @@ function Hero() {
   return (
     <section className="dark relative flex min-h-[max(100svh,800px)] flex-col bg-background text-foreground">
       <div className="relative isolate flex flex-1 flex-col overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-background bg-[url(/images/hero/office.webp)] bg-cover bg-[position:65%_50%] md:bg-center"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-linear-to-r from-background via-background/75 to-background/10 [mask-image:radial-gradient(ellipse_60%_70%_at_70%_55%,transparent_30%,black_95%)]"
+        <AnimatedGridPattern
+          numSquares={40}
+          maxOpacity={0.25}
+          duration={3}
+          repeatDelay={1}
+          className="-z-10 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
         />
         <div
           aria-hidden

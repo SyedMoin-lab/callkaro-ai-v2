@@ -82,14 +82,6 @@ const PLATFORMS: Platform[] = [
     name: "Yelp",
     logo: { src: "/images/reviews/yelp.svg", width: 131, height: 53 },
   },
-  {
-    name: "Avvo",
-    logo: { src: "/images/reviews/avvo.svg", width: 73, height: 22 },
-  },
-  {
-    name: "Martindale",
-    logo: { src: "/images/reviews/martindale.svg", width: 437, height: 64 },
-  },
 ]
 
 export default ReviewsRow

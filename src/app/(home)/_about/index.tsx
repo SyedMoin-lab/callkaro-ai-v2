@@ -12,20 +12,18 @@ function About() {
   return (
     <section className="section-padding">
       <div className="container space-y-12 md:space-y-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2.6fr] md:gap-16">
-          <div>
-            <Badge variant="outline" size="lg">
-              <span className="size-1 rounded-full bg-foreground/40" />
-              {params.badge}
-              <span className="size-1 rounded-full bg-foreground/40" />
-            </Badge>
-          </div>
+        <div className="flex flex-col items-center gap-6 text-center">
+          <Badge variant="outline" size="lg">
+            <span className="size-1 rounded-full bg-foreground/40" />
+            {params.badge}
+            <span className="size-1 rounded-full bg-foreground/40" />
+          </Badge>
 
-          <div>
+          <div className="max-w-3xl">
             <h2 className="text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl lg:text-6xl">
               {params.heading}
             </h2>
-            <p className="mt-8 max-w-3xl text-base text-muted-foreground">
+            <p className="mt-8 text-base text-muted-foreground">
               {params.body}
             </p>
             <Link

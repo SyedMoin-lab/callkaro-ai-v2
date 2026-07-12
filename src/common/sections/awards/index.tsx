@@ -18,12 +18,6 @@ const AWARDS = [
     image: "/images/awards/01-chambers.webp",
   },
   {
-    id: "producthunt",
-    title: "Product Hunt, #1 Product of the Day",
-    year: 2024,
-    image: "/images/awards/02-legal500.webp",
-  },
-  {
     id: "deloitte",
     title: "Deloitte Technology Fast 50, Rising Company",
     year: 2025,

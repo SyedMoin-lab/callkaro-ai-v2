@@ -6,7 +6,7 @@ export const params = {
   },
   body: "CallKaro AI delivers 24/7 AI Voice agents for your business so that it stays responsive and never miss a call, lead, or opportunity",
   ctaPrimary: { label: "Get started", href: "/contact-us" },
-  ctaSecondary: { label: "See how it works", href: "#practice-areas" },
+  ctaSecondary: { label: "See how it works", href: "#capabilities" },
   bottomBar: {
     text: "Never miss another call.",
     scrollLabel: "Scroll to explore",

@@ -52,6 +52,12 @@ const LINK_GROUPS = [
   },
 ]
 
+const LEGAL_LINKS = [
+  { title: "Privacy Policy", href: "/privacy-policy" },
+  { title: "Terms & Conditions", href: "/terms-conditions" },
+  { title: "Return & Refund Policy", href: "/return-refund-policy" },
+]
+
 const SOCIAL_LINKS = [
   {
     label: "X",
@@ -136,10 +142,21 @@ function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-foreground/12 py-6">
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-foreground/12 py-6">
             <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
               © {new Date().getFullYear()} CallKaro AI, All rights reserved
             </span>
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+              {LEGAL_LINKS.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-foreground duration-150"
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </nav>
             <div className="order-first flex flex-wrap justify-center gap-6 text-sm md:order-last">
               {SOCIAL_LINKS.map((s) => (
                 <a

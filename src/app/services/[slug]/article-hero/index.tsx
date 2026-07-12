@@ -53,7 +53,7 @@ function ServiceArticleHero({
                 strokeWidth: 1.5,
               })}
             </span>
-            Practice {frontmatter.id}
+            Capability {frontmatter.id}
           </div>
           <h1 className="mt-6 text-3xl leading-[1.05] font-light tracking-tight md:text-5xl lg:text-[3.5rem]">
             {frontmatter.name}.
@@ -111,7 +111,7 @@ function SidebarCard({ frontmatter }: { frontmatter: ServiceFrontmatter }) {
       </div>
 
       <div className="border-t pt-5">
-        <div className="text-xs text-muted-foreground">Lead partner</div>
+        <div className="text-xs text-muted-foreground">Capability lead</div>
         <div className="mt-2 text-base font-light text-foreground">
           {frontmatter.partner.name}
         </div>
@@ -121,7 +121,7 @@ function SidebarCard({ frontmatter }: { frontmatter: ServiceFrontmatter }) {
       </div>
 
       <div className="border-t pt-5">
-        <div className="text-xs text-muted-foreground">Representative case</div>
+        <div className="text-xs text-muted-foreground">Customer story</div>
         <div className="mt-3 text-sm leading-snug font-light text-foreground">
           {frontmatter.representativeCase.title}
         </div>

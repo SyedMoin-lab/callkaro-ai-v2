@@ -30,7 +30,7 @@ function Services() {
     .join(" ")
 
   return (
-    <section id="practice-areas" className="section-padding">
+    <section id="capabilities" className="section-padding">
       <div className="container">
         <SectionHeader
           badge={params.badge}

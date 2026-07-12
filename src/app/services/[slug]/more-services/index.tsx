@@ -18,7 +18,7 @@ function MoreServices({ services }: { services: ServiceFrontmatter[] }) {
       <div className="container">
         <div className="flex items-baseline justify-between gap-4">
           <h2 className="text-2xl leading-tight font-light tracking-tight md:text-3xl">
-            Other practices.
+            Other capabilities.
           </h2>
           <Link
             href="/services"

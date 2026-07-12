@@ -18,7 +18,7 @@ function BlogHero() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-lg text-base text-muted-foreground md:text-lg">
-          Practice notes, product updates, and playbooks on getting the most
+          Field notes, product updates, and playbooks on getting the most
           out of your AI voice agent.
         </p>
 

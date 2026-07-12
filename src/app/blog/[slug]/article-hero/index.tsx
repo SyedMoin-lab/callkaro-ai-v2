@@ -117,7 +117,7 @@ function ServicesAside({ services }: { services: ServiceFrontmatter[] }) {
   return (
     <div className="rounded-xl bg-muted/50 p-6 md:p-7">
       <div className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
-        Practices
+        Services
       </div>
       <h2 className="mt-3 text-xl leading-tight font-light tracking-tight md:text-2xl">
         How we work.
@@ -153,7 +153,7 @@ function ServicesAside({ services }: { services: ServiceFrontmatter[] }) {
         href="/services"
         className="group/all mt-5 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
-        View all practices
+        View all services
         <MoveUpRight className="size-3.5 transition-transform group-hover/all:translate-x-0.5 group-hover/all:-translate-y-0.5" />
       </Link>
     </div>

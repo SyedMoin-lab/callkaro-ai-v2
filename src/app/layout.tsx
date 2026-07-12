@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
 
 import "./globals.css"
 
-const SITE_URL = "https://verdict-nextjs-template.vercel.app"
+const SITE_URL = "https://callkaro.ai"
 const SITE_NAME = "CallKaro AI"
 const SITE_TITLE = "CallKaro AI, AI voice agents for every business call"
 const SITE_DESCRIPTION =
