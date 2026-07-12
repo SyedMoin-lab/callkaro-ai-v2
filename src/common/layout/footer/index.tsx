@@ -1,7 +1,8 @@
 import { type ReactNode } from "react"
 import Link from "next/link"
 
-import { CallKaroLogo } from "@/common/layout/logo"
+import { Marquee } from "@/common/customUI/marquee"
+import { CompanyLogos } from "@/common/icons/companies"
 import {
   OFFICES,
   PRIMARY_OFFICE,
@@ -32,58 +33,90 @@ const CONTACT_LINKS = [
 
 function Footer() {
   return (
-    <footer className="dark bg-background pt-16 pb-10 text-foreground md:pt-24 md:pb-14">
-      <div className="container">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1.1fr_1fr] lg:gap-10">
-          <div className="flex flex-col gap-5">
-            <Link href="/" className="flex w-fit items-center gap-2.5">
-              <CallKaroLogo className="size-8 text-accent" />
-              <span className="text-xl font-semibold tracking-tight">
-                CallKaro AI
-              </span>
-            </Link>
-            <p className="max-w-xs text-sm leading-relaxed text-foreground/60">
-              {STATEMENT}
-            </p>
+    <footer>
+      <FooterPartners />
+
+      <div className="dark bg-background pt-16 pb-10 text-foreground md:pt-24 md:pb-14">
+        <div className="container">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1.1fr_1fr] lg:gap-10">
+            <div className="flex flex-col gap-5">
+              <Link href="/" className="flex w-fit items-center gap-2.5">
+                <span className="text-xl font-semibold tracking-tight">
+                  CallKaro AI
+                </span>
+              </Link>
+              <p className="max-w-xs text-sm leading-relaxed text-foreground/60">
+                {STATEMENT}
+              </p>
+            </div>
+
+            <FooterColumn label="Company">
+              <ul className="space-y-3 text-sm">
+                {FIRM_LINKS.map((l) => (
+                  <li key={l.label}>
+                    <FooterLink href={l.href}>{l.label}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </FooterColumn>
+
+            <FooterColumn label="Offices">
+              <ul className="space-y-5">
+                {OFFICES.map((o) => (
+                  <li key={o.city}>
+                    <p className="text-sm text-foreground/85">{o.city}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-foreground/45">
+                      {o.address.line1}, {o.address.line2}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </FooterColumn>
+
+            <FooterColumn label="Contact">
+              <ul className="space-y-3 text-sm">
+                {CONTACT_LINKS.map((l) => (
+                  <li key={l.label}>
+                    <FooterLink href={l.href}>{l.label}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </FooterColumn>
           </div>
 
-          <FooterColumn label="Company">
-            <ul className="space-y-3 text-sm">
-              {FIRM_LINKS.map((l) => (
-                <li key={l.label}>
-                  <FooterLink href={l.href}>{l.label}</FooterLink>
-                </li>
-              ))}
-            </ul>
-          </FooterColumn>
-
-          <FooterColumn label="Offices">
-            <ul className="space-y-5">
-              {OFFICES.map((o) => (
-                <li key={o.city}>
-                  <p className="text-sm text-foreground/85">{o.city}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-foreground/45">
-                    {o.address.line1}, {o.address.line2}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </FooterColumn>
-
-          <FooterColumn label="Contact">
-            <ul className="space-y-3 text-sm">
-              {CONTACT_LINKS.map((l) => (
-                <li key={l.label}>
-                  <FooterLink href={l.href}>{l.label}</FooterLink>
-                </li>
-              ))}
-            </ul>
-          </FooterColumn>
+          <Baseline />
         </div>
-
-        <Baseline />
       </div>
     </footer>
+  )
+}
+
+function FooterPartners() {
+  return (
+    <div className="rounded-t-[2.5rem] bg-muted/60 py-10 md:rounded-t-[3.5rem] md:py-14">
+      <div className="container flex flex-col items-center gap-8 text-center md:flex-row md:justify-between md:text-left">
+        <div className="min-w-0">
+          <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
+            Proud partners in innovation
+          </p>
+          <div className="mt-5 max-w-xl [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <Marquee pauseOnHover className="[--gap:3rem]">
+              <CompanyLogos />
+            </Marquee>
+          </div>
+        </div>
+
+        <div className="shrink-0">
+          <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
+            Trusted worldwide
+          </p>
+          <p className="mt-2 text-2xl font-light tracking-tight">
+            1,000+ businesses
+          </p>
+          <p className="text-sm text-muted-foreground">across 15+ countries</p>
+        </div>
+      </div>
+    </div>
   )
 }
 

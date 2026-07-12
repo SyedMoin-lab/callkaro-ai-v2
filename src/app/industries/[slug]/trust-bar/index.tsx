@@ -5,7 +5,7 @@ function TrustBar({ text }: { text: string }) {
   return (
     <section className="border-t py-10 md:py-12">
       <div className="container">
-        <p className="text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+        <p className="text-center font-mono text-xs wrap-break-word tracking-[0.2em] text-muted-foreground uppercase">
           {text}
         </p>
       </div>

@@ -11,7 +11,6 @@ import {
   useScroll,
 } from "motion/react"
 
-import { CallKaroLogo } from "@/common/layout/logo"
 import { Button } from "@/common/shadcnUI/button"
 import { useBannerVisibility } from "@/hooks/use-banner-visibility"
 import { resolveIndustryIcon } from "@/lib/industry-icons"
@@ -139,7 +138,6 @@ function Navbar({
           >
             <div className="flex flex-1 items-center">
               <Link href="/" className="flex items-center gap-2.5">
-                <CallKaroLogo className="size-9" />
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
                 </span>
@@ -319,7 +317,6 @@ function Navbar({
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-2.5"
                 >
-                  <CallKaroLogo className="size-8" />
                   <span className="text-lg font-semibold tracking-tight">
                     CallKaro AI
                   </span>

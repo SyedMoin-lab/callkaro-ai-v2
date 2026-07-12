@@ -55,7 +55,7 @@ function FeatureCard({
   return (
     <div
       className={cn(
-        "group flex flex-col rounded-2xl border border-border bg-card p-6 ring-1 ring-foreground/5 transition-colors hover:border-accent/40",
+        "group flex min-w-0 flex-col rounded-2xl border border-border bg-card p-6 ring-1 ring-foreground/5 transition-colors hover:border-accent/40",
         wide && "lg:col-span-2 lg:p-8"
       )}
     >
@@ -66,7 +66,7 @@ function FeatureCard({
         })}
         <span
           className={cn(
-            "font-semibold tracking-tight text-foreground",
+            "wrap-break-word font-semibold tracking-tight text-foreground",
             wide ? "text-base" : "text-sm"
           )}
         >
@@ -76,7 +76,7 @@ function FeatureCard({
 
       <h3
         className={cn(
-          "mt-4 font-medium tracking-tight text-balance",
+          "mt-4 wrap-break-word font-medium tracking-tight text-balance",
           wide ? "text-2xl md:text-3xl" : "min-h-14 text-lg"
         )}
       >
@@ -84,7 +84,7 @@ function FeatureCard({
       </h3>
       <p
         className={cn(
-          "mt-2 leading-relaxed text-muted-foreground",
+          "mt-2 wrap-break-word leading-relaxed text-muted-foreground",
           wide ? "max-w-2xl text-base" : "text-sm"
         )}
       >

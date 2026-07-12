@@ -42,20 +42,6 @@ export const metadata: Metadata = {
   creator: "CallKaro AI",
   publisher: SITE_NAME,
   robots: { index: true, follow: true },
-  icons: {
-    icon: [
-      { url: "/favicon/favicon.ico", sizes: "48x48" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
-      {
-        url: "/favicon/favicon-96x96.png",
-        sizes: "96x96",
-        type: "image/png",
-      },
-    ],
-    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
-    shortcut: [{ url: "/favicon/favicon.ico" }],
-  },
-  manifest: "/favicon/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
