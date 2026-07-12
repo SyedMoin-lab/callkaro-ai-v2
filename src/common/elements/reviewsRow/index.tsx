@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
 
+import { Marquee } from "@/common/customUI/marquee"
 import { endorsements } from "@/common/sections/endorsements"
-import { Marquee } from "@/common/shadcnUI/marquee"
 import { cn } from "@/lib/utils"
 
 type Platform = {

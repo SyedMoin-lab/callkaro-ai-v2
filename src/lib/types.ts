@@ -62,6 +62,37 @@ export interface ServiceArticle {
   frontmatter: ServiceFrontmatter
 }
 
+export interface IndustryUseCase {
+  title: string
+  description: string
+}
+
+export interface IndustryTestimonial {
+  quote: string
+  author: string
+  role: string
+}
+
+export interface IndustryFrontmatter {
+  slug: string
+  id: string
+  name: string
+  tagline: string
+  description: string
+  /** Lucide icon name, resolved at render time via the icon map. */
+  icon: string
+  order: number
+  image: string
+  useCases: IndustryUseCase[]
+  testimonial: IndustryTestimonial
+}
+
+export interface IndustryArticle {
+  slug: string
+  content: string
+  frontmatter: IndustryFrontmatter
+}
+
 export interface BlogAuthor {
   name: string
   role: string
@@ -85,4 +116,13 @@ export interface BlogPost {
   slug: string
   content: string
   frontmatter: BlogFrontmatter
+}
+
+export interface FeatureItem {
+  label: string
+  icon: string
+  title: string
+  description: string
+  order?: number
+  wide?: boolean
 }

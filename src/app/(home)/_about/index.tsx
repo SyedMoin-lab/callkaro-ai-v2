@@ -1,15 +1,36 @@
 import Link from "next/link"
 
+import { NumberTicker } from "@/common/customUI/number-ticker"
 import ReviewsRow from "@/common/elements/reviewsRow"
 import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
 import { Separator } from "@/common/shadcnUI/separator"
 
 const stats = [
-  { value: "24/7", label: ["Calls answered", "day and night"] },
-  { value: "<3s", label: ["Average pickup", "on every call"] },
-  { value: "3x", label: ["More leads", "captured and booked"] },
-  { value: "60%", label: ["Lower cost", "than a call center"] },
+  {
+    number: 24,
+    prefix: "",
+    suffix: "/7",
+    label: ["Calls answered", "day and night"],
+  },
+  {
+    number: 3,
+    prefix: "<",
+    suffix: "s",
+    label: ["Average pickup", "on every call"],
+  },
+  {
+    number: 3,
+    prefix: "",
+    suffix: "x",
+    label: ["More leads", "captured and booked"],
+  },
+  {
+    number: 60,
+    prefix: "",
+    suffix: "%",
+    label: ["Lower cost", "than a call center"],
+  },
 ]
 
 function About() {
@@ -74,9 +95,14 @@ function About() {
           <div className="flex min-w-0 flex-col justify-end gap-10">
             <ul className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4">
               {stats.map((s) => (
-                <li key={s.value}>
-                  <p className="text-4xl font-medium tracking-tight md:text-5xl">
-                    {s.value}
+                <li key={s.label[0]}>
+                  <p className="flex items-baseline text-4xl font-medium tracking-tight md:text-5xl">
+                    {s.prefix}
+                    <NumberTicker
+                      value={s.number}
+                      className="text-4xl font-medium tracking-tight text-foreground md:text-5xl"
+                    />
+                    {s.suffix}
                   </p>
                   <p className="mt-3 text-sm leading-snug text-muted-foreground">
                     {s.label[0]}

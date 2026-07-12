@@ -1,19 +1,20 @@
+import ReactMarkdown from "react-markdown"
 import { notFound } from "next/navigation"
-import { compileMDX } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 
 import {
   getAllCaseStudies,
   getCaseStudyBySlug,
   getCaseStudySlugs,
 } from "@/lib/case-studies"
-import type { CaseStudyFrontmatter } from "@/lib/types"
 
 import CaseStudyArticleHero from "./article-hero"
 import CaseStudyTestimonialCard from "./testimonial"
 import YouAlsoMightLike from "./you-also-might-like"
 
 export const dynamic = "force-static"
-export const dynamicParams = false
+export const dynamicParams = true
+export const revalidate = 60
 
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs()
@@ -41,11 +42,6 @@ export default async function CaseStudyPage({
       ? all[(currentIndex + 1) % all.length]
       : null
 
-  const { content } = await compileMDX<CaseStudyFrontmatter>({
-    source: study.content,
-    options: { parseFrontmatter: true },
-  })
-
   return (
     <>
       <CaseStudyArticleHero frontmatter={study.frontmatter}>
@@ -57,7 +53,9 @@ export default async function CaseStudyPage({
             "prose-a:text-foreground prose-a:decoration-foreground/30 prose-a:underline-offset-4 hover:prose-a:decoration-foreground",
           ].join(" ")}
         >
-          {content}
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {study.content}
+          </ReactMarkdown>
         </div>
 
         {study.frontmatter.testimonial && (

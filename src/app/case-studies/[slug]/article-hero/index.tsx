@@ -67,12 +67,10 @@ function CaseStudyArticleHero({
               />
             </figure>
 
-            {children && (
-              <div className="mt-14 max-w-2xl md:mt-20">{children}</div>
-            )}
+            {children && <div className="mt-14 md:mt-20">{children}</div>}
           </div>
 
-          <aside>
+          <aside className="lg:sticky lg:top-24">
             <CtaCard />
           </aside>
         </div>

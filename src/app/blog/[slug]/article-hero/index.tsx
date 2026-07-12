@@ -99,9 +99,7 @@ function BlogArticleHero({
               />
             </figure>
 
-            {children && (
-              <div className="mt-12 max-w-2xl md:mt-16">{children}</div>
-            )}
+            {children && <div className="mt-12 md:mt-16">{children}</div>}
           </div>
 
           <aside className="lg:sticky lg:top-24">

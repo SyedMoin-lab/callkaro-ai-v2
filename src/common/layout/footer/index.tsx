@@ -15,6 +15,7 @@ const STATEMENT =
 const FIRM_LINKS = [
   { label: "About", href: "/about-us" },
   { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
   { label: "Case studies", href: "/case-studies" },

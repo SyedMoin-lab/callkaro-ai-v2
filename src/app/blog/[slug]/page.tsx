@@ -1,15 +1,16 @@
+import ReactMarkdown from "react-markdown"
 import { notFound } from "next/navigation"
-import { compileMDX } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/blog"
 import { getAllServices } from "@/lib/services"
-import type { BlogFrontmatter } from "@/lib/types"
 
 import BlogArticleHero from "./article-hero"
 import MorePosts from "./more-posts"
 
 export const dynamic = "force-static"
-export const dynamicParams = false
+export const dynamicParams = true
+export const revalidate = 60
 
 export async function generateStaticParams() {
   const slugs = await getPostSlugs()
@@ -34,11 +35,6 @@ export default async function BlogPostPage({
 
   const others = all.filter((p) => p.slug !== slug).slice(0, 3)
 
-  const { content } = await compileMDX<BlogFrontmatter>({
-    source: post.content,
-    options: { parseFrontmatter: true },
-  })
-
   return (
     <>
       <BlogArticleHero frontmatter={post.frontmatter} services={services}>
@@ -50,7 +46,9 @@ export default async function BlogPostPage({
             "prose-a:text-foreground prose-a:decoration-foreground/30 prose-a:underline-offset-4 hover:prose-a:decoration-foreground",
           ].join(" ")}
         >
-          {content}
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {post.content}
+          </ReactMarkdown>
         </div>
       </BlogArticleHero>
 
