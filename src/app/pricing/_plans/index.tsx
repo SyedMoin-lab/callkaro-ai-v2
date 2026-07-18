@@ -19,15 +19,13 @@ type Plan = {
 
 const PLANS: Plan[] = [
   {
-    name: "Starter",
+    name: "Fixed Pricing",
     price: "₹10,000",
     period: "/month",
     description:
-      "Perfect for small businesses just getting started with AI call management.",
+      "A predictable flat monthly fee — ideal when you know your call volume and want costs locked in.",
     features: [
-      "Up to 1,000 minutes",
-      "1 Phone Number",
-      "Up to 5 Agents",
+      "Access to gpt-4.1-mini",
       "Post-call analysis (summary & sentiment)",
       "Batch calling",
       "Knowledge base access",
@@ -38,35 +36,32 @@ const PLANS: Plan[] = [
     cta: { label: "Get Started", href: "/sign-up" },
   },
   {
-    name: "Growth",
-    price: "₹30,000",
-    period: "/month",
+    name: "Consumption Based Pricing",
+    price: "₹5",
+    period: "/min",
     description:
-      "Ideal for growing businesses with moderate call volumes and advanced needs.",
+      "Pay only for connected calls. Perfect for variable volumes — you're never billed for unanswered attempts.",
     features: [
-      "Up to 4,000 minutes",
-      "Up to 3 Phone Numbers",
-      "Up to 20 Agents",
-      "All Starter features plus...",
-      "CRM integrations (LeadSquared, Zoho CRM, HubSpot)",
-      "Team roles & permissions",
-      "API access",
-      "Call scheduling",
-      "Custom retry logic on batch calls",
-      "WhatsApp group support",
+      "Billed only for connected calls",
+      "Post-call analysis (summary & sentiment)",
+      "Batch calling",
+      "Knowledge base access",
+      "Call transfer",
+      "Voice mail detection",
+      "Email support",
     ],
-    cta: { label: "Try Growth Plan", href: "/sign-up" },
+    cta: { label: "Start Pay-as-you-go", href: "/sign-up" },
+    secondaryLink: { label: "Compare to a human agent", href: "#calculator" },
     popular: true,
   },
   {
     name: "Enterprise",
     price: "Custom",
-    description: "For teams interested in the white-glove treatment.",
+    description:
+      "For teams that need scale, white-glove support, and deeper integrations.",
     features: [
-      "Custom minutes",
-      "Custom phone numbers",
-      "Custom agents",
-      "All Growth features plus...",
+      "Custom minutes & pricing",
+      "Everything in Fixed & Consumption, plus...",
       "Truecaller number verification",
       "WhatsApp chatbot",
       "On-site / in-office support",
@@ -75,7 +70,6 @@ const PLANS: Plan[] = [
       "Custom Telephony Integration",
     ],
     cta: { label: "Contact Sales", href: "/contact-us" },
-    secondaryLink: { label: "Try the cost calculator", href: "#calculator" },
   },
 ]
 

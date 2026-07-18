@@ -6,216 +6,130 @@ import { ArrowRight } from "lucide-react"
 
 import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
-import { Checkbox } from "@/common/shadcnUI/checkbox"
-import { RadioGroup, RadioGroupItem } from "@/common/shadcnUI/radioGroup"
 import { Slider } from "@/common/shadcnUI/slider"
 
 // ── Model ────────────────────────────────────────────────────────
-// "With CallKaro AI" is your real plan price (Starter/Growth) or a
-// clearly-labelled Scale estimate. The other two cards are typical
-// market minimums, shown so people see what they'd save with us.
-const STARTER = { price: 10_000, minutes: 1_000 }
-const GROWTH = { price: 30_000, minutes: 4_000 }
-const SCALE_PER_MINUTE = 6 // beyond Growth's 4,000 min → custom estimate
+// Replacement cost of a human agent, from real assumptions:
+//   ₹30,000 salary · 25 working days · 150 min/day → 3,750 min/mo → ₹8/min
+// CallKaro AI: ₹5/min, and only for connected calls.
+const HUMAN = { salary: 30_000, days: 25, minsPerDay: 150 }
+const HUMAN_MINS_PER_MONTH = HUMAN.days * HUMAN.minsPerDay // 3,750
+const HUMAN_PER_MIN = HUMAN.salary / HUMAN_MINS_PER_MONTH // ₹8
+const PLATFORM_PER_MIN = 5
 
-const ADDONS = [
-  { key: "crm", label: "CRM integrations", price: 4_000 },
-  { key: "truecaller", label: "Truecaller verified numbers", price: 3_000 },
-  { key: "whatsapp", label: "WhatsApp chatbot", price: 3_500 },
-] as const
-
-// Outbound / both are more labour-intensive the old way → bigger savings.
-const COMPETITORS: Record<string, { centre: number; vendor: number; note: string }> = {
-  inbound: { centre: 2.6, vendor: 1.6, note: "inbound support" },
-  outbound: { centre: 3.0, vendor: 1.8, note: "outbound campaigns" },
-  both: { centre: 3.3, vendor: 1.9, note: "inbound + outbound" },
-}
-
-const CALL_TYPES = [
-  { value: "inbound", label: "Inbound calls" },
-  { value: "outbound", label: "Outbound calls" },
-  { value: "both", label: "Inbound + Outbound" },
-]
-
-const ANNUAL_FREE_MONTHS = 2
-const MAX_MINUTES = 12_000
+const MIN_MINUTES = 500
+const MAX_MINUTES = 20_000
 
 function inr(value: number) {
   return "₹" + Math.round(value).toLocaleString("en-IN")
 }
 
-function round100(value: number) {
-  return Math.round(value / 100) * 100
-}
-
-function planPrice(minutes: number) {
-  if (minutes <= STARTER.minutes) return { price: STARTER.price, custom: false }
-  if (minutes <= GROWTH.minutes) return { price: GROWTH.price, custom: false }
-  const price = GROWTH.price + (minutes - GROWTH.minutes) * SCALE_PER_MINUTE
-  return { price, custom: true }
-}
-
 export default function Calculator() {
-  const [callType, setCallType] = useState("both")
-  const [minutes, setMinutes] = useState(2_000)
-  const [addons, setAddons] = useState<Record<string, boolean>>({})
-  const [billing, setBilling] = useState("monthly")
+  const [minutes, setMinutes] = useState(HUMAN_MINS_PER_MONTH)
 
   const result = useMemo(() => {
-    const plan = planPrice(minutes)
-    const addonTotal = ADDONS.reduce(
-      (sum, a) => sum + (addons[a.key] ? a.price : 0),
-      0
-    )
-    const base = plan.price + addonTotal
-    const displayed =
-      billing === "annual" ? (base * (12 - ANNUAL_FREE_MONTHS)) / 12 : base
-
-    const factors = COMPETITORS[callType] ?? COMPETITORS.both
-    const centre = round100(base * factors.centre)
-    const vendor = round100(base * factors.vendor)
-
+    const human = minutes * HUMAN_PER_MIN
+    const platform = minutes * PLATFORM_PER_MIN
+    const agents = Math.max(1, Math.round(minutes / HUMAN_MINS_PER_MONTH))
     return {
-      custom: plan.custom,
-      displayed,
-      centre,
-      vendor,
-      saving: centre - displayed,
-      note: factors.note,
+      human,
+      platform,
+      agents,
+      saving: human - platform,
+      savingPct: Math.round(((human - platform) / human) * 100),
     }
-  }, [callType, minutes, addons, billing])
+  }, [minutes])
 
   return (
     <section id="calculator" className="scroll-mt-24 pb-24 md:pb-32">
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
-            Try the cost calculator
+            Replacement cost calculator
           </p>
           <h2 className="mt-4 text-3xl leading-tight font-light tracking-tight text-balance md:text-4xl">
-            Get premium AI calling within your budget
+            What a human agent costs you vs CallKaro AI
           </h2>
+          <p className="mt-4 text-balance text-muted-foreground md:text-lg">
+            A human agent runs about {inr(HUMAN_PER_MIN)}/min. CallKaro AI is{" "}
+            {inr(PLATFORM_PER_MIN)}/min — and only for connected calls.
+          </p>
         </div>
 
         <div className="mx-auto mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-xs ring-1 ring-foreground/5">
           <div className="grid lg:grid-cols-2">
             {/* Inputs */}
             <div className="border-b border-border p-6 md:p-8 lg:border-r lg:border-b-0">
-              <Fieldset label="What are you automating?">
-                <RadioGroup
-                  value={callType}
-                  onValueChange={setCallType}
-                  className="gap-2.5"
-                >
-                  {CALL_TYPES.map((option) => (
-                    <label
-                      key={option.value}
-                      htmlFor={`ct-${option.value}`}
-                      className="flex cursor-pointer items-center gap-3 text-sm"
-                    >
-                      <RadioGroupItem id={`ct-${option.value}`} value={option.value} />
-                      {option.label}
-                    </label>
-                  ))}
-                </RadioGroup>
-              </Fieldset>
-
-              <Fieldset label="Monthly call minutes" className="mt-8">
+              <Fieldset label="Monthly call minutes">
                 <div className="flex items-baseline justify-between">
                   <span className="text-2xl font-light tracking-tight tabular-nums text-accent">
                     {minutes.toLocaleString("en-IN")}
                     {minutes >= MAX_MINUTES ? "+" : ""}
                   </span>
+                  <span className="text-sm text-muted-foreground">
+                    ≈ {result.agents} human agent
+                    {result.agents > 1 ? "s" : ""}
+                  </span>
                 </div>
                 <Slider
                   className="mt-3"
                   value={[minutes]}
-                  min={100}
+                  min={MIN_MINUTES}
                   max={MAX_MINUTES}
                   step={100}
                   onValueChange={([v]) => setMinutes(v)}
                   aria-label="Monthly call minutes"
                 />
                 <div className="mt-2 flex justify-between text-xs text-muted-foreground">
-                  <span>100</span>
+                  <span>{MIN_MINUTES.toLocaleString("en-IN")}</span>
                   <span>{MAX_MINUTES.toLocaleString("en-IN")}</span>
                 </div>
               </Fieldset>
 
-              <Fieldset label="Add-ons" className="mt-8">
-                <div className="space-y-3">
-                  {ADDONS.map((addon) => (
-                    <label
-                      key={addon.key}
-                      htmlFor={`addon-${addon.key}`}
-                      className="flex cursor-pointer items-center justify-between gap-3 text-sm"
-                    >
-                      <span className="flex items-center gap-3">
-                        <Checkbox
-                          id={`addon-${addon.key}`}
-                          checked={!!addons[addon.key]}
-                          onCheckedChange={(checked) =>
-                            setAddons((prev) => ({
-                              ...prev,
-                              [addon.key]: checked === true,
-                            }))
-                          }
-                        />
-                        {addon.label}
-                      </span>
-                      <span className="whitespace-nowrap text-accent">
-                        +{inr(addon.price)}/mo
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </Fieldset>
-
-              <Fieldset label="Billing" className="mt-8">
-                <RadioGroup
-                  value={billing}
-                  onValueChange={setBilling}
-                  className="gap-2.5"
-                >
-                  <label
-                    htmlFor="billing-monthly"
-                    className="flex cursor-pointer items-center gap-3 text-sm"
-                  >
-                    <RadioGroupItem id="billing-monthly" value="monthly" />
-                    Monthly
-                  </label>
-                  <label
-                    htmlFor="billing-annual"
-                    className="flex cursor-pointer items-center justify-between gap-3 text-sm"
-                  >
-                    <span className="flex items-center gap-3">
-                      <RadioGroupItem id="billing-annual" value="annual" />
-                      Annual
+              <div className="mt-8 rounded-xl bg-muted/40 p-5 ring-1 ring-border">
+                <p className="text-sm font-medium">How we get to {inr(HUMAN_PER_MIN)}/min</p>
+                <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
+                  <li className="flex justify-between gap-3">
+                    <span>Monthly salary</span>
+                    <span className="tabular-nums text-foreground/80">
+                      {inr(HUMAN.salary)}
                     </span>
-                    <span className="whitespace-nowrap text-accent">Save 17%</span>
-                  </label>
-                </RadioGroup>
-              </Fieldset>
+                  </li>
+                  <li className="flex justify-between gap-3">
+                    <span>Working days</span>
+                    <span className="tabular-nums text-foreground/80">
+                      {HUMAN.days}
+                    </span>
+                  </li>
+                  <li className="flex justify-between gap-3">
+                    <span>Talk-time per day</span>
+                    <span className="tabular-nums text-foreground/80">
+                      {HUMAN.minsPerDay} min
+                    </span>
+                  </li>
+                  <li className="flex justify-between gap-3 border-t border-border pt-1.5">
+                    <span>= {HUMAN_MINS_PER_MONTH.toLocaleString("en-IN")} min/month</span>
+                    <span className="tabular-nums font-medium text-foreground">
+                      {inr(HUMAN_PER_MIN)}/min
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Estimated cost */}
             <div className="p-6 md:p-8">
               <h3 className="text-xl font-medium tracking-tight">Estimated Cost</h3>
               <p className="mt-1.5 text-sm text-muted-foreground">
-                An instant estimate for {result.note}. See how much you save
-                with CallKaro AI.
+                Monthly cost for {minutes.toLocaleString("en-IN")} minutes of
+                calling.
               </p>
 
               <div className="mt-6 space-y-4">
                 <CompareCard
-                  label="Traditional call centre charges from"
-                  amount={inr(result.centre)}
-                  note="Salaries, training, attrition & overhead"
-                />
-                <CompareCard
-                  label="Other AI voice platforms charge from"
-                  amount={inr(result.vendor)}
-                  note="Metered per-minute billing adds up fast"
+                  label="Human agent(s)"
+                  amount={inr(result.human)}
+                  note={`${inr(HUMAN_PER_MIN)}/min · salaries, training & overhead`}
                 />
 
                 {/* Highlight */}
@@ -227,21 +141,20 @@ export default function Calculator() {
                     </Badge>
                   </div>
                   <p className="mt-1 text-3xl font-semibold tracking-tight tabular-nums md:text-4xl">
-                    {inr(result.displayed)}
-                    <span className="text-base font-normal">
-                      /mo{result.custom ? " est." : ""}
-                    </span>
+                    {inr(result.platform)}
+                    <span className="text-base font-normal">/mo</span>
                   </p>
                   <p className="mt-1 text-sm text-accent-foreground/80">
-                    Save {inr(result.saving)}/mo, plus the time and headache.
+                    {inr(PLATFORM_PER_MIN)}/min, connected calls only — save{" "}
+                    {inr(result.saving)}/mo ({result.savingPct}%).
                   </p>
                   <Button
                     size="lg"
                     className="mt-4 w-full bg-foreground text-background hover:bg-foreground/90"
                     asChild
                   >
-                    <Link href={result.custom ? "/contact-us" : "/sign-up"}>
-                      {result.custom ? "Contact Sales" : "Get Started"}
+                    <Link href="/sign-up">
+                      Get Started
                       <ArrowRight />
                     </Link>
                   </Button>
@@ -249,9 +162,9 @@ export default function Calculator() {
               </div>
 
               <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                Call-centre and vendor figures are typical market minimums, shown
-                for comparison. Scale usage is custom, so talk to sales for
-                exact pricing.
+                Human-agent figures are based on a ₹30,000/month salary across
+                25 working days at 150 talk-minutes per day. Actual savings
+                vary with your connect rate and call volume.
               </p>
             </div>
           </div>

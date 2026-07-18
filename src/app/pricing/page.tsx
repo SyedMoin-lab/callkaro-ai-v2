@@ -6,7 +6,7 @@ import Plans from "./_plans"
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Flexible CallKaro AI pricing across Starter, Growth, and Scale plans. Use the real-time calculator to estimate your monthly cost.",
+    "CallKaro AI pricing: Fixed, Consumption Based, and Enterprise plans. See how much you save versus a human agent with the replacement cost calculator.",
 }
 
 export default function PricingPage() {
