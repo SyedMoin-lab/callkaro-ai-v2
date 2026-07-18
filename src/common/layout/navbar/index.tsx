@@ -294,7 +294,7 @@ function Navbar({
           <nav
             ref={navRef}
             className={cn(
-              "grid grid-cols-[1fr_auto_1fr] items-center gap-6 rounded-xl border transition-all duration-300",
+              "grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-6 rounded-xl border transition-all duration-300",
               scrolled
                 ? "bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl sm:px-5"
                 : "border-transparent bg-transparent py-5 shadow-none"
@@ -309,7 +309,7 @@ function Navbar({
             </div>
 
             <ul
-              className="hidden items-center gap-6 md:flex lg:gap-8"
+              className="hidden items-center gap-5 md:flex lg:gap-6"
               onMouseLeave={() => setHovered(null)}
             >
               {[
