@@ -281,7 +281,7 @@ function Navbar({
         <div
           className={cn(
             "container transition-[max-width] duration-300",
-            scrolled && "max-w-6xl"
+            scrolled && "max-w-7xl"
           )}
         >
           <nav
@@ -302,7 +302,7 @@ function Navbar({
             </div>
 
             <ul
-              className="hidden items-center gap-9 md:flex"
+              className="hidden items-center gap-6 md:flex lg:gap-8"
               onMouseLeave={() => setHovered(null)}
             >
               {navItems.map((item) => {
@@ -327,7 +327,7 @@ function Navbar({
                         aria-haspopup="true"
                         aria-expanded={productsOpen}
                         className={cn(
-                          "relative flex items-center gap-1 text-sm transition-colors hover:text-foreground",
+                          "relative flex items-center gap-1 text-sm whitespace-nowrap transition-colors hover:text-foreground",
                           active ? "text-foreground" : "text-foreground/75"
                         )}
                       >
@@ -508,7 +508,7 @@ function Navbar({
                         aria-haspopup="true"
                         aria-expanded={industriesOpen}
                         className={cn(
-                          "relative flex items-center gap-1 text-sm transition-colors hover:text-foreground",
+                          "relative flex items-center gap-1 text-sm whitespace-nowrap transition-colors hover:text-foreground",
                           active ? "text-foreground" : "text-foreground/75"
                         )}
                       >
@@ -587,7 +587,7 @@ function Navbar({
                       onMouseEnter={() => setHovered(item.href)}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "relative text-sm transition-colors hover:text-foreground",
+                        "relative text-sm whitespace-nowrap transition-colors hover:text-foreground",
                         active ? "text-foreground" : "text-foreground/75"
                       )}
                     >
