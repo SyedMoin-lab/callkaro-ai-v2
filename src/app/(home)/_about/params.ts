@@ -1,7 +1,7 @@
 export const params = {
   badge: "About Us",
-  heading: "Voice AI that never sleeps",
-  body: "Instant pickup, every caller heard, every lead captured.",
+  heading: "Voice AI agents that never miss a call",
+  body: "They pick up instantly, understand every caller, and book appointments automatically — so every lead is captured, day or night.",
   learnMore: { label: "Learn more", href: "/about-us" },
   card: {
     image: "/images/about/team.webp",
