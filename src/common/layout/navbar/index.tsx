@@ -54,6 +54,13 @@ const navItems = [
   { label: "Blog", href: "/blog" },
 ]
 
+// Rendered in the middle of the desktop nav so the brand sits centered
+// between the two halves of the menu. Matched by reference in the map.
+const BRAND_SENTINEL: (typeof navItems)[number] = {
+  label: "__brand__",
+  href: "/",
+}
+
 const productsCategories = [
   { label: "Cloud Phone System", icon: Phone, active: true },
   { label: "Messaging", icon: MessageSquare },
@@ -294,7 +301,7 @@ function Navbar({
             )}
           >
             <div className="flex flex-1 items-center">
-              <Link href="/" className="flex items-center gap-2.5">
+              <Link href="/" className="flex items-center gap-2.5 md:hidden">
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
                 </span>
@@ -305,7 +312,24 @@ function Navbar({
               className="hidden items-center gap-6 md:flex lg:gap-8"
               onMouseLeave={() => setHovered(null)}
             >
-              {navItems.map((item) => {
+              {[
+                ...navItems.slice(0, 4),
+                BRAND_SENTINEL,
+                ...navItems.slice(4),
+              ].map((item) => {
+                if (item === BRAND_SENTINEL) {
+                  return (
+                    <li key="brand" className="mx-1 shrink-0">
+                      <Link
+                        href="/"
+                        className="text-lg font-semibold tracking-tight whitespace-nowrap"
+                      >
+                        CallKaro AI
+                      </Link>
+                    </li>
+                  )
+                }
+
                 const active = isActive(item.href)
                 const highlighted = (hovered ?? activeHref) === item.href
 
