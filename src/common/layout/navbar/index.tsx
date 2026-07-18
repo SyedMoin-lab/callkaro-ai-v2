@@ -294,13 +294,13 @@ function Navbar({
           <nav
             ref={navRef}
             className={cn(
-              "flex items-center gap-6 rounded-xl border transition-all duration-300",
+              "grid grid-cols-[1fr_auto_1fr] items-center gap-6 rounded-xl border transition-all duration-300",
               scrolled
                 ? "bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl sm:px-5"
                 : "border-transparent bg-transparent py-5 shadow-none"
             )}
           >
-            <div className="flex flex-1 items-center">
+            <div className="flex items-center">
               <Link href="/" className="flex items-center gap-2.5 md:hidden">
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
@@ -634,7 +634,7 @@ function Navbar({
               })}
             </ul>
 
-            <div className="flex flex-1 items-center justify-end gap-2">
+            <div className="flex items-center justify-end gap-2">
               <ThemeToggle />
               <Button size="lg" className="hidden md:inline-flex" asChild>
                 <Link href="/contact-us">Book Free Consultation</Link>
