@@ -4,7 +4,7 @@ export const params = {
   description:
     "Power your customer interactions with best-in-class capabilities that drive real business outcomes.",
   hoverHint: {
-    desktop: "Hover to preview. Click to select.",
+    desktop: "Auto-playing. Hover to pause, click to select.",
     mobile: "Tap to select.",
   },
   // TODO: images are placeholders reused from the old template; the user will change them later.

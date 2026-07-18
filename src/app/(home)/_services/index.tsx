@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { MoveUpRight, Plus } from "lucide-react"
@@ -22,9 +22,19 @@ const EASE_LAYOUT = "cubic-bezier(0, 0, 0.2, 1)"
 
 function Services() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [hoverIndex, setHoverIndex] = useState<number | null>(null)
+  const [paused, setPaused] = useState(false)
 
-  const shownIndex = hoverIndex ?? activeIndex
+  // Auto-cycle: open each panel in turn, advancing every 5s. Pauses while the
+  // user is interacting so a manual selection isn't yanked away.
+  useEffect(() => {
+    if (paused) return
+    const id = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % services.length)
+    }, 5000)
+    return () => clearInterval(id)
+  }, [paused])
+
+  const shownIndex = activeIndex
   const gridTemplate = services
     .map((_, i) => (i === shownIndex ? "3fr" : "1fr"))
     .join(" ")
@@ -54,7 +64,8 @@ function Services() {
               gridTemplateColumns: gridTemplate,
               transitionTimingFunction: EASE_LAYOUT,
             }}
-            onMouseLeave={() => setHoverIndex(null)}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
           >
             {services.map((s, i) => {
               const isActive = i === activeIndex
@@ -70,9 +81,11 @@ function Services() {
                     aria-selected={isActive}
                     aria-label={`Volume ${s.roman}: ${s.title}`}
                     onClick={() => setActiveIndex(i)}
-                    onMouseEnter={() => setHoverIndex(i)}
-                    onFocus={() => setHoverIndex(i)}
-                    onBlur={() => setHoverIndex(null)}
+                    onFocus={() => {
+                      setPaused(true)
+                      setActiveIndex(i)
+                    }}
+                    onBlur={() => setPaused(false)}
                     className="relative block size-full text-left focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:outline-none focus-visible:ring-inset"
                   >
                     <span
@@ -115,10 +128,6 @@ function Services() {
 
                       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-180 text-sm font-light tracking-[0.25em] whitespace-nowrap text-foreground/90 uppercase [writing-mode:vertical-rl] md:text-base">
                         {s.title}
-                      </span>
-
-                      <span className="absolute bottom-16 left-1/2 -translate-x-1/2 font-mono text-[0.625rem] tracking-widest text-foreground/40">
-                        CALLKARO &middot; {String(i + 1).padStart(2, "0")}
                       </span>
                     </span>
 
