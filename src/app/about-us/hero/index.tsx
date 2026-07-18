@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 import Eyebrow from "@/common/elements/eyebrow"
 import { cn } from "@/lib/utils"
 
-import { params as pageParams, type HeroCell as Cell } from "../params"
+import { type HeroCell as Cell,params as pageParams } from "../params"
 
 const params = pageParams.hero
 

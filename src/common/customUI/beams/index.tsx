@@ -1,13 +1,13 @@
 "use client"
 
 import {
+  type FC,
   forwardRef,
+  type ReactNode,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
-  type FC,
-  type ReactNode,
 } from "react"
 import { PerspectiveCamera } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
