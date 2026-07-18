@@ -622,8 +622,16 @@ function Navbar({
 
             <div className="flex items-center justify-end gap-2">
               <ThemeToggle />
-              <Button size="lg" className="hidden md:inline-flex" asChild>
+              <Button
+                variant="ghost"
+                size="lg"
+                className="hidden md:inline-flex"
+                asChild
+              >
                 <Link href="/login">Log in</Link>
+              </Button>
+              <Button size="lg" className="hidden md:inline-flex" asChild>
+                <Link href="/contact-us">Book Free Consultation</Link>
               </Button>
               <button
                 type="button"
