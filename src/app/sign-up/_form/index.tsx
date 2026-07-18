@@ -1,6 +1,7 @@
 "use client"
 
 import { type FormEvent, useCallback, useState } from "react"
+import Link from "next/link"
 import { CheckCircle2, Loader2, MoveUpRight } from "lucide-react"
 
 import { Button } from "@/common/shadcnUI/button"
@@ -238,6 +239,16 @@ export default function SignupForm() {
           )}
         </Button>
       </form>
+
+      <p className="mt-6 text-center text-sm text-muted-foreground">
+        Already have an account?{" "}
+        <Link
+          href="/login"
+          className="font-medium text-accent underline-offset-4 hover:underline"
+        >
+          Log in
+        </Link>
+      </p>
     </div>
   )
 }

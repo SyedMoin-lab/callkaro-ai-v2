@@ -300,13 +300,25 @@ function Navbar({
                 : "border-transparent bg-transparent py-5 shadow-none"
             )}
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-2.5 md:hidden">
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
                 </span>
               </Link>
               <ThemeToggle className="hidden md:grid" />
+              <Link
+                href="/login"
+                className="hidden text-sm text-foreground/75 transition-colors hover:text-foreground md:inline-flex"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/sign-up"
+                className="hidden text-sm text-foreground/75 transition-colors hover:text-foreground md:inline-flex"
+              >
+                Sign up
+              </Link>
             </div>
 
             <ul
@@ -834,7 +846,19 @@ function Navbar({
                 })}
               </ul>
 
-              <div className="mt-auto pt-8">
+              <div className="mt-auto space-y-3 pt-8">
+                <div className="grid grid-cols-2 gap-3">
+                  <Button size="lg" variant="secondary" asChild>
+                    <Link href="/login" onClick={() => setMenuOpen(false)}>
+                      Log in
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="secondary" asChild>
+                    <Link href="/sign-up" onClick={() => setMenuOpen(false)}>
+                      Sign up
+                    </Link>
+                  </Button>
+                </div>
                 <Button size="lg" className="w-full" asChild>
                   <Link href="/contact-us" onClick={() => setMenuOpen(false)}>
                     Book Free Consultation
