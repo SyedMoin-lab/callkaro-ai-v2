@@ -294,7 +294,7 @@ function Navbar({
           <nav
             ref={navRef}
             className={cn(
-              "grid grid-cols-[1fr_auto_1fr] items-center gap-6 rounded-xl border transition-all duration-300",
+              "flex items-center justify-between gap-6 rounded-xl border transition-all duration-300 md:grid md:grid-cols-[1fr_auto_1fr]",
               scrolled
                 ? "bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl sm:px-5"
                 : "border-transparent bg-transparent py-5 shadow-none"
