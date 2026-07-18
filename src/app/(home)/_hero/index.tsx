@@ -9,7 +9,7 @@ import {
 } from "@/common/shadcnUI/avatar"
 import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
-import { AnimatedGridPattern } from "@/common/customUI/animatedGridPattern"
+import { Beams } from "@/common/customUI/beams"
 
 import { params } from "./params"
 
@@ -17,20 +17,25 @@ function Hero() {
   return (
     <section className="dark relative flex min-h-[max(100svh,800px)] flex-col bg-background text-foreground">
       <div className="relative isolate flex flex-1 flex-col overflow-hidden">
-        <AnimatedGridPattern
-          numSquares={40}
-          maxOpacity={0.25}
-          duration={3}
-          repeatDelay={1}
-          className="-z-10 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
-        />
+        <div aria-hidden className="absolute inset-0 -z-10">
+          <Beams
+            beamWidth={2.5}
+            beamHeight={18}
+            beamNumber={15}
+            lightColor="#ffffff"
+            speed={2.5}
+            noiseIntensity={2}
+            scale={0.15}
+            rotation={43}
+          />
+        </div>
         <div
           aria-hidden
           className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-b from-transparent to-background"
         />
 
         <div className="container flex flex-1 flex-col">
-          <div className="hero-padding max-w-5xl">
+          <div className="hero-padding mx-auto flex max-w-5xl flex-col items-center text-center">
             <Badge variant="outline" size="lg">
               {params.badge}
             </Badge>
@@ -44,7 +49,7 @@ function Hero() {
               {params.body}
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Button size="lg" asChild>
                 <Link href={params.ctaPrimary.href}>
                   {params.ctaPrimary.label}
