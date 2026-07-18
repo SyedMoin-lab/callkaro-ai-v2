@@ -1,6 +1,9 @@
 export const params = {
   badge: "Our Process",
-  heading: "Five steps from first call to a live voice agent.",
+  heading: {
+    line1: "Five steps from first",
+    line2: "call to a live voice agent.",
+  },
   description:
     "Five steps to a working AI calling agent. The same team guides you from the first call to launch, and you can be live in days, not months.",
   phases: [

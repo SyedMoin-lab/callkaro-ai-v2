@@ -16,7 +16,13 @@ function CaseStudies({ cases }: { cases: CaseStudyFrontmatter[] }) {
       <div className="container">
         <SectionHeader
           badge={params.badge}
-          heading={<>{params.heading}</>}
+          heading={
+            <>
+              {params.heading.line1}
+              <br />
+              {params.heading.line2}
+            </>
+          }
           description={params.description}
           mark={
             <TrendingUp
