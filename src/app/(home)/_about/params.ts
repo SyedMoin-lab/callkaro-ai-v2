@@ -1,8 +1,7 @@
 export const params = {
   badge: "About Us",
-  heading:
-    "Voice AI agents that answer every call the way your best employee would.",
-  body: "CallKaro AI builds intelligent voice agents that pick up instantly, understand what every caller wants, and book appointments automatically. From busy front desks to after-hours calls, we make sure every customer is heard, every lead is captured, and no opportunity slips away, for startups, growing teams, and enterprises alike.",
+  heading: "Voice AI that never sleeps",
+  body: "Instant pickup, every caller heard, every lead captured.",
   learnMore: { label: "Learn more", href: "/about-us" },
   card: {
     image: "/images/about/team.webp",
