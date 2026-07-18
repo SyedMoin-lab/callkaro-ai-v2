@@ -294,18 +294,19 @@ function Navbar({
           <nav
             ref={navRef}
             className={cn(
-              "grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-6 rounded-xl border transition-all duration-300",
+              "grid grid-cols-[1fr_auto_1fr] items-center gap-6 rounded-xl border transition-all duration-300",
               scrolled
                 ? "bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl sm:px-5"
                 : "border-transparent bg-transparent py-5 shadow-none"
             )}
           >
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <Link href="/" className="flex items-center gap-2.5 md:hidden">
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
                 </span>
               </Link>
+              <ThemeToggle className="hidden md:grid" />
             </div>
 
             <ul
@@ -635,7 +636,7 @@ function Navbar({
             </ul>
 
             <div className="flex items-center justify-end gap-2">
-              <ThemeToggle />
+              <ThemeToggle className="md:hidden" />
               <Button size="lg" className="hidden md:inline-flex" asChild>
                 <Link href="/contact-us">Book Free Consultation</Link>
               </Button>
