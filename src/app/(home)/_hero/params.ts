@@ -1,10 +1,9 @@
 export const params = {
-  badge: "Always-on Voice AI",
   heading: {
-    line1: "Revolutionize Your",
-    line2: "Call Handling with Voice AI",
+    line1: "10x Your Call Volume",
+    line2: "with AI Voice Agents",
   },
-  body: "CallKaro AI delivers 24/7 AI Voice agents for your business so that it stays responsive and never miss a call, lead, or opportunity",
+  body: "CallKaro AI answers every call, books every appointment, and qualifies every lead — 24/7, at a fraction of the cost. Scale your front line without scaling your team.",
   ctaPrimary: { label: "Get started", href: "/contact-us" },
   ctaSecondary: { label: "See how it works", href: "#capabilities" },
   bottomBar: {

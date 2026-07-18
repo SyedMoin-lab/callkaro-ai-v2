@@ -8,7 +8,6 @@ import {
   AvatarGroup,
   AvatarImage,
 } from "@/common/shadcnUI/avatar"
-import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
 
 import { params } from "./params"
@@ -36,11 +35,7 @@ function Hero() {
 
         <div className="container flex flex-1 flex-col">
           <div className="hero-padding mx-auto flex max-w-5xl flex-col items-center text-center">
-            <Badge variant="outline" size="lg">
-              {params.badge}
-            </Badge>
-
-            <h1 className="mt-8 text-5xl leading-[1.05] font-medium tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="text-5xl leading-[1.05] font-medium tracking-tight md:text-6xl lg:text-7xl">
               {params.heading.line1} <br className="hidden md:block" />
               {params.heading.line2}
             </h1>
