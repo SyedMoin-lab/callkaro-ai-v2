@@ -40,7 +40,7 @@ function PromptDemo() {
   }, [text, deleting, exampleIndex])
 
   return (
-    <section className="flex min-h-[85svh] flex-col">
+    <section id="chat" className="flex min-h-[85svh] scroll-mt-24 flex-col">
       <div className="container flex flex-1 flex-col justify-center py-16 md:py-24">
         <div className="mx-auto w-full max-w-2xl text-center">
           <h2 className="text-4xl leading-[1.05] font-medium tracking-tight text-balance md:text-5xl">

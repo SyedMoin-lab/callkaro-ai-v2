@@ -4,7 +4,7 @@ export const params = {
     line2: "with AI Voice Agents",
   },
   body: "CallKaro AI answers every call, books every appointment, and qualifies every lead — 24/7, at a fraction of the cost. Scale your front line without scaling your team.",
-  ctaPrimary: { label: "Get started", href: "/contact-us" },
+  ctaPrimary: { label: "Get started", href: "#chat" },
   ctaSecondary: { label: "See how it works", href: "#capabilities" },
   bottomBar: {
     text: "Never miss another call.",

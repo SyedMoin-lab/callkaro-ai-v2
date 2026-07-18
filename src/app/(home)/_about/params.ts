@@ -1,6 +1,9 @@
 export const params = {
   badge: "About Us",
-  heading: "Voice AI agents that never miss a call",
+  heading: {
+    line1: "Voice AI agents that",
+    line2: "never miss a call",
+  },
   body: "They pick up instantly, understand every caller, and book appointments automatically — so every lead is captured, day or night.",
   learnMore: { label: "Learn more", href: "/about-us" },
   card: {
@@ -10,6 +13,30 @@ export const params = {
     cta: { label: "Read reviews", href: "#testimonials" },
   },
   stats: [
+    {
+      number: 1,
+      prefix: "",
+      suffix: "M+",
+      label: ["Calls handled", "every month"],
+    },
+    {
+      number: 98,
+      prefix: "",
+      suffix: "%",
+      label: ["Leads captured", "and qualified"],
+    },
+    {
+      number: 15,
+      prefix: "",
+      suffix: "+",
+      label: ["Countries", "served worldwide"],
+    },
+    {
+      number: 40,
+      prefix: "",
+      suffix: "+",
+      label: ["Languages", "spoken fluently"],
+    },
     {
       number: 24,
       prefix: "",
