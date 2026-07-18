@@ -1,7 +1,5 @@
 import { Check } from "lucide-react"
 
-import { CallKaroLogo } from "@/common/layout/logo"
-
 const FEATURES = [
   {
     title: "Run Click to WhatsApp Ads",
@@ -35,7 +33,6 @@ export default function SignupIntro() {
 
       <div className="relative mx-auto w-full max-w-lg">
         <div className="flex items-center gap-2.5">
-          <CallKaroLogo className="size-8 text-accent" />
           <span className="text-xl font-medium tracking-tight">CallKaro AI</span>
         </div>
 

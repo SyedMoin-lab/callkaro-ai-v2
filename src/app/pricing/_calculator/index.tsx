@@ -11,11 +11,12 @@ import { Slider } from "@/common/shadcnUI/slider"
 // ── Model ────────────────────────────────────────────────────────
 // Replacement cost of a human agent, from real assumptions:
 //   ₹30,000 salary · 25 working days · 150 min/day → 3,750 min/mo → ₹8/min
-// CallKaro AI: ₹5/min, and only for connected calls.
+// CallKaro AI: ₹4.5/min (Fixed plan), and only for connected calls.
 const HUMAN = { salary: 30_000, days: 25, minsPerDay: 150 }
 const HUMAN_MINS_PER_MONTH = HUMAN.days * HUMAN.minsPerDay // 3,750
 const HUMAN_PER_MIN = HUMAN.salary / HUMAN_MINS_PER_MONTH // ₹8
-const PLATFORM_PER_MIN = 5
+const PLATFORM_PER_MIN = 4.5
+const PLATFORM_RATE_LABEL = "₹4.5"
 
 const MIN_MINUTES = 500
 const MAX_MINUTES = 20_000
@@ -52,7 +53,7 @@ export default function Calculator() {
           </h2>
           <p className="mt-4 text-balance text-muted-foreground md:text-lg">
             A human agent runs about {inr(HUMAN_PER_MIN)}/min. CallKaro AI is{" "}
-            {inr(PLATFORM_PER_MIN)}/min — and only for connected calls.
+            {PLATFORM_RATE_LABEL}/min — and only for connected calls.
           </p>
         </div>
 
@@ -145,7 +146,7 @@ export default function Calculator() {
                     <span className="text-base font-normal">/mo</span>
                   </p>
                   <p className="mt-1 text-sm text-accent-foreground/80">
-                    {inr(PLATFORM_PER_MIN)}/min, connected calls only — save{" "}
+                    {PLATFORM_RATE_LABEL}/min, connected calls only — save{" "}
                     {inr(result.saving)}/mo ({result.savingPct}%).
                   </p>
                   <Button

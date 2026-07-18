@@ -4,8 +4,8 @@ import type { ReactNode } from "react"
 import { usePathname } from "next/navigation"
 
 // Routes rendered "bare", without the marketing chrome (banner/navbar/footer).
-// Signup is a focused, standalone conversion page.
-const BARE_ROUTES = ["/sign-up"]
+// Signup and login are focused, standalone auth pages.
+const BARE_ROUTES = ["/sign-up", "/login"]
 
 function isBare(pathname: string) {
   return BARE_ROUTES.some(

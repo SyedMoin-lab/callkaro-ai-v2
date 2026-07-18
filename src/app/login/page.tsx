@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 
-import { CallKaroLogo } from "@/common/layout/logo"
-
 import LoginForm from "./_form"
 
 export const metadata: Metadata = {
@@ -28,7 +26,6 @@ export default function LoginPage() {
 
         <div className="relative flex h-full flex-col justify-between p-12">
           <Link href="/" className="flex w-fit items-center gap-2.5">
-            <CallKaroLogo className="size-8 text-accent" />
             <span className="text-xl font-medium tracking-tight">
               CallKaro AI
             </span>

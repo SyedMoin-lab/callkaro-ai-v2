@@ -19,11 +19,11 @@ type Plan = {
 
 const PLANS: Plan[] = [
   {
-    name: "Fixed Pricing",
-    price: "₹10,000",
-    period: "/month",
+    name: "Fixed",
+    price: "₹4.5",
+    period: "/min",
     description:
-      "A predictable flat monthly fee — ideal when you know your call volume and want costs locked in.",
+      "A flat, predictable rate for every connected minute — simple to forecast, no surprises.",
     features: [
       "Access to gpt-4.1-mini",
       "Post-call analysis (summary & sentiment)",
@@ -36,13 +36,12 @@ const PLANS: Plan[] = [
     cta: { label: "Get Started", href: "/sign-up" },
   },
   {
-    name: "Consumption Based Pricing",
-    price: "₹5",
-    period: "/min",
+    name: "Dynamic",
+    price: "Usage-based",
     description:
-      "Pay only for connected calls. Perfect for variable volumes — you're never billed for unanswered attempts.",
+      "Pay as per model usage — you're billed for the AI model your calls actually consume. Ideal for variable or premium workloads.",
     features: [
-      "Billed only for connected calls",
+      "Billed on real model usage",
       "Post-call analysis (summary & sentiment)",
       "Batch calling",
       "Knowledge base access",
@@ -58,10 +57,10 @@ const PLANS: Plan[] = [
     name: "Enterprise",
     price: "Custom",
     description:
-      "For teams that need scale, white-glove support, and deeper integrations.",
+      "Contact us to explore a plan built around your scale, support, and integration needs.",
     features: [
       "Custom minutes & pricing",
-      "Everything in Fixed & Consumption, plus...",
+      "Everything in Fixed & Dynamic, plus...",
       "Truecaller number verification",
       "WhatsApp chatbot",
       "On-site / in-office support",
@@ -69,7 +68,7 @@ const PLANS: Plan[] = [
       "Full suite CRM & help-desk integrations",
       "Custom Telephony Integration",
     ],
-    cta: { label: "Contact Sales", href: "/contact-us" },
+    cta: { label: "Contact us to explore", href: "/contact-us" },
   },
 ]
 
