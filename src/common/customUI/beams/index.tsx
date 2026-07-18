@@ -204,6 +204,8 @@ export interface BeamsProps {
   beamHeight?: number
   beamNumber?: number
   lightColor?: string
+  /** Scene background + beam base colour. Defaults to black. */
+  backgroundColor?: string
   speed?: number
   noiseIntensity?: number
   scale?: number
@@ -363,6 +365,7 @@ export const Beams: FC<BeamsProps> = ({
   beamHeight = 15,
   beamNumber = 12,
   lightColor = "#ffffff",
+  backgroundColor = "#000000",
   speed = 2,
   noiseIntensity = 1.75,
   scale = 0.2,
@@ -417,7 +420,7 @@ export const Beams: FC<BeamsProps> = ({
         },
         material: { fog: true },
         uniforms: {
-          diffuse: new THREE.Color(...hexToNormalizedRGB("#000000")),
+          diffuse: new THREE.Color(...hexToNormalizedRGB(backgroundColor)),
           time: { shared: true, mixed: true, linked: true, value: 0 },
           roughness: 0.3,
           metalness: 0.3,
@@ -427,7 +430,7 @@ export const Beams: FC<BeamsProps> = ({
           uScale: scale,
         },
       }),
-    [speed, noiseIntensity, scale],
+    [speed, noiseIntensity, scale, backgroundColor],
   )
 
   return (
@@ -443,7 +446,7 @@ export const Beams: FC<BeamsProps> = ({
         <DirLight color={lightColor} position={[0, 3, 10]} />
       </group>
       <ambientLight intensity={1} />
-      <color attach="background" args={["#000000"]} />
+      <color attach="background" args={[backgroundColor]} />
       <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={30} />
     </CanvasWrapper>
   )

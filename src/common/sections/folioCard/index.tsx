@@ -91,7 +91,7 @@ function FolioCard({
           aria-hidden
           variants={v.item}
           className={cn(
-            "absolute top-0 z-0 flex h-12 items-center gap-4 rounded-t-md bg-[oklch(0.78_0.04_75)] px-5 shadow-md md:h-14 md:gap-5 md:px-7",
+            "absolute top-0 z-0 flex h-12 items-center gap-4 rounded-t-md bg-[oklch(0.8_0.08_16)] px-5 shadow-md md:h-14 md:gap-5 md:px-7",
             isReverse ? "right-6 md:right-12" : "left-6 md:left-12"
           )}
         >

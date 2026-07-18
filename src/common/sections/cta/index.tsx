@@ -7,9 +7,9 @@ import { Button } from "@/common/shadcnUI/button"
 
 function Cta() {
   return (
-    <section className="section-padding bg-[oklch(0.97_0.012_85)]">
+    <section className="section-padding bg-[oklch(0.955_0.02_30)]">
       <div className="container">
-        <div className="grid gap-10 overflow-hidden rounded-lg border border-foreground/10 bg-[oklch(0.99_0.008_90)] shadow-md md:grid-cols-[1.2fr_1fr]">
+        <div className="grid gap-10 overflow-hidden rounded-lg border border-foreground/10 bg-[oklch(0.99_0.006_40)] shadow-md md:grid-cols-[1.2fr_1fr]">
           <div className="flex flex-col justify-between p-8 md:p-14">
             <Eyebrow>Let&apos;s talk</Eyebrow>
 

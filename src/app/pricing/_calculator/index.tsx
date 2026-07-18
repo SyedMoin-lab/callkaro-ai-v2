@@ -133,7 +133,7 @@ export default function Calculator() {
                 />
 
                 {/* Highlight */}
-                <div className="relative overflow-hidden rounded-xl bg-linear-to-br from-accent to-[oklch(0.74_0.14_48)] p-5 text-accent-foreground shadow-lg">
+                <div className="relative overflow-hidden rounded-xl bg-linear-to-br from-accent to-[oklch(0.401_0.151_10)] p-5 text-accent-foreground shadow-lg">
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-medium">With CallKaro AI</p>
                     <Badge className="bg-accent-foreground/15 text-accent-foreground">

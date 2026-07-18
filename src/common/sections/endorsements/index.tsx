@@ -376,7 +376,7 @@ function StatTile({
         onClick &&
           "cursor-pointer focus-visible:ring-2 focus-visible:ring-ring",
         tone === "brass" &&
-          "bg-[oklch(0.78_0.04_75)] text-foreground ring-foreground/10",
+          "bg-[oklch(0.8_0.08_16)] text-foreground ring-foreground/10",
         tone === "dark" && "bg-black text-white ring-white/10",
         tone === "card" && "bg-card text-foreground ring-foreground/8"
       )}

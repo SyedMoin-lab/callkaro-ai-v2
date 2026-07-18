@@ -56,7 +56,7 @@ function CellRow({ tone, cells }: { tone: "dark" | "warm"; cells: Cell[] }) {
           ? "dark bg-background text-foreground"
           : // Fixed light-peach panel: pin foreground dark so text stays
             // readable even when the site theme is dark.
-            "bg-[oklch(0.92_0.04_75)] text-foreground [--foreground:oklch(0.145_0_0)]"
+            "bg-[oklch(0.92_0.05_18)] text-foreground [--foreground:oklch(0.24_0.06_12)]"
       )}
     >
       {cells.map((cell, i) =>

@@ -18,10 +18,11 @@ function Hero() {
       <div className="relative isolate flex flex-1 flex-col overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10">
           <Beams
-            beamWidth={2.5}
-            beamHeight={18}
-            beamNumber={15}
-            lightColor="#ffffff"
+            beamWidth={3}
+            beamHeight={34}
+            beamNumber={24}
+            lightColor="#EE6983"
+            backgroundColor="#2B0A16"
             speed={2.5}
             noiseIntensity={2}
             scale={0.15}

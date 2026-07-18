@@ -34,6 +34,7 @@ import {
   useScroll,
 } from "motion/react"
 
+import { ThemeToggle } from "@/common/customUI/themeToggle"
 import { Button } from "@/common/shadcnUI/button"
 import { useBannerVisibility } from "@/hooks/use-banner-visibility"
 import { resolveIndustryIcon } from "@/lib/industry-icons"
@@ -610,6 +611,7 @@ function Navbar({
             </ul>
 
             <div className="flex flex-1 items-center justify-end gap-2">
+              <ThemeToggle />
               <Button size="lg" className="hidden md:inline-flex" asChild>
                 <Link href="/contact-us">Book Free Consultation</Link>
               </Button>
