@@ -168,7 +168,6 @@ function Navbar({
   const { scrollY } = useScroll()
   const { isBannerVisible } = useBannerVisibility(initialBannerVisible)
   const pathname = usePathname()
-  const isDarkHero = pathname === "/"
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/")
   const activeHref = navItems.find((item) => isActive(item.href))?.href
@@ -280,46 +279,20 @@ function Navbar({
     <>
       <motion.header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 text-foreground transition-[margin] duration-300",
-          (isDarkHero || scrolled) && "dark",
-          scrolled ? "mt-4" : isBannerVisible ? "mt-14" : "mt-0"
+          "dark fixed inset-x-0 top-0 z-50 text-foreground transition-[margin] duration-300",
+          isBannerVisible && !scrolled ? "mt-14" : "mt-4"
         )}
       >
-        <div
-          className={cn(
-            "container transition-[max-width] duration-300",
-            scrolled && "max-w-7xl"
-          )}
-        >
+        <div className="container max-w-7xl">
           <nav
             ref={navRef}
-            className={cn(
-              "flex items-center justify-between gap-6 rounded-xl border transition-all duration-300 md:grid md:grid-cols-[1fr_auto_1fr]",
-              scrolled
-                ? "bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl sm:px-5"
-                : "border-transparent bg-transparent py-5 shadow-none"
-            )}
+            className="flex items-center justify-between gap-6 rounded-xl border bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl transition-all duration-300 sm:px-5"
           >
-            <div className="flex items-center gap-3">
-              <Link href="/" className="flex items-center gap-2.5 md:hidden">
-                <span className="text-xl font-semibold tracking-tight">
-                  CallKaro AI
-                </span>
-              </Link>
-              <ThemeToggle className="hidden md:grid" />
-              <Link
-                href="/login"
-                className="hidden text-sm text-foreground/75 transition-colors hover:text-foreground md:inline-flex"
-              >
-                Log in
-              </Link>
-              <Link
-                href="/sign-up"
-                className="hidden text-sm text-foreground/75 transition-colors hover:text-foreground md:inline-flex"
-              >
-                Sign up
-              </Link>
-            </div>
+            <Link href="/" className="flex items-center gap-2.5 md:hidden">
+              <span className="text-xl font-semibold tracking-tight">
+                CallKaro AI
+              </span>
+            </Link>
 
             <ul
               className="hidden items-center gap-5 md:flex lg:gap-6"
@@ -648,9 +621,9 @@ function Navbar({
             </ul>
 
             <div className="flex items-center justify-end gap-2">
-              <ThemeToggle className="md:hidden" />
+              <ThemeToggle />
               <Button size="lg" className="hidden md:inline-flex" asChild>
-                <Link href="/contact-us">Book Free Consultation</Link>
+                <Link href="/login">Log in</Link>
               </Button>
               <button
                 type="button"
