@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowDown } from "lucide-react"
 
 import { Beams } from "@/common/customUI/beams"
 import {
