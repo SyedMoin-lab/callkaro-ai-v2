@@ -7,6 +7,7 @@ import CaseStudies from "./_caseStudies"
 import Faq from "./_faq"
 import Hero from "./_hero"
 import Integrations from "./_integrations"
+import LiveDemo from "./_liveDemo"
 import Process from "./_process"
 import PromptDemo from "./_promptDemo"
 import Services from "./_services"
@@ -20,6 +21,7 @@ export default async function Page() {
       <Hero />
       <PromptDemo />
       <About />
+      <LiveDemo />
       <Services />
       <CaseStudies cases={cases} />
       <Process />

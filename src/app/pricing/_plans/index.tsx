@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 
 type Plan = {
   name: string
+  pricePrefix?: string
   price: string
   period?: string
   description: string
@@ -20,6 +21,7 @@ type Plan = {
 const PLANS: Plan[] = [
   {
     name: "Fixed",
+    pricePrefix: "Starts at",
     price: "₹4.5",
     period: "/min",
     description:
@@ -116,13 +118,20 @@ function PlanCard({ plan }: { plan: Plan }) {
       >
         <p className="text-sm font-medium text-muted-foreground">{plan.name}</p>
 
-        <div className="mt-3 flex items-baseline gap-1">
-          <span className="text-4xl font-light tracking-tight">
-            {plan.price}
-          </span>
-          {plan.period && (
-            <span className="text-sm text-muted-foreground">{plan.period}</span>
+        <div className="mt-3">
+          {plan.pricePrefix && (
+            <p className="text-xs text-muted-foreground">{plan.pricePrefix}</p>
           )}
+          <div className="flex items-baseline gap-1">
+            <span className="text-4xl font-light tracking-tight">
+              {plan.price}
+            </span>
+            {plan.period && (
+              <span className="text-sm text-muted-foreground">
+                {plan.period}
+              </span>
+            )}
+          </div>
         </div>
 
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">

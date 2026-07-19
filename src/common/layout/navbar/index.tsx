@@ -46,7 +46,7 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 const navItems = [
   { label: "Products", href: "/products", megaMenu: true },
   { label: "About", href: "/about-us" },
-  { label: "Services", href: "/services" },
+  { label: "Test your agent", href: "/#chat" },
   { label: "Industries", href: "/industries", dropdown: true },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
