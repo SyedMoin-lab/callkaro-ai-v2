@@ -3,12 +3,16 @@ import {
   BadgeCheck,
   BarChart3,
   BookOpen,
+  Bot,
   CalendarClock,
+  ChevronDown,
   Code2,
   type LucideIcon,
   Megaphone,
+  Mic,
   PhoneForwarded,
   PhoneIncoming,
+  Sparkles,
   Voicemail,
   Webhook,
 } from "lucide-react"
@@ -39,10 +43,6 @@ const FEATURE_ICONS: Record<string, LucideIcon> = {
   webhook: Webhook,
 }
 
-// Wider cells create the bento rhythm on large screens (these hold the
-// longest titles so nothing wraps awkwardly).
-const WIDE = new Set([0, 8])
-
 function normalizeIconName(name: string): string {
   return name
     .trim()
@@ -62,16 +62,14 @@ export default function FeatureGrid({ features }: { features: FeatureItem[] }) {
   return (
     <section id="browse" className="section-padding overflow-hidden pt-0">
       <div className="container">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-flow-dense grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <FeatureCard
-                key={`${feature.label}-${index}`}
-                feature={feature}
-                wide={feature.wide ?? WIDE.has(index)}
-              />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={`${feature.label}-${index}`}
+              feature={feature}
+              index={index}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -80,51 +78,166 @@ export default function FeatureGrid({ features }: { features: FeatureItem[] }) {
 
 function FeatureCard({
   feature,
-  wide,
+  index,
 }: {
   feature: FeatureItem
-  wide: boolean
+  index: number
+}) {
+  return (
+    <div className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card ring-1 ring-foreground/5 transition-colors hover:border-accent/40">
+      {/* Demo panel */}
+      <div className="relative aspect-[4/3] border-b border-border bg-muted/40 p-5">
+        <FeatureMock index={index} feature={feature} />
+      </div>
+
+      {/* Copy */}
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-center gap-2 text-accent">
+          {createElement(resolveFeatureIcon(feature.icon), {
+            className: "size-4 shrink-0",
+            strokeWidth: 1.75,
+          })}
+          <h3 className="font-semibold tracking-tight text-foreground">
+            {feature.label}
+          </h3>
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {feature.description}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+// ── Demo mockups ─────────────────────────────────────────────────
+// Three illustrative panels rotate across the feature cards to echo the
+// product UI without shipping a bespoke mock for every single feature.
+
+function FeatureMock({
+  index,
+  feature,
+}: {
+  index: number
+  feature: FeatureItem
+}) {
+  switch (index % 3) {
+    case 0:
+      return <EscalateMock />
+    case 1:
+      return <AgentChatMock label={feature.label} />
+    default:
+      return <AnalyticsMock />
+  }
+}
+
+function Panel({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
 }) {
   return (
     <div
       className={cn(
-        "group flex flex-col rounded-2xl border border-border bg-card p-6 ring-1 ring-foreground/5 transition-colors hover:border-accent/40",
-        // Wide bento cards carry the big content: larger type, more room.
-        wide && "lg:col-span-2 lg:p-8"
+        "rounded-lg border border-border bg-background/70 shadow-sm backdrop-blur-sm",
+        className
       )}
     >
-      {/* Icon (no background) sits on one row with its label. */}
-      <div className="flex items-center gap-2.5 text-accent">
-        {createElement(resolveFeatureIcon(feature.icon), {
-          className: cn("shrink-0", wide ? "size-6" : "size-5"),
-          strokeWidth: 1.75,
-        })}
-        <span
-          className={cn(
-            "font-semibold tracking-tight text-foreground",
-            wide ? "text-base" : "text-sm"
-          )}
-        >
-          {feature.label}
+      {children}
+    </div>
+  )
+}
+
+function EscalateMock() {
+  return (
+    <div className="flex h-full flex-col justify-center gap-2.5 font-mono text-xs">
+      <Panel className="flex items-center gap-2 px-3 py-2">
+        <PhoneIncoming
+          className="size-4 shrink-0 text-accent"
+          strokeWidth={1.75}
+        />
+        <span className="truncate text-foreground/80">
+          Incoming call · +91 98•••
         </span>
+      </Panel>
+
+      <ChevronDown
+        className="mx-auto size-4 text-muted-foreground motion-safe:animate-bounce"
+        strokeWidth={1.75}
+      />
+
+      <Panel className="flex items-center justify-between px-3 py-2">
+        <span className="flex items-center gap-2 text-foreground/80">
+          <Sparkles className="size-3.5 text-accent" strokeWidth={1.75} />
+          Escalate to human
+        </span>
+        <span className="flex h-4 w-7 items-center rounded-full bg-accent px-0.5">
+          <span className="ml-auto block size-3 rounded-full bg-background motion-safe:animate-pulse" />
+        </span>
+      </Panel>
+
+      <div className="rounded-lg border border-dashed border-border px-3 py-2 text-center text-muted-foreground">
+        Transfer to agent
+      </div>
+    </div>
+  )
+}
+
+function AgentChatMock({ label }: { label: string }) {
+  const chips = [label, "Book appointment", "Qualify lead", "Answer FAQ"]
+  return (
+    <div className="flex h-full flex-col justify-center gap-2 font-mono text-[0.7rem]">
+      <Panel className="flex items-center gap-2 px-3 py-2">
+        <Bot className="size-3.5 text-accent" strokeWidth={1.75} />
+        <span className="text-foreground/80">Meet your voice agent</span>
+      </Panel>
+
+      <div className="flex flex-wrap gap-1.5">
+        {chips.map((chip, i) => (
+          <span
+            key={chip}
+            style={{ animationDelay: `${i * 0.15}s` }}
+            className="truncate rounded-md border border-border bg-background/70 px-2 py-1 text-foreground/70 motion-safe:animate-pulse"
+          >
+            {chip}
+          </span>
+        ))}
       </div>
 
-      <h3
-        className={cn(
-          "mt-4 font-medium tracking-tight text-balance",
-          wide ? "text-2xl md:text-3xl" : "min-h-14 text-lg"
-        )}
-      >
-        {feature.title}
-      </h3>
-      <p
-        className={cn(
-          "mt-2 leading-relaxed text-muted-foreground",
-          wide ? "max-w-2xl text-base" : "text-sm"
-        )}
-      >
-        {feature.description}
-      </p>
+      <Panel className="flex items-center gap-2 px-3 py-2 text-muted-foreground">
+        <span className="flex items-center">
+          Ask anything…
+          <span className="ml-0.5 inline-block h-3 w-px bg-foreground/70 motion-safe:animate-pulse" />
+        </span>
+        <Mic className="ml-auto size-3.5" strokeWidth={1.75} />
+      </Panel>
+    </div>
+  )
+}
+
+function AnalyticsMock() {
+  return (
+    <div className="flex h-full items-center">
+      <Panel className="w-full p-4 font-mono text-xs">
+        <div className="flex items-center justify-between">
+          <span className="text-muted-foreground">Call Summary</span>
+          <BarChart3 className="size-4 text-accent" strokeWidth={1.75} />
+        </div>
+        <p className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
+          1,240{" "}
+          <span className="text-sm font-normal text-muted-foreground">
+            calls
+          </span>
+        </p>
+        <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+          <div className="h-full w-3/4 origin-left rounded-full bg-accent motion-safe:animate-[feature-bar-grow_1.6s_ease-out]" />
+        </div>
+        <div className="mt-3 flex items-center justify-between text-muted-foreground">
+          <span>Positive sentiment</span>
+          <span className="text-foreground">92%</span>
+        </div>
+      </Panel>
     </div>
   )
 }

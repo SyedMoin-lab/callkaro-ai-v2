@@ -1,6 +1,9 @@
 export const params = {
   badge: "Integrations",
-  heading: "Powerful integrations for every call.",
+  heading: {
+    line1: "Powerful integrations for",
+    line2: "every call.",
+  },
   description:
     "Connect CallKaro AI to the tools your team already runs on, and keep every call, booking, and follow-up in sync automatically.",
   integrations: [
