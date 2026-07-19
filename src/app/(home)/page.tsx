@@ -1,8 +1,10 @@
 import Contact from "@/common/sections/contact"
 import Endorsements from "@/common/sections/endorsements"
+import { getAllPosts } from "@/lib/blog"
 import { getAllCaseStudies } from "@/lib/case-studies"
 
 import About from "./_about"
+import Blog from "./_blog"
 import CaseStudies from "./_caseStudies"
 import Faq from "./_faq"
 import Hero from "./_hero"
@@ -14,7 +16,7 @@ import Services from "./_services"
 import Team from "./_team"
 
 export default async function Page() {
-  const cases = await getAllCaseStudies()
+  const [cases, posts] = await Promise.all([getAllCaseStudies(), getAllPosts()])
 
   return (
     <>
@@ -28,6 +30,7 @@ export default async function Page() {
       <Team />
       <Integrations />
       <Endorsements />
+      <Blog posts={posts} />
       <Faq />
       <Contact />
     </>

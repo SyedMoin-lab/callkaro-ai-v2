@@ -13,6 +13,47 @@ import type { BlogFrontmatter, BlogPost } from "@/lib/types"
 const blogDirectory = path.join(process.cwd(), "content/blog")
 const FRONTMATTER_PATTERN = /^---\s*[\r\n]+[\s\S]*?[\r\n]+---\s*[\r\n]?/
 
+const PLACEHOLDER_COVER =
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
+
+// Dev-only placeholders. Real posts come from the CMS (Strapi); these exist
+// purely so the blog surfaces render locally before the CMS is connected.
+const FALLBACK_POSTS: BlogFrontmatter[] = [
+  {
+    title: "How AI voice agents cut cost per call by 40%",
+    slug: "ai-voice-agents-cut-cost-per-call",
+    excerpt:
+      "A breakdown of what a human agent really costs per minute, and where AI voice agents close the gap without hurting customer experience.",
+    date: "2026-07-10",
+    image: PLACEHOLDER_COVER,
+    category: "Voice AI",
+    author: { name: "CallKaro AI", role: "Editorial Team" },
+    readTime: "6 min",
+  },
+  {
+    title: "Never miss another call: designing a 24/7 AI receptionist",
+    slug: "designing-a-24-7-ai-receptionist",
+    excerpt:
+      "What to script, when to escalate to a human, and how to keep an always-on receptionist sounding natural on every single call.",
+    date: "2026-07-02",
+    image: PLACEHOLDER_COVER,
+    category: "Playbooks",
+    author: { name: "CallKaro AI", role: "Editorial Team" },
+    readTime: "5 min",
+  },
+  {
+    title: "Batch calling at scale without sounding like a robot",
+    slug: "batch-calling-at-scale",
+    excerpt:
+      "Lessons from running thousands of concurrent outbound calls: pacing, retry logic, voicemail detection, and staying compliant.",
+    date: "2026-06-24",
+    image: PLACEHOLDER_COVER,
+    category: "Engineering",
+    author: { name: "CallKaro AI", role: "Editorial Team" },
+    readTime: "7 min",
+  },
+]
+
 interface StrapiBlogPost {
   Title?: string
   ShortDescription?: string
@@ -216,5 +257,11 @@ export async function getAllPosts(): Promise<BlogFrontmatter[]> {
     return cmsPosts.map((post) => post.frontmatter)
   }
 
-  return getLocalAllPosts()
+  const localPosts = await getLocalAllPosts()
+  if (localPosts.length > 0) return localPosts
+
+  // Posts are authored in the CMS. These placeholders exist only so the blog
+  // surfaces are visible in local dev before Strapi is wired up — never in
+  // production, where an empty CMS must render an empty section.
+  return process.env.NODE_ENV === "development" ? FALLBACK_POSTS : []
 }
