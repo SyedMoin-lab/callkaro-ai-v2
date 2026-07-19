@@ -59,16 +59,6 @@ function Hero() {
             </div>
           </div>
 
-          <div className="mt-auto flex justify-between gap-2 border-t border-foreground/10 py-6 text-sm">
-            <div className="flex items-center gap-3">
-              <span className="size-1.5 rounded-full bg-foreground" />
-              <span>{params.bottomBar.text}</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 text-foreground/60">
-              <span>{params.bottomBar.scrollLabel}</span>
-              <ArrowDown className="size-4" strokeWidth={1.25} />
-            </div>
-          </div>
         </div>
       </div>
 

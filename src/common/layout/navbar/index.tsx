@@ -799,9 +799,6 @@ function Navbar({
               >
                 <Link href="/login">Log in</Link>
               </Button>
-              <Button size="lg" className="hidden md:inline-flex" asChild>
-                <Link href="/contact-us">Book Free Consultation</Link>
-              </Button>
               <button
                 type="button"
                 onClick={() => setMenuOpen(true)}
