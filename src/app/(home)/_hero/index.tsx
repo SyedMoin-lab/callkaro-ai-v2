@@ -57,7 +57,6 @@ function Hero() {
               </Button>
             </div>
           </div>
-
         </div>
       </div>
 
