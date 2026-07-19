@@ -29,7 +29,7 @@ import {
 } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
-const matters = [
+const useCases = [
   "Inbound support",
   "Outbound campaigns",
   "Reminders & bookings",
@@ -37,7 +37,7 @@ const matters = [
   "Something else",
 ]
 
-const jurisdictions = [
+const industries = [
   "Healthcare",
   "E-commerce",
   "Financial Services",
@@ -261,15 +261,15 @@ function FormFields({ locked }: { locked?: boolean }) {
       </Field>
 
       <Field>
-        <FieldLabel htmlFor="matter" className={labelClass}>
+        <FieldLabel htmlFor="useCase" className={labelClass}>
           <FieldTick /> What do you need? <Required />
         </FieldLabel>
-        <Select name="matter" required>
-          <SelectTrigger id="matter" className="w-full">
+        <Select name="useCase" required>
+          <SelectTrigger id="useCase" className="w-full">
             <SelectValue placeholder="Pick a use case" />
           </SelectTrigger>
           <SelectContent>
-            {matters.map((m) => (
+            {useCases.map((m) => (
               <SelectItem key={m} value={m}>
                 {m}
               </SelectItem>
@@ -279,15 +279,15 @@ function FormFields({ locked }: { locked?: boolean }) {
       </Field>
 
       <Field>
-        <FieldLabel htmlFor="jurisdiction" className={labelClass}>
+        <FieldLabel htmlFor="industry" className={labelClass}>
           <FieldTick /> Industry
         </FieldLabel>
-        <Select name="jurisdiction">
-          <SelectTrigger id="jurisdiction" className="w-full">
+        <Select name="industry">
+          <SelectTrigger id="industry" className="w-full">
             <SelectValue placeholder="Pick an industry" />
           </SelectTrigger>
           <SelectContent>
-            {jurisdictions.map((j) => (
+            {industries.map((j) => (
               <SelectItem key={j} value={j}>
                 {j}
               </SelectItem>

@@ -97,8 +97,8 @@ function StackCard({
               {service.title}
             </h3>
             <Link
-              href={`/services/${service.slug}`}
-              aria-label={`Read more about ${service.title}`}
+              href="/features"
+              aria-label={`See how ${service.title} works`}
               className="group/cta mt-0.5 grid size-9 shrink-0 place-items-center rounded-full border border-border text-foreground transition-colors hover:bg-foreground/5"
             >
               <MoveUpRight

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 import { resolveServiceIcon } from "../data"
 
-const TOP_CROP_SLUGS = new Set(["lawsuits-disputes", "restructuring-recovery"])
+const TOP_CROP_SLUGS = new Set<string>()
 
 function MoreServices({ services }: { services: ServiceFrontmatter[] }) {
   if (services.length === 0) return null

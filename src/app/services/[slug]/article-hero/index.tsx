@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils"
 
 import { resolveServiceIcon } from "../data"
 
-const TOP_CROP_SLUGS = new Set(["lawsuits-disputes", "restructuring-recovery"])
+const TOP_CROP_SLUGS = new Set<string>()
 
 function ServiceArticleHero({
   frontmatter,

@@ -18,8 +18,8 @@ function Cta() {
                 Take the first step today.
               </h2>
               <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-                The sooner you start, the more options you have, and the better
-                prepared you&apos;ll be to protect what matters.
+                The sooner you launch, the more calls you capture. Get a voice
+                agent answering for your business in days, not months.
               </p>
             </div>
 

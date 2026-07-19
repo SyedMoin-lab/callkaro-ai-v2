@@ -82,10 +82,7 @@ function ServiceTile({
                 ? "(min-width: 768px) 45vw, 100vw"
                 : "(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
             }
-            className={cn(
-              "object-cover transition duration-500 ease-in-out will-change-transform group-hover/tile:scale-[1.04]",
-              service.slug === "restructuring-recovery" && "object-[50%_30%]"
-            )}
+            className="object-cover transition duration-500 ease-in-out will-change-transform group-hover/tile:scale-[1.04]"
           />
           <div
             aria-hidden

@@ -447,7 +447,7 @@ function Navbar({
                             style={{ top: megaMenuTop }}
                             className="dark fixed inset-x-0 z-50 pt-3"
                           >
-                            <div className="container max-w-5xl">
+                            <div className="container max-w-7xl">
                               <div className="grid grid-cols-[13rem_1fr] gap-8 rounded-xl border border-foreground/10 bg-background p-6 text-foreground shadow-2xl lg:grid-cols-[15rem_1fr_18rem] lg:gap-10">
                                 <ul className="space-y-1 border-r border-foreground/10 pr-6 lg:pr-8">
                                   {productsCategories.map((cat) => (
@@ -633,7 +633,7 @@ function Navbar({
                             style={{ top: megaMenuTop }}
                             className="dark fixed inset-x-0 z-50 pt-3"
                           >
-                            <div className="container max-w-5xl">
+                            <div className="container max-w-7xl">
                               <div className="rounded-xl border border-foreground/10 bg-background p-6 text-foreground shadow-2xl">
                                 <ul className="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
                                   {industriesMenu.map((it) => (
