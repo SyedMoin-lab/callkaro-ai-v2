@@ -62,7 +62,7 @@ function ServiceTile({
       transition={{ duration: 0.6, ease: EASE_OUT, delay }}
     >
       <Link
-        href="/features"
+        href={`/services/${service.slug}`}
         className="group/tile block overflow-hidden rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
         aria-label={service.name}
       >

@@ -7,15 +7,28 @@ import type { ServiceArticle, ServiceFrontmatter } from "@/lib/types"
 
 const servicesDirectory = path.join(process.cwd(), "content/services")
 
+// Body used for the fallback detail pages, built from the params entry so the
+// capability pages still read as real pages without any MDX on disk.
+function fallbackContent(service: ServiceFrontmatter): string {
+  return [
+    service.description,
+    "",
+    "## What it covers",
+    "",
+    ...service.subAreas.map((area) => `- ${area}`),
+  ].join("\n")
+}
+
 export async function getServiceSlugs(): Promise<string[]> {
   try {
     const files = await fs.readdir(servicesDirectory)
-    return files
+    const slugs = files
       .filter((file) => file.endsWith(".mdx"))
       .map((file) => file.replace(".mdx", ""))
+    return slugs.length > 0 ? slugs : params.services.map((s) => s.slug)
   } catch (error) {
     console.error("Error reading services directory:", error)
-    return []
+    return params.services.map((s) => s.slug)
   }
 }
 
@@ -38,7 +51,13 @@ export async function getServiceBySlug(
     }
   } catch (error) {
     console.error(`Error reading service ${slug}:`, error)
-    return null
+    const fallback = params.services.find((s) => s.slug === slug)
+    if (!fallback) return null
+    return {
+      slug,
+      content: fallbackContent(fallback),
+      frontmatter: fallback,
+    }
   }
 }
 
