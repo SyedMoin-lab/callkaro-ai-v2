@@ -66,7 +66,7 @@ function FeatureCard({
         })}
         <span
           className={cn(
-            "wrap-break-word font-semibold tracking-tight text-foreground",
+            "font-semibold tracking-tight wrap-break-word text-foreground",
             wide ? "text-base" : "text-sm"
           )}
         >
@@ -76,7 +76,7 @@ function FeatureCard({
 
       <h3
         className={cn(
-          "mt-4 wrap-break-word font-medium tracking-tight text-balance",
+          "mt-4 font-medium tracking-tight text-balance wrap-break-word",
           wide ? "text-2xl md:text-3xl" : "min-h-14 text-lg"
         )}
       >
@@ -84,7 +84,7 @@ function FeatureCard({
       </h3>
       <p
         className={cn(
-          "mt-2 wrap-break-word leading-relaxed text-muted-foreground",
+          "mt-2 leading-relaxed wrap-break-word text-muted-foreground",
           wide ? "max-w-2xl text-base" : "text-sm"
         )}
       >

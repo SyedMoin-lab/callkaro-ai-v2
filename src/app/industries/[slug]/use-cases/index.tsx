@@ -44,10 +44,10 @@ function UseCases({
                   <span className="font-mono text-sm text-accent tabular-nums">
                     0{i + 1}
                   </span>
-                  <h3 className="mt-3 wrap-break-word text-2xl leading-tight font-light tracking-tight md:text-3xl">
+                  <h3 className="mt-3 text-2xl leading-tight font-light tracking-tight wrap-break-word md:text-3xl">
                     {uc.title}
                   </h3>
-                  <p className="mt-4 max-w-md wrap-break-word text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-4 max-w-md text-base leading-relaxed wrap-break-word text-muted-foreground">
                     {uc.description}
                   </p>
                 </div>
@@ -58,7 +58,10 @@ function UseCases({
                     reversed && "lg:order-1"
                   )}
                 >
-                  <div aria-hidden className="absolute inset-0 grid place-items-center">
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 grid place-items-center"
+                  >
                     {createElement(Icon, {
                       className: "size-24 text-foreground/10",
                       strokeWidth: 1,

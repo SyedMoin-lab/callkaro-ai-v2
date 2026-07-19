@@ -76,7 +76,9 @@ function Hero() {
         <div className="container grid grid-cols-1 items-center gap-10 py-10 lg:grid-cols-[1fr_2fr]">
           <div className="space-y-4">
             <p className="text-base">
-              <span className="font-semibold">{params.trustedLabel.prefix}</span>
+              <span className="font-semibold">
+                {params.trustedLabel.prefix}
+              </span>
               <span className="ml-3 text-foreground/80">
                 {params.trustedLabel.suffix}
               </span>

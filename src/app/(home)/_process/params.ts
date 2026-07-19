@@ -1,3 +1,11 @@
+// Placeholder imagery (free Unsplash photos) reused across the site. The
+// carousel wipes between steps, so consecutive phases must use different
+// photos or the transition reads as "nothing happened".
+const OFFICE =
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
+const TEAM =
+  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+
 export const params = {
   badge: "Our Process",
   heading: {
@@ -10,34 +18,27 @@ export const params = {
     {
       title: "Discovery",
       body: "We start with a call to understand your goals, your call flows, and the outcomes you want to automate. No generic templates.",
-      image: {
-        src: "/images/process/001-intake.webp",
-        className:
-          "object-right -scale-x-100 md:object-center md:scale-x-100",
-      },
+      image: { src: OFFICE },
     },
     {
       title: "Build",
       body: "We configure your voice agent: the script, a knowledge base built from your own content, custom functions, and clear rules for when to hand off.",
-      image: { src: "/images/process/002-strategy.webp" },
+      image: { src: TEAM },
     },
     {
       title: "Connect",
       body: "We connect your phone numbers, CRM, and calendar, then test the agent on real scenarios until it sounds right and handles the edge cases.",
-      image: { src: "/images/process/003-discovery.webp" },
+      image: { src: OFFICE },
     },
     {
       title: "Go live",
       body: "Your agent goes live on inbound and outbound calls, answering in seconds and transferring to a human whenever a call genuinely needs one.",
-      image: {
-        src: "/images/process/004-pretrial.webp",
-        className: "object-[50%_30%]",
-      },
+      image: { src: TEAM },
     },
     {
       title: "Optimize",
       body: "Post-call analytics show what is working. We keep tuning answer rates, resolution, and conversions so your results improve every week.",
-      image: { src: "/images/process/005-verdict.webp" },
+      image: { src: OFFICE },
     },
   ],
 }

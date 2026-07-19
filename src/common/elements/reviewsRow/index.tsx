@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils"
 
 type Platform = {
   name: string
-  logo: { src: string; width: number; height: number }
 }
 
 function ReviewsRow() {
@@ -24,15 +23,11 @@ function ReviewsRow() {
         <span aria-hidden className="hidden h-4 w-px bg-border sm:block" />
         <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
           {PLATFORMS.map((p) => (
-            <li key={p.name}>
-              <Image
-                src={p.logo.src}
-                alt={p.name}
-                width={p.logo.width}
-                height={p.logo.height}
-                className="h-4 w-auto max-w-20 object-contain"
-                unoptimized
-              />
+            <li
+              key={p.name}
+              className="text-sm font-medium text-muted-foreground"
+            >
+              {p.name}
             </li>
           ))}
         </ul>
@@ -73,15 +68,6 @@ function Stars({ className }: { className?: string }) {
   )
 }
 
-const PLATFORMS: Platform[] = [
-  {
-    name: "Google",
-    logo: { src: "/images/reviews/google.svg", width: 272, height: 92 },
-  },
-  {
-    name: "Yelp",
-    logo: { src: "/images/reviews/yelp.svg", width: 131, height: 53 },
-  },
-]
+const PLATFORMS: Platform[] = [{ name: "Google" }, { name: "G2" }]
 
 export default ReviewsRow

@@ -253,7 +253,9 @@ function KnowledgeMock() {
           <span className={MUT}>Q&nbsp;</span>&ldquo;What are your hours?&rdquo;
         </p>
         <p className="flex items-start gap-1.5">
-          <span className="mt-0.5 text-accent motion-safe:animate-pulse">A</span>
+          <span className="mt-0.5 text-accent motion-safe:animate-pulse">
+            A
+          </span>
           <span className="text-foreground/80">
             Mon–Sat, 9am–7pm IST.{" "}
             <span className="text-muted-foreground">[handbook.pdf]</span>
@@ -277,8 +279,8 @@ function FunctionsMock() {
     </>,
     <>
       {"  "}
-      <span className={KW}>const</span> res ={" "}
-      <span className={KW}>await</span> fetch(
+      <span className={KW}>const</span> res = <span className={KW}>await</span>{" "}
+      fetch(
     </>,
     <>
       {"    "}
@@ -343,12 +345,18 @@ function CalendarMock() {
   return (
     <Shell>
       <div className="flex items-center justify-between text-foreground/80">
-        <ChevronLeft className="size-3.5 text-muted-foreground" strokeWidth={1.75} />
+        <ChevronLeft
+          className="size-3.5 text-muted-foreground"
+          strokeWidth={1.75}
+        />
         <span className="flex items-center gap-1.5">
           <CalendarClock className="size-3.5 text-accent" strokeWidth={1.75} />
           October 2025
         </span>
-        <ChevronRight className="size-3.5 text-muted-foreground" strokeWidth={1.75} />
+        <ChevronRight
+          className="size-3.5 text-muted-foreground"
+          strokeWidth={1.75}
+        />
       </div>
 
       <Panel className="p-2.5">
@@ -411,10 +419,7 @@ function BatchMock() {
 
       <Panel className="divide-y divide-border">
         {rows.map((row, i) => (
-          <div
-            key={row.num}
-            className="flex items-center gap-2 px-2.5 py-1.5"
-          >
+          <div key={row.num} className="flex items-center gap-2 px-2.5 py-1.5">
             <span className="text-foreground/70">{row.num}</span>
             <span className="ml-auto text-muted-foreground">{row.status}</span>
             {row.done ? (

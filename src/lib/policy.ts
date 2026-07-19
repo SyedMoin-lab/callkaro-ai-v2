@@ -256,10 +256,9 @@ async function getStrapiPolicyPageBySlug(
   params.set("filters[slug][$eq]", slug)
   params.set("pagination[pageSize]", "1")
 
-  const response = await fetchStrapi<StrapiCollectionResponse<StrapiPolicyPage>>(
-    "/api/policy-pages",
-    params
-  )
+  const response = await fetchStrapi<
+    StrapiCollectionResponse<StrapiPolicyPage>
+  >("/api/policy-pages", params)
 
   if (!response) return undefined
 

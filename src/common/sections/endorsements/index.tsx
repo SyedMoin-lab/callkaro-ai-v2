@@ -34,7 +34,8 @@ export const endorsements = [
     sector: "E-commerce Brand",
     sectorShort: "E-commerce",
     matter: "Inbound support · 2025",
-    portrait: "/images/testimonials/client-01.webp",
+    portrait:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
   {
     quote:
@@ -43,7 +44,8 @@ export const endorsements = [
     sector: "Healthcare Network",
     sectorShort: "Healthcare",
     matter: "Appointment reminders · 2025",
-    portrait: "/images/testimonials/client-02.webp",
+    portrait:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
   {
     quote:
@@ -52,7 +54,8 @@ export const endorsements = [
     sector: "Logistics Company",
     sectorShort: "Logistics",
     matter: "Outbound · 2025",
-    portrait: "/images/testimonials/client-03.webp",
+    portrait:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
   {
     quote:
@@ -61,7 +64,8 @@ export const endorsements = [
     sector: "EdTech Platform",
     sectorShort: "EdTech",
     matter: "Bookings · 2025",
-    portrait: "/images/testimonials/client-04.webp",
+    portrait:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
   {
     quote:
@@ -70,7 +74,8 @@ export const endorsements = [
     sector: "Insurance Provider",
     sectorShort: "Insurance",
     matter: "Multilingual · 2025",
-    portrait: "/images/testimonials/client-05.webp",
+    portrait:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
   {
     quote:
@@ -79,7 +84,8 @@ export const endorsements = [
     sector: "Lending Firm",
     sectorShort: "Lending",
     matter: "Payment reminders · 2025",
-    portrait: "/images/testimonials/client-06.webp",
+    portrait:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
 ]
 
@@ -148,8 +154,14 @@ const CHIPS: Array<{ text: string; tone: "card" | "dark" }> = [
 ]
 
 const SCENES = [
-  { src: "/images/process/004-pretrial.webp", caption: "Live calls" },
-  { src: "/images/testimonials/result-scene.webp", caption: "The result" },
+  {
+    src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
+    caption: "Live calls",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
+    caption: "The result",
+  },
 ]
 
 function Endorsements() {

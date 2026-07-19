@@ -190,7 +190,9 @@ function mapStrapiIndustry(industry: StrapiIndustry): IndustryArticle | null {
       description: page.description,
       icon: industry.icon,
       order: industry.order ?? 0,
-      image: getStrapiMediaUrl(page.image, page.imageUrl) ?? "/og-image.jpg",
+      image:
+        getStrapiMediaUrl(page.image, page.imageUrl) ??
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       useCases: mapUseCases(page.useCases),
       testimonial: {
         quote: page.testimonialQuote,

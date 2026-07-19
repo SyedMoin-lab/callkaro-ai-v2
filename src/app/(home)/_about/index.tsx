@@ -55,9 +55,7 @@ function About() {
                 </p>
               </div>
               <Button asChild size="lg" className="w-full">
-                <Link href={params.card.cta.href}>
-                  {params.card.cta.label}
-                </Link>
+                <Link href={params.card.cta.href}>{params.card.cta.label}</Link>
               </Button>
             </div>
           </div>

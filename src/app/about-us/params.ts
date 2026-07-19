@@ -3,8 +3,7 @@ export type HeroCell =
   | { type: "image"; src: string; alt: string }
 
 export type StoryPart =
-  | { type: "word"; text: string }
-  | { type: "image"; src: string; alt: string }
+  { type: "word"; text: string } | { type: "image"; src: string; alt: string }
 
 export const params = {
   hero: {
@@ -23,7 +22,7 @@ export const params = {
       },
       {
         type: "image",
-        src: "/images/about/hero-1.webp",
+        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
         alt: "",
       },
       {
@@ -34,14 +33,14 @@ export const params = {
       },
       {
         type: "image",
-        src: "/images/about/hero-2.webp",
+        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
         alt: "",
       },
     ] as HeroCell[],
     rowWarm: [
       {
         type: "image",
-        src: "/images/about/team.webp",
+        src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
         alt: "",
       },
       {
@@ -52,7 +51,7 @@ export const params = {
       },
       {
         type: "image",
-        src: "/images/about/hero-3.webp",
+        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
         alt: "",
       },
       {
@@ -74,14 +73,14 @@ export const params = {
       { type: "word", text: "call," },
       {
         type: "image",
-        src: "/images/process/001-intake.webp",
+        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
         alt: "",
       },
       { type: "word", text: "to" },
       { type: "word", text: "millions" },
       {
         type: "image",
-        src: "/images/process/005-verdict.webp",
+        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
         alt: "",
       },
       { type: "word", text: "of" },
@@ -98,7 +97,7 @@ export const params = {
       { type: "word", text: "voice," },
       {
         type: "image",
-        src: "/images/about/hero-1.webp",
+        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
         alt: "",
       },
       { type: "word", text: "and" },
@@ -108,11 +107,26 @@ export const params = {
       { type: "word", text: "connect." },
     ] as StoryPart[],
     trustAvatars: [
-      { name: "Jane Anderson", src: "/images/partners/01-anderson.webp" },
-      { name: "Marcus Klein", src: "/images/partners/02-klein.webp" },
-      { name: "Rachel Lee", src: "/images/partners/03-lee.webp" },
-      { name: "Tom Singh", src: "/images/partners/04-singh.webp" },
-      { name: "Anna Petrova", src: "/images/partners/05-petrova.webp" },
+      {
+        name: "Jane Anderson",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        name: "Marcus Klein",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        name: "Rachel Lee",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        name: "Tom Singh",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        name: "Anna Petrova",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
     ],
     trustLabel: "Trusted by modern teams",
     cta: {
@@ -127,7 +141,7 @@ export const params = {
       "Guided by purpose, driven by technology, dedicated to making every business call effortless.",
     body: "Our mission is simple, every business call should be answered instantly, sound genuinely human, and move people forward. We go beyond automation to build trust, real conversations, and outcomes our customers can stand behind, so no lead or customer is ever left waiting.",
     image: {
-      src: "/images/about/team-photo.webp",
+      src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
       alt: "",
     },
     valuePairs: [
@@ -154,42 +168,59 @@ export const params = {
         slug: "multilingual",
         title: "Inbound Support",
         summary: "Every call answered, day or night.",
-        image: "/images/services/i-corporate.webp",
+        image:
+          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       },
       {
         roman: "II",
         slug: "low-latency",
         title: "Outbound Campaigns",
         summary: "Reach every lead at real scale.",
-        image: "/images/services/ii-litigation.webp",
+        image:
+          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       },
       {
         roman: "III",
         slug: "natural-voice",
         title: "Reminders & Bookings",
         summary: "Confirm visits, fill the calendar.",
-        image: "/images/services/iii-compliance.webp",
+        image:
+          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       },
       {
         roman: "IV",
         slug: "interrupt-friendly",
         title: "Batch & Payment Calls",
         summary: "Bulk dialing and gentle payment nudges.",
-        image: "/images/services/iv-ip.webp",
+        image:
+          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       },
       {
         roman: "V",
         slug: "context-aware",
         title: "Analytics & Integrations",
         summary: "Call insights synced to your CRM.",
-        image: "/images/services/v-restructuring.webp",
+        image:
+          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     team: [
-      { name: "Jane Anderson", src: "/images/partners/01-anderson.webp" },
-      { name: "Marcus Klein", src: "/images/partners/02-klein.webp" },
-      { name: "Rachel Lee", src: "/images/partners/03-lee.webp" },
-      { name: "Tom Singh", src: "/images/partners/04-singh.webp" },
+      {
+        name: "Jane Anderson",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        name: "Marcus Klein",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        name: "Rachel Lee",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        name: "Tom Singh",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      },
     ],
     peopleCard: {
       text: "Meet the team behind the voice agents.",
@@ -202,7 +233,7 @@ export const params = {
     heading: "Every conversation, natural and reliable.",
     body: "Business calls should feel effortless: answered in seconds, spoken in a genuinely human voice, and handled with care. We build AI voice agents customers trust, backed by dependable uptime, transparent pricing, and strict privacy.",
     image: {
-      src: "/images/process/005-verdict.webp",
+      src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       alt: "",
     },
     stats: [
@@ -219,32 +250,38 @@ export const params = {
       {
         name: "Aarav Mehta",
         role: "Founder & CEO",
-        portrait: "/images/partners/01-anderson.webp",
+        portrait:
+          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Neha Kapoor",
         role: "Head of AI & Voice",
-        portrait: "/images/partners/02-klein.webp",
+        portrait:
+          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Rohan Iyer",
         role: "Head of Engineering",
-        portrait: "/images/partners/03-lee.webp",
+        portrait:
+          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Priya Nair",
         role: "Head of Product",
-        portrait: "/images/partners/04-singh.webp",
+        portrait:
+          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Ananya Rao",
         role: "Head of Customer Success",
-        portrait: "/images/partners/05-petrova.webp",
+        portrait:
+          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Vikram Sharma",
         role: "Head of Growth",
-        portrait: "/images/partners/06-okonkwo.webp",
+        portrait:
+          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
       },
     ],
   },

@@ -132,7 +132,7 @@ function Footer() {
                     <Link
                       key={item.title}
                       href={item.href}
-                      className="text-muted-foreground hover:text-foreground block duration-150"
+                      className="block text-muted-foreground duration-150 hover:text-foreground"
                     >
                       <span>{item.title}</span>
                     </Link>
@@ -143,7 +143,7 @@ function Footer() {
           </div>
 
           <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-foreground/12 py-6">
-            <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
+            <span className="order-last block text-center text-sm text-muted-foreground md:order-first">
               © {new Date().getFullYear()} CallKaro AI, All rights reserved
             </span>
             <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
@@ -151,7 +151,7 @@ function Footer() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="text-muted-foreground hover:text-foreground duration-150"
+                  className="text-muted-foreground duration-150 hover:text-foreground"
                 >
                   {item.title}
                 </Link>
@@ -165,7 +165,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-muted-foreground hover:text-foreground block"
+                  className="block text-muted-foreground hover:text-foreground"
                 >
                   <svg
                     className="size-6"

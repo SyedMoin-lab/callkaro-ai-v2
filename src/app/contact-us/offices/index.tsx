@@ -22,8 +22,8 @@ function ContactOffices() {
             Our offices.
           </h2>
           <p className="mt-6 text-base text-muted-foreground md:text-lg">
-            Real people behind the AI, based right here in Greater Noida.
-            Walk in, write in, or call, the response is the same.
+            Real people behind the AI, based right here in Greater Noida. Walk
+            in, write in, or call, the response is the same.
           </p>
         </motion.div>
 

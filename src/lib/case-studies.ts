@@ -88,7 +88,9 @@ function mapStrapiCaseStudy(study: StrapiCaseStudy): CaseStudy | null {
       forum: study.forum,
       year: study.year,
       date: study.date,
-      image: getStrapiMediaUrl(study.image, study.imageUrl) ?? "/og-image.jpg",
+      image:
+        getStrapiMediaUrl(study.image, study.imageUrl) ??
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
       pinned: study.pinned ?? false,
       testimonial,
     },

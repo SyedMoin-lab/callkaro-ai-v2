@@ -23,7 +23,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           hydration, so suppress the expected first-paint mismatch. */}
       <Sun
         suppressHydrationWarning
-        className={cn("size-5 hidden", isDark && "block")}
+        className={cn("hidden size-5", isDark && "block")}
         strokeWidth={1.75}
       />
       <Moon

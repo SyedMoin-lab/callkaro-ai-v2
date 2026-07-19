@@ -10,42 +10,48 @@ export const params = {
       name: "Jane Anderson",
       role: "Founder & CEO",
       practice: "Vision & Strategy",
-      portrait: "/images/partners/01-anderson.webp",
+      portrait:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "II",
       name: "Marcus Klein",
       role: "Head of AI & Voice",
       practice: "Voice AI",
-      portrait: "/images/partners/02-klein.webp",
+      portrait:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "III",
       name: "Rachel Lee",
       role: "Head of Engineering",
       practice: "Engineering",
-      portrait: "/images/partners/03-lee.webp",
+      portrait:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "IV",
       name: "Tom Singh",
       role: "Head of Customer Success",
       practice: "Customer Success",
-      portrait: "/images/partners/04-singh.webp",
+      portrait:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "V",
       name: "Anna Petrova",
       role: "Head of Product",
       practice: "Product",
-      portrait: "/images/partners/05-petrova.webp",
+      portrait:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
     },
     {
       id: "VI",
       name: "Daniel Okonkwo",
       role: "Head of Sales",
       practice: "Growth & Partnerships",
-      portrait: "/images/partners/06-okonkwo.webp",
+      portrait:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
     },
   ],
 }

@@ -7,7 +7,8 @@ export const params = {
   body: "They pick up instantly, understand every caller, and book appointments automatically — so every lead is captured, day or night.",
   learnMore: { label: "Learn more", href: "/about-us" },
   card: {
-    image: "/images/about/team.webp",
+    image:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
     stat: "1,000+ businesses on CallKaro AI",
     subStat: "Answering calls across 15+ countries",
     cta: { label: "Read reviews", href: "#testimonials" },

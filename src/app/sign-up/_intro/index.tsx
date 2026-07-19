@@ -18,7 +18,8 @@ const FEATURES = [
   },
   {
     title: "Multi-agent Support System",
-    description: "Manage customer conversations with team collaboration features",
+    description:
+      "Manage customer conversations with team collaboration features",
   },
 ]
 
@@ -33,7 +34,9 @@ export default function SignupIntro() {
 
       <div className="relative mx-auto w-full max-w-lg">
         <div className="flex items-center gap-2.5">
-          <span className="text-xl font-medium tracking-tight">CallKaro AI</span>
+          <span className="text-xl font-medium tracking-tight">
+            CallKaro AI
+          </span>
         </div>
 
         <h1 className="mt-8 text-3xl leading-[1.08] font-light tracking-tight text-balance md:text-4xl lg:text-5xl">

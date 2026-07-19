@@ -41,7 +41,7 @@ function PortraitPanel() {
       className="relative aspect-[4/5] w-full lg:aspect-square lg:w-auto"
     >
       <Image
-        src="/images/contact/portrait.webp"
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
         alt=""
         fill
         priority

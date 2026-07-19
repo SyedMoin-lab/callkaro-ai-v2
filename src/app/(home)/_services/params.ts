@@ -15,7 +15,8 @@ export const params = {
       title: "Multilingual & Accent-Adaptive",
       summary:
         "Our AI voice agent supports 20+ languages and understands diverse regional accents for seamless, inclusive conversations.",
-      image: "/images/services/i-corporate.webp",
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
     },
     {
       roman: "II",
@@ -23,7 +24,8 @@ export const params = {
       title: "Low Latency",
       summary:
         "Fast responses, no matter the query. Experience real-time interactions with near-zero delay.",
-      image: "/images/services/ii-litigation.webp",
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
     },
     {
       roman: "III",
@@ -31,7 +33,8 @@ export const params = {
       title: "Natural, Human-Sounding Voice",
       summary:
         "No robotic tones. Our voice agents sound genuinely human, engaging customers with warmth, clarity, and emotion.",
-      image: "/images/services/iii-compliance.webp",
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
     },
     {
       roman: "IV",
@@ -39,7 +42,8 @@ export const params = {
       title: "Interrupt-Friendly & Intuitive",
       summary:
         "Just like a real human, the AI can handle interruptions mid-sentence, adapt, and pick up the conversation naturally.",
-      image: "/images/services/iv-ip.webp",
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
     },
     {
       roman: "V",
@@ -47,7 +51,8 @@ export const params = {
       title: "Context-Aware & Customisable",
       summary:
         "Tailor every conversation to suit your business logic. Our AI adapts fluidly to user intent, context, and tone.",
-      image: "/images/services/v-restructuring.webp",
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
     },
     {
       roman: "VI",
@@ -55,7 +60,8 @@ export const params = {
       title: "Simple API Integration",
       summary:
         "Plug into your existing CRM, databases, and knowledge bases effortlessly, with flexible, developer-friendly APIs.",
-      image: "/images/services/i-corporate.webp",
+      image:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
     },
   ],
 }

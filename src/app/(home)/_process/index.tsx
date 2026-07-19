@@ -106,7 +106,7 @@ function Process() {
                       duration: isShown ? CURTAIN * 1.25 : CURTAIN,
                       ease: EASE_SETTLE,
                     }}
-                    className={cn("size-full object-cover", p.image.className)}
+                    className="size-full object-cover"
                   />
                 </motion.div>
               )

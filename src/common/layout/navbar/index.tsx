@@ -556,7 +556,7 @@ function Navbar({
                                 </span>
                                 <div className="relative mt-3 aspect-video w-full overflow-hidden rounded-lg bg-muted/60">
                                   <Image
-                                    src="/images/hero/office.webp"
+                                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
                                     alt="CallKaro AI demo preview"
                                     fill
                                     sizes="288px"

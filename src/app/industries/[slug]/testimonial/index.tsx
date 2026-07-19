@@ -26,16 +26,16 @@ function Testimonial({
           >
             &ldquo;
           </span>
-          <blockquote className="mx-auto mt-2 max-w-3xl wrap-break-word text-xl leading-snug font-light md:text-2xl lg:text-3xl">
+          <blockquote className="mx-auto mt-2 max-w-3xl text-xl leading-snug font-light wrap-break-word md:text-2xl lg:text-3xl">
             {testimonial.quote}
           </blockquote>
           <footer className="mt-8 flex items-center justify-center gap-3">
             <span aria-hidden className="block h-px w-8 shrink-0 bg-accent" />
-            <div className="min-w-0 max-w-sm">
-              <p className="wrap-break-word text-sm font-medium">
+            <div className="max-w-sm min-w-0">
+              <p className="text-sm font-medium wrap-break-word">
                 {testimonial.author}
               </p>
-              <p className="mt-0.5 wrap-break-word text-xs text-foreground/60">
+              <p className="mt-0.5 text-xs wrap-break-word text-foreground/60">
                 {testimonial.role}
               </p>
             </div>
@@ -44,7 +44,10 @@ function Testimonial({
           <div className="mt-10">
             <Button asChild variant="secondary" size="lg">
               <Link href={ctaHref}>
-                {interpolateIndustryTemplate(ctaLabelTemplate, name.toLowerCase())}
+                {interpolateIndustryTemplate(
+                  ctaLabelTemplate,
+                  name.toLowerCase()
+                )}
                 <MoveUpRight />
               </Link>
             </Button>

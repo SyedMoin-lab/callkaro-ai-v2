@@ -61,10 +61,10 @@ function MoreIndustries({
                         {s.id}
                       </span>
                     </div>
-                    <h3 className="mt-4 wrap-break-word text-lg leading-tight font-light tracking-tight md:text-xl">
+                    <h3 className="mt-4 text-lg leading-tight font-light tracking-tight wrap-break-word md:text-xl">
                       {s.name}.
                     </h3>
-                    <p className="mt-2 wrap-break-word text-sm leading-snug text-muted-foreground">
+                    <p className="mt-2 text-sm leading-snug wrap-break-word text-muted-foreground">
                       {s.tagline}
                     </p>
                   </div>

@@ -55,7 +55,7 @@ export default async function IndustryPage({
       <IndustryHero frontmatter={industry.frontmatter} hero={hero}>
         <div
           className={[
-            "prose mx-auto max-w-2xl wrap-break-word text-center prose-neutral",
+            "mx-auto prose max-w-2xl text-center wrap-break-word prose-neutral",
             "prose-p:text-base prose-p:leading-relaxed prose-p:text-muted-foreground md:prose-p:text-lg",
           ].join(" ")}
         >

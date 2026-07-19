@@ -63,7 +63,7 @@ export default function Calculator() {
             <div className="border-b border-border p-6 md:p-8 lg:border-r lg:border-b-0">
               <Fieldset label="Monthly call minutes">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-2xl font-light tracking-tight tabular-nums text-accent">
+                  <span className="text-2xl font-light tracking-tight text-accent tabular-nums">
                     {minutes.toLocaleString("en-IN")}
                     {minutes >= MAX_MINUTES ? "+" : ""}
                   </span>
@@ -88,29 +88,33 @@ export default function Calculator() {
               </Fieldset>
 
               <div className="mt-8 rounded-xl bg-muted/40 p-5 ring-1 ring-border">
-                <p className="text-sm font-medium">How we get to {inr(HUMAN_PER_MIN)}/min</p>
+                <p className="text-sm font-medium">
+                  How we get to {inr(HUMAN_PER_MIN)}/min
+                </p>
                 <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
                   <li className="flex justify-between gap-3">
                     <span>Monthly salary</span>
-                    <span className="tabular-nums text-foreground/80">
+                    <span className="text-foreground/80 tabular-nums">
                       {inr(HUMAN.salary)}
                     </span>
                   </li>
                   <li className="flex justify-between gap-3">
                     <span>Working days</span>
-                    <span className="tabular-nums text-foreground/80">
+                    <span className="text-foreground/80 tabular-nums">
                       {HUMAN.days}
                     </span>
                   </li>
                   <li className="flex justify-between gap-3">
                     <span>Talk-time per day</span>
-                    <span className="tabular-nums text-foreground/80">
+                    <span className="text-foreground/80 tabular-nums">
                       {HUMAN.minsPerDay} min
                     </span>
                   </li>
                   <li className="flex justify-between gap-3 border-t border-border pt-1.5">
-                    <span>= {HUMAN_MINS_PER_MONTH.toLocaleString("en-IN")} min/month</span>
-                    <span className="tabular-nums font-medium text-foreground">
+                    <span>
+                      = {HUMAN_MINS_PER_MONTH.toLocaleString("en-IN")} min/month
+                    </span>
+                    <span className="font-medium text-foreground tabular-nums">
                       {inr(HUMAN_PER_MIN)}/min
                     </span>
                   </li>
@@ -120,7 +124,9 @@ export default function Calculator() {
 
             {/* Estimated cost */}
             <div className="p-6 md:p-8">
-              <h3 className="text-xl font-medium tracking-tight">Estimated Cost</h3>
+              <h3 className="text-xl font-medium tracking-tight">
+                Estimated Cost
+              </h3>
               <p className="mt-1.5 text-sm text-muted-foreground">
                 Monthly cost for {minutes.toLocaleString("en-IN")} minutes of
                 calling.
@@ -164,8 +170,8 @@ export default function Calculator() {
 
               <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                 Human-agent figures are based on a ₹30,000/month salary across
-                25 working days at 150 talk-minutes per day. Actual savings
-                vary with your connect rate and call volume.
+                25 working days at 150 talk-minutes per day. Actual savings vary
+                with your connect rate and call volume.
               </p>
             </div>
           </div>

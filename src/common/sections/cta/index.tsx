@@ -35,8 +35,8 @@ function Cta() {
 
           <div className="relative min-h-72 md:min-h-[32rem]">
             <Image
-              src="/images/cta/seal-01.png"
-              alt="Burgundy wax seal embossed with a serif V on a cream envelope, beside a brass fountain pen"
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
+              alt="A team at work in a modern office"
               fill
               sizes="(min-width: 768px) 45vw, 100vw"
               className="object-cover"

@@ -15,25 +15,29 @@ const AWARDS = [
     id: "g2",
     title: "G2, High Performer in Conversational AI",
     year: 2025,
-    image: "/images/awards/01-chambers.webp",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: "deloitte",
     title: "Deloitte Technology Fast 50, Rising Company",
     year: 2025,
-    image: "/images/awards/03-benchmark.webp",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: "ai100",
     title: "The AI 100, Most Promising Startups",
     year: 2024,
-    image: "/images/awards/04-amlaw.webp",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: "saasboomi",
     title: "SaaSBoomi, Rising Star in Voice AI",
     year: 2023,
-    image: "/images/awards/05-law360.webp",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
   },
 ] as const
 

@@ -18,8 +18,8 @@ function BlogHero() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-lg text-base text-muted-foreground md:text-lg">
-          Field notes, product updates, and playbooks on getting the most
-          out of your AI voice agent.
+          Field notes, product updates, and playbooks on getting the most out of
+          your AI voice agent.
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
