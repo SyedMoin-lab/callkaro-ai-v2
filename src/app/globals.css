@@ -462,3 +462,14 @@
     transform: scaleX(1);
   }
 }
+
+/* Feature-card demo: voicemail equalizer bars. */
+@keyframes feature-eq {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
