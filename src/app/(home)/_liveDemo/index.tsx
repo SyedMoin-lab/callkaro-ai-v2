@@ -36,7 +36,7 @@ export default function LiveDemo() {
   }
 
   return (
-    <section className="section-padding">
+    <section id="use-cases" className="section-padding scroll-mt-24">
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">

@@ -8,9 +8,12 @@ import {
   ArrowRight,
   BookOpen,
   Bot,
+  Building2,
   ChevronDown,
+  Factory,
   Grid3x3,
   Headphones,
+  Layers,
   LayoutDashboard,
   LayoutGrid,
   Menu,
@@ -24,8 +27,10 @@ import {
   PieChart,
   Plug,
   Sparkles,
+  Tag,
   Workflow,
   X,
+  Zap,
 } from "lucide-react"
 import {
   AnimatePresence,
@@ -45,15 +50,55 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 const navItems = [
   { label: "Products", href: "/products", megaMenu: true },
-  { label: "About", href: "/about-us" },
   { label: "Test your agent", href: "/#chat" },
   { label: "Industries", href: "/industries", dropdown: true },
-  { label: "Features", href: "/features" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Resources", href: "/case-studies", resources: true },
+  { label: "Company", href: "/about-us", company: true },
 ]
 
-const resourcesMenu = [
+// Rendered in the middle of the desktop nav so the brand sits centered
+// between the two halves of the menu. Matched by reference in the map.
+const BRAND_SENTINEL: (typeof navItems)[number] = {
+  label: "__brand__",
+  href: "/",
+}
+
+const companyMenu = [
+  {
+    label: "Solution",
+    description: "How CallKaro AI handles your calls end to end",
+    href: "/services",
+    icon: Layers,
+  },
+  {
+    label: "Use cases",
+    description: "Receptionist, booking, lead qualification and more",
+    href: "/#use-cases",
+    icon: Sparkles,
+  },
+  {
+    label: "About Us",
+    description: "Who we are and what we're building",
+    href: "/about-us",
+    icon: Building2,
+  },
+  {
+    label: "Industries",
+    description: "Tailored voice agents for every sector",
+    href: "/industries",
+    icon: Factory,
+  },
+  {
+    label: "Features",
+    description: "Every capability, from transfers to analytics",
+    href: "/features",
+    icon: Zap,
+  },
+  {
+    label: "Pricing",
+    description: "Fixed, dynamic, and enterprise plans",
+    href: "/pricing",
+    icon: Tag,
+  },
   {
     label: "Case Studies",
     description: "Real results from teams running CallKaro AI",
@@ -67,13 +112,6 @@ const resourcesMenu = [
     icon: BookOpen,
   },
 ]
-
-// Rendered in the middle of the desktop nav so the brand sits centered
-// between the two halves of the menu. Matched by reference in the map.
-const BRAND_SENTINEL: (typeof navItems)[number] = {
-  label: "__brand__",
-  href: "/",
-}
 
 const productsCategories = [
   { label: "Cloud Phone System", icon: Phone, active: true },
@@ -114,7 +152,8 @@ const productsFeatures = [
   },
   {
     label: "IVR (Call Menu)",
-    description: "Guide your customers to the right solution with interactive options",
+    description:
+      "Guide your customers to the right solution with interactive options",
     icon: Headphones,
   },
   {
@@ -129,12 +168,14 @@ const productsFeatures = [
   },
   {
     label: "Advanced Analytics",
-    description: "Monitor real-time performance of agents with meaningful metrics",
+    description:
+      "Monitor real-time performance of agents with meaningful metrics",
     icon: PieChart,
   },
   {
     label: "Automated Call Distribution",
-    description: "Automatically receive and distribute calls to the right agents",
+    description:
+      "Automatically receive and distribute calls to the right agents",
     icon: Network,
   },
 ]
@@ -177,9 +218,9 @@ function Navbar({
   const [productsOpen, setProductsOpen] = useState(false)
   const [productsMobileOpen, setProductsMobileOpen] = useState(false)
   const productsRef = useRef<HTMLLIElement>(null)
-  const [resourcesOpen, setResourcesOpen] = useState(false)
-  const [resourcesMobileOpen, setResourcesMobileOpen] = useState(false)
-  const resourcesRef = useRef<HTMLLIElement>(null)
+  const [companyOpen, setCompanyOpen] = useState(false)
+  const [companyMobileOpen, setCompanyMobileOpen] = useState(false)
+  const companyRef = useRef<HTMLLIElement>(null)
   const navRef = useRef<HTMLElement>(null)
   const [megaMenuTop, setMegaMenuTop] = useState(0)
   const { scrollY } = useScroll()
@@ -187,11 +228,13 @@ function Navbar({
   const pathname = usePathname()
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/")
-  // Resources groups two sections, so it lights up for either of them.
-  const resourcesActive = resourcesMenu.some((r) => isActive(r.href))
+  // Company nests several sections, so it lights up for any of them.
+  const companyActive = companyMenu.some(
+    (c) => c.href.startsWith("/") && !c.href.includes("#") && isActive(c.href)
+  )
   const activeHref =
     navItems.find((item) => isActive(item.href))?.href ??
-    (resourcesActive ? "/case-studies" : undefined)
+    (companyActive ? "/about-us" : undefined)
 
   // Drives the compact/pill style and reclaims the banner's space once
   // scrolled — the header itself always stays pinned in place, never hides.
@@ -208,8 +251,8 @@ function Navbar({
     setIndustriesMobileOpen(false)
     setProductsOpen(false)
     setProductsMobileOpen(false)
-    setResourcesOpen(false)
-    setResourcesMobileOpen(false)
+    setCompanyOpen(false)
+    setCompanyMobileOpen(false)
   }
 
   // While the menu is open: lock scroll and close on Escape.
@@ -248,14 +291,14 @@ function Navbar({
 
   // Close the resources dropdown on outside click or Escape.
   useEffect(() => {
-    if (!resourcesOpen) return
+    if (!companyOpen) return
     const onPointerDown = (e: PointerEvent) => {
-      if (!resourcesRef.current?.contains(e.target as Node)) {
-        setResourcesOpen(false)
+      if (!companyRef.current?.contains(e.target as Node)) {
+        setCompanyOpen(false)
       }
     }
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setResourcesOpen(false)
+      if (e.key === "Escape") setCompanyOpen(false)
     }
     window.addEventListener("pointerdown", onPointerDown)
     window.addEventListener("keydown", onKey)
@@ -263,7 +306,7 @@ function Navbar({
       window.removeEventListener("pointerdown", onPointerDown)
       window.removeEventListener("keydown", onKey)
     }
-  }, [resourcesOpen])
+  }, [companyOpen])
 
   // Close the products mega menu on outside click or Escape.
   useEffect(() => {
@@ -328,8 +371,9 @@ function Navbar({
         <div className="container max-w-7xl">
           <nav
             ref={navRef}
-            className="flex items-center justify-between gap-6 rounded-xl border bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl transition-all duration-300 sm:px-5"
+            className="flex items-center justify-between gap-6 rounded-xl border bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl transition-all duration-300 sm:px-5 md:grid md:grid-cols-[1fr_auto_1fr]"
           >
+            {/* Mobile-only brand — on desktop it sits centered inside the nav */}
             <Link href="/" className="flex items-center gap-2.5 md:hidden">
               <span className="text-xl font-semibold tracking-tight">
                 CallKaro AI
@@ -341,9 +385,9 @@ function Navbar({
               onMouseLeave={() => setHovered(null)}
             >
               {[
-                ...navItems.slice(0, 4),
+                ...navItems.slice(0, 2),
                 BRAND_SENTINEL,
-                ...navItems.slice(4),
+                ...navItems.slice(2),
               ].map((item) => {
                 if (item === BRAND_SENTINEL) {
                   return (
@@ -531,7 +575,10 @@ function Navbar({
                                   className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent transition-opacity hover:opacity-80"
                                 >
                                   {productsFeatured.cta}
-                                  <ArrowRight aria-hidden className="size-3.5" />
+                                  <ArrowRight
+                                    aria-hidden
+                                    className="size-3.5"
+                                  />
                                 </Link>
                               </div>
                             </div>
@@ -632,26 +679,26 @@ function Navbar({
                   )
                 }
 
-                if (item.resources) {
+                if (item.company) {
                   return (
                     <li
                       key={item.label}
-                      ref={resourcesRef}
+                      ref={companyRef}
                       className="relative"
                       onMouseEnter={() => {
                         setHovered(item.href)
-                        setResourcesOpen(true)
+                        setCompanyOpen(true)
                       }}
-                      onMouseLeave={() => setResourcesOpen(false)}
+                      onMouseLeave={() => setCompanyOpen(false)}
                     >
                       <button
                         type="button"
-                        onClick={() => setResourcesOpen((v) => !v)}
+                        onClick={() => setCompanyOpen((v) => !v)}
                         aria-haspopup="true"
-                        aria-expanded={resourcesOpen}
+                        aria-expanded={companyOpen}
                         className={cn(
                           "relative flex items-center gap-1 text-sm whitespace-nowrap transition-colors hover:text-foreground",
-                          resourcesActive
+                          companyActive
                             ? "text-foreground"
                             : "text-foreground/75"
                         )}
@@ -662,7 +709,7 @@ function Navbar({
                           strokeWidth={1.75}
                           className={cn(
                             "size-3.5 transition-transform duration-200",
-                            resourcesOpen && "rotate-180"
+                            companyOpen && "rotate-180"
                           )}
                         />
                         {highlighted && (
@@ -680,20 +727,20 @@ function Navbar({
                       </button>
 
                       <AnimatePresence>
-                        {resourcesOpen && (
+                        {companyOpen && (
                           <motion.div
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.18, ease: EASE_OUT }}
-                            className="absolute top-full left-1/2 z-50 w-72 -translate-x-1/2 pt-4"
+                            className="absolute top-full left-1/2 z-50 w-[36rem] -translate-x-1/2 pt-4"
                           >
-                            <ul className="rounded-xl border border-foreground/10 bg-background p-2 shadow-2xl">
-                              {resourcesMenu.map((it) => (
+                            <ul className="grid grid-cols-2 gap-1 rounded-xl border border-foreground/10 bg-background p-2 shadow-2xl">
+                              {companyMenu.map((it) => (
                                 <li key={it.href}>
                                   <Link
                                     href={it.href}
-                                    onClick={() => setResourcesOpen(false)}
+                                    onClick={() => setCompanyOpen(false)}
                                     className="flex items-start gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-foreground/5"
                                   >
                                     <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
@@ -892,9 +939,7 @@ function Navbar({
                       <li key={item.label} className="border-b">
                         <button
                           type="button"
-                          onClick={() =>
-                            setIndustriesMobileOpen((v) => !v)
-                          }
+                          onClick={() => setIndustriesMobileOpen((v) => !v)}
                           aria-expanded={industriesMobileOpen}
                           className={cn(
                             "flex w-full items-center justify-between py-4 text-lg font-medium tracking-tight transition-colors hover:text-foreground",
@@ -940,16 +985,16 @@ function Navbar({
                     )
                   }
 
-                  if (item.resources) {
+                  if (item.company) {
                     return (
                       <li key={item.label} className="border-b">
                         <button
                           type="button"
-                          onClick={() => setResourcesMobileOpen((v) => !v)}
-                          aria-expanded={resourcesMobileOpen}
+                          onClick={() => setCompanyMobileOpen((v) => !v)}
+                          aria-expanded={companyMobileOpen}
                           className={cn(
                             "flex w-full items-center justify-between py-4 text-lg font-medium tracking-tight transition-colors hover:text-foreground",
-                            resourcesActive ? "text-accent" : "text-foreground/85"
+                            companyActive ? "text-accent" : "text-foreground/85"
                           )}
                         >
                           {item.label}
@@ -958,12 +1003,12 @@ function Navbar({
                             strokeWidth={1.5}
                             className={cn(
                               "size-5 transition-transform duration-200",
-                              resourcesMobileOpen && "rotate-180"
+                              companyMobileOpen && "rotate-180"
                             )}
                           />
                         </button>
                         <AnimatePresence initial={false}>
-                          {resourcesMobileOpen && (
+                          {companyMobileOpen && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
@@ -972,7 +1017,7 @@ function Navbar({
                               className="overflow-hidden"
                             >
                               <ul className="flex flex-col gap-0.5 pb-4">
-                                {resourcesMenu.map((it) => (
+                                {companyMenu.map((it) => (
                                   <li key={it.href}>
                                     <Link
                                       href={it.href}
