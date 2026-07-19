@@ -29,18 +29,6 @@ export interface CaseStudy {
   frontmatter: CaseStudyFrontmatter
 }
 
-export interface ServicePartner {
-  name: string
-  role: string
-}
-
-export interface ServiceRepresentativeCase {
-  title: string
-  metric: string
-  metricLabel: string
-  slug: string
-}
-
 export interface ServiceFrontmatter {
   slug: string
   id: string
@@ -51,8 +39,6 @@ export interface ServiceFrontmatter {
   order: number
   image: string
   subAreas: string[]
-  partner: ServicePartner
-  representativeCase: ServiceRepresentativeCase
 }
 
 export interface ServiceArticle {

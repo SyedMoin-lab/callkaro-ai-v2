@@ -365,6 +365,14 @@ function Navbar({
             className="flex w-full items-center justify-between gap-6 rounded-xl border bg-background/95 px-3 py-3 shadow-lg transition-all duration-300 sm:px-5 md:mx-auto md:w-fit md:gap-8"
           >
             <Link href="/" className="flex items-center gap-2.5 md:hidden">
+              <Image
+                src="/callkaro-logo.png"
+                alt=""
+                width={192}
+                height={192}
+                className="size-8 shrink-0 rounded-lg"
+                priority
+              />
               <span className="text-xl font-semibold tracking-tight">
                 CallKaro AI
               </span>
@@ -384,8 +392,16 @@ function Navbar({
                     <li key="brand" className="mx-1 shrink-0">
                       <Link
                         href="/"
-                        className="text-lg font-semibold tracking-tight whitespace-nowrap"
+                        className="flex items-center gap-2 text-lg font-semibold tracking-tight whitespace-nowrap"
                       >
+                        <Image
+                          src="/callkaro-logo.png"
+                          alt=""
+                          width={192}
+                          height={192}
+                          className="size-7 shrink-0 rounded-lg"
+                          priority
+                        />
                         CallKaro AI
                       </Link>
                     </li>
@@ -849,6 +865,13 @@ function Navbar({
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-2.5"
                 >
+                  <Image
+                    src="/callkaro-logo.png"
+                    alt=""
+                    width={192}
+                    height={192}
+                    className="size-8 shrink-0 rounded-lg"
+                  />
                   <span className="text-lg font-semibold tracking-tight">
                     CallKaro AI
                   </span>

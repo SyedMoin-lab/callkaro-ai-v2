@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import {
@@ -115,6 +116,13 @@ function Footer() {
                 aria-label="CallKaro AI home"
                 className="flex w-fit items-center gap-2.5"
               >
+                <Image
+                  src="/callkaro-logo.png"
+                  alt=""
+                  width={192}
+                  height={192}
+                  className="size-9 shrink-0 rounded-lg"
+                />
                 <span className="text-xl font-semibold tracking-tight">
                   CallKaro AI
                 </span>

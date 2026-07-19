@@ -111,36 +111,12 @@ function SidebarCard({ frontmatter }: { frontmatter: ServiceFrontmatter }) {
       </div>
 
       <div className="border-t pt-5">
-        <div className="text-xs text-muted-foreground">Capability lead</div>
-        <div className="mt-2 text-base font-light text-foreground">
-          {frontmatter.partner.name}
-        </div>
-        <div className="mt-1 text-sm text-muted-foreground">
-          {frontmatter.partner.role}
-        </div>
-      </div>
-
-      <div className="border-t pt-5">
-        <div className="text-xs text-muted-foreground">Customer story</div>
-        <div className="mt-3 text-sm leading-snug font-light text-foreground">
-          {frontmatter.representativeCase.title}
-        </div>
-        <div className="mt-5 flex flex-wrap items-baseline justify-between gap-3 border-t pt-4">
-          <div>
-            <div className="text-2xl leading-none font-light">
-              {frontmatter.representativeCase.metric}
-            </div>
-            <div className="mt-1.5 text-[0.625rem] tracking-widest text-muted-foreground uppercase">
-              {frontmatter.representativeCase.metricLabel}
-            </div>
-          </div>
-          <Button asChild variant="ghost" size="sm">
-            <Link href={`/case-studies/${frontmatter.representativeCase.slug}`}>
-              Open
-              <MoveUpRight />
-            </Link>
-          </Button>
-        </div>
+        <Button asChild variant="ghost" size="sm">
+          <Link href="/contact-us">
+            Talk to us about this
+            <MoveUpRight />
+          </Link>
+        </Button>
       </div>
 
       <Button asChild className="mt-2">

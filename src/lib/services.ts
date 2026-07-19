@@ -2,6 +2,7 @@ import { compileMDX } from "next-mdx-remote/rsc"
 import fs from "fs/promises"
 import path from "path"
 
+import { params } from "@/app/services/params"
 import type { ServiceArticle, ServiceFrontmatter } from "@/lib/types"
 
 const servicesDirectory = path.join(process.cwd(), "content/services")
@@ -58,9 +59,10 @@ export async function getAllServices(): Promise<ServiceFrontmatter[]> {
       })
     )
 
+    if (services.length === 0) return params.services
     return services.sort((a, b) => a.order - b.order)
   } catch (error) {
     console.error("Error reading all services:", error)
-    return []
+    return params.services
   }
 }
