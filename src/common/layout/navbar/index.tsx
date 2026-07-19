@@ -356,10 +356,13 @@ function Navbar({
           isBannerVisible && !scrolled ? "mt-14" : "mt-4"
         )}
       >
+        {/* No backdrop-blur on the nav: backdrop-filter creates a containing
+            block for position:fixed descendants, which traps the mega menus
+            inside the pill instead of letting them span the viewport. */}
         <div className="container max-w-7xl">
           <nav
             ref={navRef}
-            className="flex w-full items-center justify-between gap-6 rounded-xl border bg-background/95 px-3 py-3 shadow-lg transition-all duration-300 sm:px-5 md:mx-auto md:w-fit md:gap-8 md:bg-background/85 md:backdrop-blur-2xl"
+            className="flex w-full items-center justify-between gap-6 rounded-xl border bg-background/95 px-3 py-3 shadow-lg transition-all duration-300 sm:px-5 md:mx-auto md:w-fit md:gap-8"
           >
             <Link href="/" className="flex items-center gap-2.5 md:hidden">
               <span className="text-xl font-semibold tracking-tight">
@@ -514,9 +517,12 @@ function Navbar({
                                     />
                                   </div>
 
-                                  <ul className="mt-2 grid grid-cols-2 gap-x-6">
+                                  <ul className="mt-2 grid grid-cols-1 gap-x-6 lg:grid-cols-2">
                                     {productsFeatures.map((feature) => (
-                                      <li key={feature.label}>
+                                      <li
+                                        key={feature.label}
+                                        className="min-w-0"
+                                      >
                                         <div className="flex items-start gap-3 rounded-lg px-3 py-3">
                                           <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
                                             {createElement(feature.icon, {
@@ -524,7 +530,7 @@ function Navbar({
                                               strokeWidth: 1.5,
                                             })}
                                           </span>
-                                          <span>
+                                          <span className="min-w-0">
                                             <span className="block text-sm font-medium text-foreground">
                                               {feature.label}
                                             </span>
