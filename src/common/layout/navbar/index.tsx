@@ -359,7 +359,7 @@ function Navbar({
         <div className="container max-w-7xl">
           <nav
             ref={navRef}
-            className="flex items-center justify-between gap-6 rounded-xl border bg-background/95 px-3 py-3 shadow-lg transition-all duration-300 sm:px-5 md:grid md:grid-cols-[1fr_auto_1fr] md:bg-background/85 md:backdrop-blur-2xl"
+            className="flex w-full items-center justify-between gap-6 rounded-xl border bg-background/95 px-3 py-3 shadow-lg transition-all duration-300 sm:px-5 md:mx-auto md:w-fit md:gap-8 md:bg-background/85 md:backdrop-blur-2xl"
           >
             <Link href="/" className="flex items-center gap-2.5 md:hidden">
               <span className="text-xl font-semibold tracking-tight">
@@ -368,7 +368,7 @@ function Navbar({
             </Link>
 
             <ul
-              className="hidden items-center gap-5 md:col-start-2 md:flex lg:gap-6"
+              className="hidden items-center gap-5 md:flex lg:gap-6"
               onMouseLeave={() => setHovered(null)}
             >
               {[
@@ -447,7 +447,7 @@ function Navbar({
                             style={{ top: megaMenuTop }}
                             className="dark fixed inset-x-0 z-50 pt-3"
                           >
-                            <div className="container max-w-7xl">
+                            <div className="container max-w-5xl">
                               <div className="grid grid-cols-[13rem_1fr] gap-8 rounded-xl border border-foreground/10 bg-background p-6 text-foreground shadow-2xl lg:grid-cols-[15rem_1fr_18rem] lg:gap-10">
                                 <ul className="space-y-1 border-r border-foreground/10 pr-6 lg:pr-8">
                                   {productsCategories.map((cat) => (
@@ -633,7 +633,7 @@ function Navbar({
                             style={{ top: megaMenuTop }}
                             className="dark fixed inset-x-0 z-50 pt-3"
                           >
-                            <div className="container max-w-7xl">
+                            <div className="container max-w-5xl">
                               <div className="rounded-xl border border-foreground/10 bg-background p-6 text-foreground shadow-2xl">
                                 <ul className="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
                                   {industriesMenu.map((it) => (
@@ -789,7 +789,7 @@ function Navbar({
               })}
             </ul>
 
-            <div className="flex items-center justify-end gap-2 md:col-start-3">
+            <div className="flex items-center justify-end gap-2">
               <ThemeToggle />
               <Button
                 variant="ghost"
