@@ -3,8 +3,8 @@
 import type { ReactNode } from "react"
 import { usePathname } from "next/navigation"
 
-// Routes rendered "bare", without the marketing chrome (banner/navbar/footer).
-// Signup and login are focused, standalone auth pages.
+import { ScrollProgress } from "@/common/customUI/scrollProgress"
+
 const BARE_ROUTES = ["/sign-up", "/login"]
 
 function isBare(pathname: string) {
@@ -32,6 +32,7 @@ export default function SiteChrome({
 
   return (
     <>
+      <ScrollProgress />
       {banner}
       {navbar}
       <main className="relative flex-1">{children}</main>

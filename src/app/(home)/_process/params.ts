@@ -1,6 +1,3 @@
-// Placeholder imagery (free Unsplash photos) reused across the site. The
-// carousel wipes between steps, so consecutive phases must use different
-// photos or the transition reads as "nothing happened".
 const OFFICE =
   "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
 const TEAM =

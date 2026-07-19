@@ -71,20 +71,19 @@
 }
 
 :root {
-  /* Palette: Beige #FCF5EE · Pink #FFC4C4 · Rose #EE6983 · Maroon #850E35 */
-  --background: oklch(0.974 0.012 67.7); /* Beige */
+  --background: oklch(0.974 0.012 67.7);
   --foreground: oklch(0.24 0.06 12);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.24 0.06 12);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.06 12);
-  --primary: oklch(0.69 0.165 10.4); /* Rose #EE6983 */
+  --primary: oklch(0.69 0.165 10.4);
   --primary-foreground: oklch(0.985 0.008 68);
-  --secondary: oklch(0.401 0.151 10); /* Maroon #850E35 */
+  --secondary: oklch(0.401 0.151 10);
   --secondary-foreground: oklch(0.985 0.008 68);
   --muted: oklch(0.955 0.018 45);
   --muted-foreground: oklch(0.52 0.06 12);
-  --accent: oklch(0.69 0.165 10.4); /* Rose */
+  --accent: oklch(0.69 0.165 10.4);
   --accent-foreground: oklch(0.985 0.008 68);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.9 0.03 22);
@@ -98,7 +97,7 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0.008 68);
   --sidebar-foreground: oklch(0.24 0.06 12);
-  --sidebar-primary: oklch(0.69 0.165 10.4); /* Rose #EE6983 */
+  --sidebar-primary: oklch(0.69 0.165 10.4);
   --sidebar-primary-foreground: oklch(0.985 0.008 68);
   --sidebar-accent: oklch(0.945 0.03 16);
   --sidebar-accent-foreground: oklch(0.401 0.151 10);
@@ -107,20 +106,19 @@
 }
 
 .dark {
-  /* Neutral-dark surfaces; rose/maroon reserved for accents only. */
   --background: oklch(0.16 0.006 25);
   --foreground: oklch(0.96 0.006 60);
   --card: oklch(0.205 0.008 25);
   --card-foreground: oklch(0.96 0.006 60);
   --popover: oklch(0.205 0.008 25);
   --popover-foreground: oklch(0.96 0.006 60);
-  --primary: oklch(0.69 0.165 10.4); /* Rose */
+  --primary: oklch(0.69 0.165 10.4);
   --primary-foreground: oklch(0.16 0.006 25);
-  --secondary: oklch(0.401 0.151 10); /* Maroon #850E35 */
+  --secondary: oklch(0.401 0.151 10);
   --secondary-foreground: oklch(0.96 0.006 60);
   --muted: oklch(0.25 0.007 25);
   --muted-foreground: oklch(0.71 0.015 40);
-  --accent: oklch(0.69 0.165 10.4); /* Rose */
+  --accent: oklch(0.69 0.165 10.4);
   --accent-foreground: oklch(0.16 0.006 25);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(0.92 0.01 40 / 10%);
@@ -147,12 +145,12 @@
   }
   html {
     @apply scroll-smooth overflow-x-clip;
-    /* Hide the main scrollbar while keeping scroll behaviour. */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* legacy Edge/IE */
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   html::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, newer Edge */
+    display: none;
   }
   body {
     @apply bg-background font-text font-weight-text text-foreground antialiased overflow-x-clip;
@@ -208,8 +206,6 @@
   }
 }
 
-/* Animated brass mesh, warm-only gradient for the contact CTA card.
-   @property lets the custom properties interpolate smoothly on the GPU. */
 @property --vg-x1 {
   syntax: "<percentage>";
   inherits: false;
@@ -459,7 +455,6 @@
   }
 }
 
-/* Feature-card demo: progress bar grows in from the left. */
 @keyframes feature-bar-grow {
   from {
     transform: scaleX(0);
@@ -469,7 +464,6 @@
   }
 }
 
-/* Feature-card demo: voicemail equalizer bars. */
 @keyframes feature-eq {
   0%,
   100% {
@@ -480,7 +474,6 @@
   }
 }
 
-/* Live-demo orb: rotating gradient + breathing scale. */
 @keyframes orb-rotate {
   to {
     transform: rotate(360deg);

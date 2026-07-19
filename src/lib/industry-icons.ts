@@ -10,11 +10,6 @@ import {
   Wifi,
 } from "lucide-react"
 
-/**
- * Icon registry keyed by the `icon` value on each industry (CMS field or
- * local MDX frontmatter). Add a new lucide import here when a new industry
- * goes in.
- */
 export const INDUSTRY_ICONS: Record<string, LucideIcon> = {
   GraduationCap,
   ShoppingCart,

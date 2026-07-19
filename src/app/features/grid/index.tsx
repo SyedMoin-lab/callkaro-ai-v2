@@ -99,8 +99,6 @@ function FeatureCard({ feature }: { feature: FeatureItem }) {
   )
 }
 
-// ── Building blocks ──────────────────────────────────────────────
-
 function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-full flex-col justify-between gap-2 font-mono text-[0.7rem] leading-tight">
@@ -165,7 +163,6 @@ function FeatureMock({ feature }: { feature: FeatureItem }) {
   }
 }
 
-// 1 — Call Transfer
 function TransferMock() {
   return (
     <Shell>
@@ -220,7 +217,6 @@ function TransferMock() {
   )
 }
 
-// 2 — Knowledge Base
 function KnowledgeMock() {
   const sources = [
     { icon: FileText, name: "handbook.pdf", size: "2.4 MB" },
@@ -266,7 +262,6 @@ function KnowledgeMock() {
   )
 }
 
-// 3 — Custom Functions
 function FunctionsMock() {
   const code = [
     <>
@@ -339,7 +334,6 @@ function FunctionsMock() {
   )
 }
 
-// 4 — Calendar Booking
 function CalendarMock() {
   const days = Array.from({ length: 14 }, (_, i) => i + 8)
   return (
@@ -396,7 +390,6 @@ function CalendarMock() {
   )
 }
 
-// 5 — Batch Calls
 function BatchMock() {
   const rows = [
     { num: "+91 98••• 01", status: "Answered", done: true },
@@ -450,7 +443,6 @@ function BatchMock() {
   )
 }
 
-// 6 — Truecaller Verification
 function VerifiedMock() {
   return (
     <Shell>
@@ -482,7 +474,6 @@ function VerifiedMock() {
   )
 }
 
-// 7 — Voicemail Detection
 function VoicemailMock() {
   const bars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   return (
@@ -517,7 +508,6 @@ function VoicemailMock() {
   )
 }
 
-// 8 — Auto Callback
 function CallbackMock() {
   return (
     <Shell>
@@ -544,7 +534,6 @@ function CallbackMock() {
   )
 }
 
-// 9 — Webhook Integration
 function WebhookMock() {
   const endpoints = [
     { name: "CRM", code: "200", ok: true },
@@ -595,7 +584,6 @@ function WebhookMock() {
   )
 }
 
-// Fallback / Post Call Analysis
 function AnalyticsMock() {
   return (
     <Shell>

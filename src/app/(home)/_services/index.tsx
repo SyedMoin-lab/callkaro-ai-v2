@@ -17,7 +17,6 @@ type Service = (typeof services)[number]
 function Services() {
   const stackRef = useRef<HTMLDivElement>(null)
 
-  // Drives how much each card shrinks as the next one stacks on top of it.
   const { scrollYProgress } = useScroll({
     target: stackRef,
     offset: ["start start", "end end"],
@@ -27,7 +26,6 @@ function Services() {
     <section id="capabilities" className="section-padding">
       <div className="container">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          {/* Left column — sticks while the cards scroll past. */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeader
               badge={params.badge}
@@ -43,7 +41,6 @@ function Services() {
             />
           </div>
 
-          {/* Right column — cards stack on top of one another. */}
           <div ref={stackRef} className="space-y-8 lg:space-y-10">
             {services.map((service, index) => (
               <StackCard
@@ -72,8 +69,6 @@ function StackCard({
   total: number
   progress: MotionValue<number>
 }) {
-  // Cards further down the stack settle a little smaller, so the pile reads
-  // as depth rather than a flat overlap.
   const targetScale = 1 - (total - 1 - index) * 0.035
   const scale = useTransform(progress, [index / total, 1], [1, targetScale])
 

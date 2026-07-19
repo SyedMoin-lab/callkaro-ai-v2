@@ -49,7 +49,6 @@ function PortraitPanel() {
         className="object-cover object-[70%_center]"
       />
 
-      {/* Soften the top of the photo so the (dark) navbar stays legible over it. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-linear-to-b from-background/85 via-background/30 to-transparent md:h-32"

@@ -8,13 +8,9 @@ import { Badge } from "@/common/shadcnUI/badge"
 import { Button } from "@/common/shadcnUI/button"
 import { Slider } from "@/common/shadcnUI/slider"
 
-// ── Model ────────────────────────────────────────────────────────
-// Replacement cost of a human agent, from real assumptions:
-//   ₹30,000 salary · 25 working days · 150 min/day → 3,750 min/mo → ₹8/min
-// CallKaro AI: ₹4.5/min (Fixed plan), and only for connected calls.
 const HUMAN = { salary: 30_000, days: 25, minsPerDay: 150 }
-const HUMAN_MINS_PER_MONTH = HUMAN.days * HUMAN.minsPerDay // 3,750
-const HUMAN_PER_MIN = HUMAN.salary / HUMAN_MINS_PER_MONTH // ₹8
+const HUMAN_MINS_PER_MONTH = HUMAN.days * HUMAN.minsPerDay
+const HUMAN_PER_MIN = HUMAN.salary / HUMAN_MINS_PER_MONTH
 const PLATFORM_PER_MIN = 4.5
 const PLATFORM_RATE_LABEL = "₹4.5"
 
@@ -59,7 +55,6 @@ export default function Calculator() {
 
         <div className="mx-auto mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-xs ring-1 ring-foreground/5">
           <div className="grid lg:grid-cols-2">
-            {/* Inputs */}
             <div className="border-b border-border p-6 md:p-8 lg:border-r lg:border-b-0">
               <Fieldset label="Monthly call minutes">
                 <div className="flex items-baseline justify-between">
@@ -122,7 +117,6 @@ export default function Calculator() {
               </div>
             </div>
 
-            {/* Estimated cost */}
             <div className="p-6 md:p-8">
               <h3 className="text-xl font-medium tracking-tight">
                 Estimated Cost
@@ -139,7 +133,6 @@ export default function Calculator() {
                   note={`${inr(HUMAN_PER_MIN)}/min · salaries, training & overhead`}
                 />
 
-                {/* Highlight */}
                 <div className="relative overflow-hidden rounded-xl bg-linear-to-br from-accent to-[oklch(0.401_0.151_10)] p-5 text-accent-foreground shadow-lg">
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-medium">With CallKaro AI</p>

@@ -68,8 +68,6 @@ function FolioCard({
   const v = useMemo(() => buildVariants(!!reduce), [reduce])
   const href = `/case-studies/${c.slug}`
 
-  // Stacked (homepage) renumbers cards sequentially by position; the full
-  // listing keeps each case's own id.
   const displayId = stacked ? String(index + 1).padStart(2, "0") : c.id
 
   return (
@@ -83,7 +81,7 @@ function FolioCard({
       <motion.article
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-15%" }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={v.container}
         className="relative pt-10 md:pt-12"
       >
@@ -189,7 +187,7 @@ function FolioCard({
             <motion.div
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, margin: "-15%" }}
+              viewport={{ once: true, amount: 0.1 }}
               variants={v.image}
               className="absolute inset-0"
             >

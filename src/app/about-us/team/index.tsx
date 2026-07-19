@@ -24,7 +24,7 @@ function AboutTeam() {
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-15%" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: EASE_OUT }}
             className="text-4xl leading-[1.05] font-light tracking-tight md:text-5xl lg:text-6xl"
           >
@@ -38,7 +38,7 @@ function AboutTeam() {
               key={p.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{
                 duration: 0.75,
                 ease: EASE_OUT,

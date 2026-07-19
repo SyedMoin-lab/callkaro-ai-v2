@@ -28,7 +28,7 @@ function Process() {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null)
 
   const panelRef = useRef<HTMLDivElement>(null)
-  const inView = useInView(panelRef, { amount: 0.7 })
+  const inView = useInView(panelRef, { amount: 0.3 })
 
   const shownIndex = hoverIndex ?? activeIndex
   const shown = phases[shownIndex]

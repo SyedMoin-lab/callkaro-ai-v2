@@ -12,9 +12,6 @@ function PromptDemo() {
   const [exampleIndex, setExampleIndex] = useState(0)
   const [deleting, setDeleting] = useState(false)
 
-  // Typewriter: type an example, hold, delete, move to the next — forever.
-  // Every setState is deferred inside the timeout so nothing fires
-  // synchronously during the effect.
   useEffect(() => {
     const current = EXAMPLES[exampleIndex]
     const atFull = !deleting && text === current

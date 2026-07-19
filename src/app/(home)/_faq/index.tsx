@@ -34,7 +34,7 @@ function FaqHeader() {
     <motion.div
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-15%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.7, ease: EASE_OUT }}
       className="relative lg:sticky lg:top-28 lg:self-start"
     >

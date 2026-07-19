@@ -74,8 +74,6 @@ const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 type Status = "idle" | "submitting" | "success" | "error"
 
-/* ────────────────────  ROOT  ──────────────────── */
-
 function Contact() {
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
@@ -106,8 +104,6 @@ function Contact() {
   )
 }
 
-/* ────────────────────  CTA CARD  ──────────────────── */
-
 function CtaCard() {
   return (
     <div className="brass-mesh dark relative flex min-h-[30rem] flex-col justify-between overflow-hidden rounded-xl p-8 text-foreground md:p-12">
@@ -118,7 +114,7 @@ function CtaCard() {
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-12%" }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: EASE_OUT }}
         className="relative"
       >
@@ -150,8 +146,6 @@ function CtaCard() {
     </div>
   )
 }
-
-/* ────────────────────  FORM  ──────────────────── */
 
 function ContactForm() {
   const [status, setStatus] = useState<Status>("idle")
@@ -330,8 +324,6 @@ function Required() {
     </span>
   )
 }
-
-/* ────────────────────  SHARED  ──────────────────── */
 
 function Eyebrow({
   children,

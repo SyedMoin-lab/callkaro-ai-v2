@@ -94,11 +94,6 @@ type Endorsement = (typeof endorsements)[number]
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const
 
-/*
- * 5×3 wall, equal aspect-square cells. Cells in row-major order.
- * Endorsements are reachable from 3 portraits + 2 quote chips + 1 stat tile
- * (6 entries total). Other stats and the scene/empty cells are decorative.
- */
 type Cell =
   | { kind: "portrait"; index: number }
   | { kind: "stat"; idx: number }
@@ -109,19 +104,19 @@ type Cell =
 const CELLS: Cell[] = [
   { kind: "portrait", index: 0 },
   { kind: "empty" },
-  { kind: "chip", index: 3 }, // chip pulls from testimonial 3
-  { kind: "stat", idx: 0 }, // stat 0, links to testimonial 2
+  { kind: "chip", index: 3 },
+  { kind: "stat", idx: 0 },
   { kind: "portrait", index: 1 },
   { kind: "empty" },
   { kind: "scene", idx: 0 },
   { kind: "empty" },
   { kind: "portrait", index: 4 },
   { kind: "empty" },
-  { kind: "chip", index: 5 }, // chip pulls from testimonial 5
-  { kind: "stat", idx: 1 }, // decorative
+  { kind: "chip", index: 5 },
+  { kind: "stat", idx: 1 },
   { kind: "empty" },
   { kind: "scene", idx: 1 },
-  { kind: "stat", idx: 2 }, // decorative
+  { kind: "stat", idx: 2 },
 ]
 
 const STATS = [
@@ -147,9 +142,7 @@ const STATS = [
 ]
 
 const CHIPS: Array<{ text: string; tone: "card" | "dark" }> = [
-  // chip index 3, EdTech endorsement: "handled start to finish by the AI"
   { text: "“Handled start to finish.”", tone: "card" },
-  // chip index 5, Lending endorsement: "it paid for itself before onboarding"
   { text: "“Paid for itself in a month.”", tone: "dark" },
 ]
 
@@ -277,8 +270,6 @@ function Endorsements() {
   )
 }
 
-/* ────────────────────  TILES  ──────────────────── */
-
 function PortraitTile({
   index,
   activeIndex,
@@ -304,7 +295,7 @@ function PortraitTile({
       initial={{ opacity: 0, y: 6 }}
       whileInView={{ opacity: 1, y: 0 }}
       animate={{ opacity: isDimmed ? 0.3 : 1 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{
         opacity: { duration: 0.3, ease: EASE_OUT },
         y: { duration: 0.4, ease: EASE_OUT, delay: staggerDelay },
@@ -375,7 +366,7 @@ function StatTile({
       initial={{ opacity: 0, y: 6 }}
       whileInView={{ opacity: 1, y: 0 }}
       animate={{ opacity: isDimmed ? 0.3 : 1 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{
         opacity: { duration: 0.3, ease: EASE_OUT },
         y: { duration: 0.4, ease: EASE_OUT, delay: staggerDelay },
@@ -456,7 +447,7 @@ function ChipTile({
       initial={{ opacity: 0, y: 6 }}
       whileInView={{ opacity: 1, y: 0 }}
       animate={{ opacity: isDimmed ? 0.3 : 1 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{
         opacity: { duration: 0.3, ease: EASE_OUT },
         y: { duration: 0.4, ease: EASE_OUT, delay: staggerDelay },
@@ -522,7 +513,7 @@ function SceneTile({
     <motion.figure
       initial={{ opacity: 0, y: 6 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.4, ease: EASE_OUT, delay: staggerDelay }}
       className="group relative aspect-square overflow-hidden rounded-xl ring-1 ring-foreground/8"
     >
@@ -553,8 +544,6 @@ function EmptyCell() {
     />
   )
 }
-
-/* ────────────────────  QUOTE MODAL  ──────────────────── */
 
 function QuoteModal({ e, index }: { e: Endorsement; index: number }) {
   return (
@@ -598,9 +587,6 @@ function QuoteModal({ e, index }: { e: Endorsement; index: number }) {
             />
           </motion.div>
 
-          {/* Progressive blur: stacked layers, each blurrier and reaching less
-              far up, so the bottom is heavily frosted and eases off smoothly.
-              Confined to the lower portion so it ends before the face. */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 max-h-[400px]"

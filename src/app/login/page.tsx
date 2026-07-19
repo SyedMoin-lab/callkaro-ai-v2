@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <div className="grid min-h-dvh grid-cols-1 lg:h-dvh lg:grid-cols-2 lg:overflow-hidden">
-      {/* Visual panel — background image from /public */}
       <div className="dark relative hidden overflow-hidden bg-background text-foreground lg:block">
         <div
           aria-hidden
@@ -44,7 +43,6 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Form */}
       <div className="flex items-center justify-center overflow-y-auto px-6 py-8 md:px-12 lg:px-16">
         <div className="w-full max-w-md">
           <LoginForm />

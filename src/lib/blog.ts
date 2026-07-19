@@ -16,8 +16,6 @@ const FRONTMATTER_PATTERN = /^---\s*[\r\n]+[\s\S]*?[\r\n]+---\s*[\r\n]?/
 const PLACEHOLDER_COVER =
   "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
 
-// Dev-only placeholders. Real posts come from the CMS (Strapi); these exist
-// purely so the blog surfaces render locally before the CMS is connected.
 const FALLBACK_POSTS: BlogFrontmatter[] = [
   {
     title: "How AI voice agents cut cost per call by 40%",
@@ -260,8 +258,5 @@ export async function getAllPosts(): Promise<BlogFrontmatter[]> {
   const localPosts = await getLocalAllPosts()
   if (localPosts.length > 0) return localPosts
 
-  // Posts are authored in the CMS. These placeholders exist only so the blog
-  // surfaces are visible in local dev before Strapi is wired up — never in
-  // production, where an empty CMS must render an empty section.
   return process.env.NODE_ENV === "development" ? FALLBACK_POSTS : []
 }

@@ -39,7 +39,7 @@ function HeroPost({ post }: { post: BlogFrontmatter }) {
     <motion.article
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.7, ease: EASE_OUT }}
     >
       <Card
@@ -88,7 +88,7 @@ function PostCard({ post, delay }: { post: BlogFrontmatter; delay: number }) {
     <motion.li
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, ease: EASE_OUT, delay }}
     >
       <Card asChild className="h-full">

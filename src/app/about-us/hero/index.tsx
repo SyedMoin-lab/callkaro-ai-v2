@@ -54,8 +54,7 @@ function CellRow({ tone, cells }: { tone: "dark" | "warm"; cells: Cell[] }) {
         "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
         isDark
           ? "dark bg-background text-foreground"
-          : // Fixed light-peach panel: pin foreground dark so text stays
-            // readable even when the site theme is dark.
+          :
             "bg-[oklch(0.92_0.05_18)] text-foreground [--foreground:oklch(0.24_0.06_12)]"
       )}
     >
@@ -81,7 +80,7 @@ function StatCell({
     <motion.div
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.7, ease: EASE_OUT, delay: index * 0.08 }}
       className="flex aspect-square flex-col justify-between gap-10 p-8 md:p-10 lg:p-12"
     >
@@ -109,7 +108,7 @@ function ImageCell({
     <motion.div
       initial={{ opacity: 0, scale: 0.97 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.75, ease: EASE_OUT, delay: index * 0.08 }}
       className="relative aspect-square overflow-hidden"
     >

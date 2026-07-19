@@ -26,7 +26,7 @@ function AboutPractice() {
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: EASE_OUT }}
           className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
@@ -48,7 +48,7 @@ function AboutPractice() {
               key={area.slug}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-8%" }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6, ease: EASE_OUT, delay: i * 0.06 }}
             >
               <Link
@@ -88,7 +88,7 @@ function AboutPractice() {
           <motion.li
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-8%" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.3 }}
           >
             <Link

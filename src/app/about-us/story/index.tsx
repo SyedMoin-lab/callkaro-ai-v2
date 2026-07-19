@@ -50,7 +50,7 @@ function AboutStory() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-15%" }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
           className="mx-auto max-w-4xl text-center"
         >
@@ -89,7 +89,7 @@ function AboutStory() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.2 }}
           className="mt-8 flex flex-col items-center md:mt-10"
         >

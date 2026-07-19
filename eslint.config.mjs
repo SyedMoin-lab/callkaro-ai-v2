@@ -15,18 +15,12 @@ const eslintConfig = defineConfig([
         "error",
         {
           groups: [
-            // Side-effect imports.
             ["^\\u0000"],
-            // Node builtins.
             ["^node:"],
-            // External packages, react/next first, then everything else.
             ["^react", "^next", "^@?\\w"],
-            // Internal aliases.
             ["^@/"],
-            // Parent / sibling / index relative imports.
             ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
             ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-            // Style imports.
             ["^.+\\.(css|scss|sass)$"],
           ],
         },

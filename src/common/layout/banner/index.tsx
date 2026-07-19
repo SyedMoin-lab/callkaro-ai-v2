@@ -9,7 +9,7 @@ import { useBannerVisibility } from "@/hooks/use-banner-visibility"
 import { cn } from "@/lib/utils"
 
 function Banner({
-  url = "#", // TODO: add banner link
+  url = "#",
   initialVisible = true,
 }: {
   url?: string

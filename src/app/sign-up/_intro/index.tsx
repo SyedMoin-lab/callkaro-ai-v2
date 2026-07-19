@@ -26,7 +26,6 @@ const FEATURES = [
 export default function SignupIntro() {
   return (
     <div className="relative flex flex-col justify-center overflow-y-auto bg-gradient-to-br from-accent/[0.08] via-background to-background px-6 py-10 md:px-12 lg:px-16">
-      {/* Faint brass glow that echoes the brand accent. */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 -left-24 size-72 rounded-full bg-accent/10 blur-3xl"

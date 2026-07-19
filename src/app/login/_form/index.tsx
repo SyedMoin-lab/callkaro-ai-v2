@@ -16,7 +16,6 @@ export default function LoginForm() {
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus("submitting")
-    // Placeholder — wire up real auth here.
     window.setTimeout(() => setStatus("idle"), 1200)
   }, [])
 

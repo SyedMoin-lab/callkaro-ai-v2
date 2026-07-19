@@ -30,7 +30,6 @@ export default function LiveDemo() {
       audio.pause()
     } else {
       audio.currentTime = 0
-      // Silently ignore missing/blocked audio — state syncs via onPlay/onPause.
       audio.play().catch(() => setPlaying(false))
     }
   }
@@ -51,7 +50,6 @@ export default function LiveDemo() {
         </div>
 
         <div className="mx-auto mt-12 grid max-w-5xl items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
-          {/* Orb + tabs */}
           <div className="flex flex-col items-center justify-center gap-8 rounded-2xl border border-border bg-card p-8 ring-1 ring-foreground/5">
             <Orb
               className="relative aspect-square w-full max-w-[18rem]"
@@ -79,7 +77,6 @@ export default function LiveDemo() {
             </div>
           </div>
 
-          {/* Capabilities + play */}
           <div className="flex flex-col rounded-2xl border border-border bg-card p-8 ring-1 ring-foreground/5">
             <h3 className="text-2xl font-medium tracking-tight">
               {active.label}
@@ -123,7 +120,6 @@ export default function LiveDemo() {
               </p>
             </div>
 
-            {/* One audio element; src follows the selected use case. */}
             <audio
               ref={audioRef}
               src={active.audio}

@@ -19,8 +19,6 @@ export function ThemeToggle({ className }: { className?: string }) {
         className
       )}
     >
-      {/* resolvedTheme is only known on the client — the icon settles after
-          hydration, so suppress the expected first-paint mismatch. */}
       <Sun
         suppressHydrationWarning
         className={cn("hidden size-5", isDark && "block")}

@@ -11,12 +11,9 @@ import {
 } from "react"
 import { PerspectiveCamera } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
+import { useInView } from "motion/react"
 import * as THREE from "three"
 import { degToRad } from "three/src/math/MathUtils.js"
-
-// ============================================================================
-// Material extension helpers
-// ============================================================================
 
 type UniformValue = THREE.IUniform<unknown> | unknown
 
@@ -94,11 +91,22 @@ function extendMaterial<T extends THREE.Material = THREE.Material>(
   return mat
 }
 
-const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => (
-  <Canvas dpr={[1, 2]} frameloop="always" className="relative h-full w-full">
-    {children}
-  </Canvas>
-)
+const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => {
+  const hostRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(hostRef, { amount: 0 })
+
+  return (
+    <div ref={hostRef} className="relative h-full w-full">
+      <Canvas
+        dpr={[1, 2]}
+        frameloop={inView ? "always" : "never"}
+        className="relative h-full w-full"
+      >
+        {children}
+      </Canvas>
+    </div>
+  )
+}
 
 const hexToNormalizedRGB = (hex: string): [number, number, number] => {
   const clean = hex.replace("#", "")
@@ -204,7 +212,6 @@ export interface BeamsProps {
   beamHeight?: number
   beamNumber?: number
   lightColor?: string
-  /** Scene background + beam base colour. Defaults to black. */
   backgroundColor?: string
   speed?: number
   noiseIntensity?: number
@@ -356,10 +363,6 @@ const DirLight: FC<{ position: [number, number, number]; color: string }> = ({
   )
 }
 
-/**
- * Animated 3D light-beams background. Absolutely position a parent and drop
- * this in behind content. Renders a full-bleed WebGL canvas.
- */
 export const Beams: FC<BeamsProps> = ({
   beamWidth = 2,
   beamHeight = 15,

@@ -47,7 +47,6 @@ export interface ServiceFrontmatter {
   name: string
   tagline: string
   description: string
-  /** Lucide icon name, resolved at render time via the icon map. */
   icon: string
   order: number
   image: string
@@ -79,7 +78,6 @@ export interface IndustryFrontmatter {
   name: string
   tagline: string
   description: string
-  /** Lucide icon name, resolved at render time via the icon map. */
   icon: string
   order: number
   image: string

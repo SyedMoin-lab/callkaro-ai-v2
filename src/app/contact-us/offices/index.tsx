@@ -14,7 +14,7 @@ function ContactOffices() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.7, ease: EASE_OUT }}
           className="mx-auto max-w-2xl text-center"
         >
@@ -30,7 +30,7 @@ function ContactOffices() {
         <motion.ul
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-10%" }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
           className="mx-auto mt-12 max-w-4xl md:mt-16 lg:mt-20"
         >

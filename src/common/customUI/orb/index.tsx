@@ -5,6 +5,7 @@
 import { useEffect, useMemo, useRef } from "react"
 import { useTexture } from "@react-three/drei"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { useInView } from "motion/react"
 import * as THREE from "three"
 
 export type AgentState = null | "thinking" | "listening" | "talking"
@@ -40,10 +41,14 @@ export function Orb({
   getOutputVolume,
   className,
 }: OrbProps) {
+  const hostRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(hostRef, { amount: 0 })
+
   return (
-    <div className={className ?? "relative h-full w-full"}>
+    <div ref={hostRef} className={className ?? "relative h-full w-full"}>
       <Canvas
         resize={{ debounce: resizeDebounce }}
+        frameloop={inView ? "always" : "never"}
         gl={{
           alpha: true,
           antialias: true,
@@ -282,7 +287,7 @@ function clamp01(n: number) {
   return Math.min(1, Math.max(0, n))
 }
 
-const vertexShader = /* glsl */ `
+const vertexShader =  `
 uniform float uTime;
 uniform sampler2D uPerlinTexture;
 varying vec2 vUv;
@@ -293,7 +298,7 @@ void main() {
 }
 `
 
-const fragmentShader = /* glsl */ `
+const fragmentShader =  `
 uniform float uTime;
 uniform float uAnimation;
 uniform float uInverted;

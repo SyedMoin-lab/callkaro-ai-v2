@@ -4,8 +4,6 @@ import { resolveFeatureIcon } from "@/app/features/grid"
 import type { FeatureItem } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
-// Wider cells create the bento rhythm (mirrors the /features grid): the
-// first card in the row carries the big content, the rest sit narrow.
 const WIDE = new Set([0])
 
 function MainFeatures({

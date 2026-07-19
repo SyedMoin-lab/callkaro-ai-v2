@@ -18,7 +18,7 @@ function AboutValues() {
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-12%" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.9, ease: EASE_OUT }}
           className="relative aspect-[16/9] overflow-hidden rounded-xl ring-1 ring-foreground/10"
         >
@@ -35,7 +35,7 @@ function AboutValues() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-15%" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: EASE_OUT }}
           >
             <Eyebrow>{params.eyebrow}</Eyebrow>
@@ -47,7 +47,7 @@ function AboutValues() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-15%" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.1 }}
           >
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">

@@ -65,7 +65,6 @@ export default function SignupForm() {
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus("submitting")
-    // Simulate handing off to the secure payment step.
     window.setTimeout(() => setStatus("success"), 1200)
   }, [])
 

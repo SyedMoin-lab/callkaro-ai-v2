@@ -55,8 +55,6 @@ const navItems = [
   { label: "Company", href: "/about-us", company: true },
 ]
 
-// Rendered in the middle of the desktop nav so the brand sits centered
-// between the two halves of the menu. Matched by reference in the map.
 const BRAND_SENTINEL: (typeof navItems)[number] = {
   label: "__brand__",
   href: "/",
@@ -228,7 +226,6 @@ function Navbar({
   const pathname = usePathname()
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/")
-  // Company nests several sections, so it lights up for any of them.
   const companyActive = companyMenu.some(
     (c) => c.href.startsWith("/") && !c.href.includes("#") && isActive(c.href)
   )
@@ -236,13 +233,10 @@ function Navbar({
     navItems.find((item) => isActive(item.href))?.href ??
     (companyActive ? "/about-us" : undefined)
 
-  // Drives the compact/pill style and reclaims the banner's space once
-  // scrolled — the header itself always stays pinned in place, never hides.
   useMotionValueEvent(scrollY, "change", (y) => {
     setScrolled(y >= 20)
   })
 
-  // Close the mobile menu and industries dropdown when the route changes.
   const [lastPathname, setLastPathname] = useState(pathname)
   if (pathname !== lastPathname) {
     setLastPathname(pathname)
@@ -255,7 +249,6 @@ function Navbar({
     setCompanyMobileOpen(false)
   }
 
-  // While the menu is open: lock scroll and close on Escape.
   useEffect(() => {
     if (!menuOpen) return
     const prev = document.body.style.overflow
@@ -270,7 +263,6 @@ function Navbar({
     }
   }, [menuOpen])
 
-  // Close the industries dropdown on outside click or Escape.
   useEffect(() => {
     if (!industriesOpen) return
     const onPointerDown = (e: PointerEvent) => {
@@ -289,7 +281,6 @@ function Navbar({
     }
   }, [industriesOpen])
 
-  // Close the resources dropdown on outside click or Escape.
   useEffect(() => {
     if (!companyOpen) return
     const onPointerDown = (e: PointerEvent) => {
@@ -308,7 +299,6 @@ function Navbar({
     }
   }, [companyOpen])
 
-  // Close the products mega menu on outside click or Escape.
   useEffect(() => {
     if (!productsOpen) return
     const onPointerDown = (e: PointerEvent) => {
@@ -327,8 +317,6 @@ function Navbar({
     }
   }, [productsOpen])
 
-  // Track the nav bar's bottom edge so the full-width mega menu panels can
-  // hang flush beneath it, even while the pill's size animates on scroll.
   useEffect(() => {
     if ((!productsOpen && !industriesOpen) || !navRef.current) return
     const update = () => {
@@ -371,9 +359,8 @@ function Navbar({
         <div className="container max-w-7xl">
           <nav
             ref={navRef}
-            className="flex items-center justify-between gap-6 rounded-xl border bg-background/85 px-3 py-3 shadow-lg backdrop-blur-2xl transition-all duration-300 sm:px-5 md:grid md:grid-cols-[1fr_auto_1fr]"
+            className="flex items-center justify-between gap-6 rounded-xl border bg-background/95 px-3 py-3 shadow-lg transition-all duration-300 sm:px-5 md:grid md:grid-cols-[1fr_auto_1fr] md:bg-background/85 md:backdrop-blur-2xl"
           >
-            {/* Mobile-only brand — on desktop it sits centered inside the nav */}
             <Link href="/" className="flex items-center gap-2.5 md:hidden">
               <span className="text-xl font-semibold tracking-tight">
                 CallKaro AI
@@ -381,7 +368,7 @@ function Navbar({
             </Link>
 
             <ul
-              className="hidden items-center gap-5 md:flex lg:gap-6"
+              className="hidden items-center gap-5 md:col-start-2 md:flex lg:gap-6"
               onMouseLeave={() => setHovered(null)}
             >
               {[
@@ -458,128 +445,130 @@ function Navbar({
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.18, ease: EASE_OUT }}
                             style={{ top: megaMenuTop }}
-                            className="dark fixed inset-x-0 z-50 border-b border-foreground/10 bg-background text-foreground shadow-2xl"
+                            className="dark fixed inset-x-0 z-50 pt-3"
                           >
-                            <div className="container grid grid-cols-[13rem_1fr] gap-8 py-8 lg:grid-cols-[15rem_1fr_18rem] lg:gap-10">
-                              <ul className="space-y-1 border-r border-foreground/10 pr-6 lg:pr-8">
-                                {productsCategories.map((cat) => (
-                                  <li key={cat.label}>
-                                    <div
-                                      className={cn(
-                                        "flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm",
-                                        cat.active
-                                          ? "bg-foreground/5 font-medium text-foreground"
-                                          : "text-foreground/75"
-                                      )}
-                                    >
-                                      <span className="flex items-center gap-1.5">
-                                        {cat.label}
-                                        {cat.badge && (
-                                          <span className="rounded-full bg-accent/15 px-1.5 py-0.5 text-[10px] font-medium text-accent">
-                                            {cat.badge}
-                                          </span>
+                            <div className="container max-w-7xl">
+                              <div className="grid grid-cols-[13rem_1fr] gap-8 rounded-xl border border-foreground/10 bg-background p-6 text-foreground shadow-2xl lg:grid-cols-[15rem_1fr_18rem] lg:gap-10">
+                                <ul className="space-y-1 border-r border-foreground/10 pr-6 lg:pr-8">
+                                  {productsCategories.map((cat) => (
+                                    <li key={cat.label}>
+                                      <div
+                                        className={cn(
+                                          "flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm",
+                                          cat.active
+                                            ? "bg-foreground/5 font-medium text-foreground"
+                                            : "text-foreground/75"
                                         )}
-                                      </span>
-                                      {cat.active && (
-                                        <ArrowRight
-                                          aria-hidden
-                                          strokeWidth={1.75}
-                                          className="size-3.5 shrink-0"
-                                        />
-                                      )}
-                                    </div>
-                                  </li>
-                                ))}
-                                <li className="mt-2 border-t border-foreground/10 pt-3">
-                                  <Link
-                                    href="/features"
-                                    onClick={() => setProductsOpen(false)}
-                                    className="flex items-center gap-1 rounded-lg px-3 py-2.5 text-sm text-foreground/75 transition-colors hover:bg-foreground/5 hover:text-foreground"
-                                  >
-                                    See all features
-                                    <ArrowRight
-                                      aria-hidden
-                                      strokeWidth={1.75}
-                                      className="size-3.5"
-                                    />
-                                  </Link>
-                                </li>
-                              </ul>
-
-                              <div>
-                                <div className="flex items-center justify-between gap-3 rounded-xl border border-foreground/15 px-5 py-4">
-                                  <div>
-                                    <span className="flex items-center gap-2 text-sm font-medium text-foreground">
-                                      {productsSpotlight.label}
-                                      <span className="rounded-full bg-accent/15 px-1.5 py-0.5 text-[10px] font-medium text-accent">
-                                        {productsSpotlight.badge}
-                                      </span>
-                                    </span>
-                                    <span className="mt-1 block text-sm leading-snug text-muted-foreground">
-                                      {productsSpotlight.description}
-                                    </span>
-                                  </div>
-                                  <ArrowRight
-                                    aria-hidden
-                                    strokeWidth={1.75}
-                                    className="size-4 shrink-0 text-foreground/60"
-                                  />
-                                </div>
-
-                                <ul className="mt-2 grid grid-cols-2 gap-x-6">
-                                  {productsFeatures.map((feature) => (
-                                    <li key={feature.label}>
-                                      <div className="flex items-start gap-3 rounded-lg px-3 py-3">
-                                        <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
-                                          {createElement(feature.icon, {
-                                            className: "size-4",
-                                            strokeWidth: 1.5,
-                                          })}
+                                      >
+                                        <span className="flex items-center gap-1.5">
+                                          {cat.label}
+                                          {cat.badge && (
+                                            <span className="rounded-full bg-accent/15 px-1.5 py-0.5 text-[10px] font-medium text-accent">
+                                              {cat.badge}
+                                            </span>
+                                          )}
                                         </span>
-                                        <span>
-                                          <span className="block text-sm font-medium text-foreground">
-                                            {feature.label}
-                                          </span>
-                                          <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
-                                            {feature.description}
-                                          </span>
-                                        </span>
+                                        {cat.active && (
+                                          <ArrowRight
+                                            aria-hidden
+                                            strokeWidth={1.75}
+                                            className="size-3.5 shrink-0"
+                                          />
+                                        )}
                                       </div>
                                     </li>
                                   ))}
+                                  <li className="mt-2 border-t border-foreground/10 pt-3">
+                                    <Link
+                                      href="/features"
+                                      onClick={() => setProductsOpen(false)}
+                                      className="flex items-center gap-1 rounded-lg px-3 py-2.5 text-sm text-foreground/75 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                                    >
+                                      See all features
+                                      <ArrowRight
+                                        aria-hidden
+                                        strokeWidth={1.75}
+                                        className="size-3.5"
+                                      />
+                                    </Link>
+                                  </li>
                                 </ul>
-                              </div>
 
-                              <div className="hidden border-l border-foreground/10 pl-8 lg:block">
-                                <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                                  {productsFeatured.eyebrow}
-                                </span>
-                                <div className="relative mt-3 aspect-video w-full overflow-hidden rounded-lg bg-muted/60">
-                                  <Image
-                                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
-                                    alt="CallKaro AI demo preview"
-                                    fill
-                                    sizes="288px"
-                                    className="object-cover"
-                                  />
+                                <div>
+                                  <div className="flex items-center justify-between gap-3 rounded-xl border border-foreground/15 px-5 py-4">
+                                    <div>
+                                      <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+                                        {productsSpotlight.label}
+                                        <span className="rounded-full bg-accent/15 px-1.5 py-0.5 text-[10px] font-medium text-accent">
+                                          {productsSpotlight.badge}
+                                        </span>
+                                      </span>
+                                      <span className="mt-1 block text-sm leading-snug text-muted-foreground">
+                                        {productsSpotlight.description}
+                                      </span>
+                                    </div>
+                                    <ArrowRight
+                                      aria-hidden
+                                      strokeWidth={1.75}
+                                      className="size-4 shrink-0 text-foreground/60"
+                                    />
+                                  </div>
+
+                                  <ul className="mt-2 grid grid-cols-2 gap-x-6">
+                                    {productsFeatures.map((feature) => (
+                                      <li key={feature.label}>
+                                        <div className="flex items-start gap-3 rounded-lg px-3 py-3">
+                                          <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
+                                            {createElement(feature.icon, {
+                                              className: "size-4",
+                                              strokeWidth: 1.5,
+                                            })}
+                                          </span>
+                                          <span>
+                                            <span className="block text-sm font-medium text-foreground">
+                                              {feature.label}
+                                            </span>
+                                            <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
+                                              {feature.description}
+                                            </span>
+                                          </span>
+                                        </div>
+                                      </li>
+                                    ))}
+                                  </ul>
                                 </div>
-                                <p className="mt-4 text-sm leading-snug text-foreground">
-                                  {productsFeatured.heading}
-                                </p>
-                                <p className="mt-1 text-sm leading-snug text-muted-foreground">
-                                  {productsFeatured.body}
-                                </p>
-                                <Link
-                                  href={productsFeatured.href}
-                                  onClick={() => setProductsOpen(false)}
-                                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent transition-opacity hover:opacity-80"
-                                >
-                                  {productsFeatured.cta}
-                                  <ArrowRight
-                                    aria-hidden
-                                    className="size-3.5"
-                                  />
-                                </Link>
+
+                                <div className="hidden border-l border-foreground/10 pl-8 lg:block">
+                                  <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                                    {productsFeatured.eyebrow}
+                                  </span>
+                                  <div className="relative mt-3 aspect-video w-full overflow-hidden rounded-lg bg-muted/60">
+                                    <Image
+                                      src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
+                                      alt="CallKaro AI demo preview"
+                                      fill
+                                      sizes="288px"
+                                      className="object-cover"
+                                    />
+                                  </div>
+                                  <p className="mt-4 text-sm leading-snug text-foreground">
+                                    {productsFeatured.heading}
+                                  </p>
+                                  <p className="mt-1 text-sm leading-snug text-muted-foreground">
+                                    {productsFeatured.body}
+                                  </p>
+                                  <Link
+                                    href={productsFeatured.href}
+                                    onClick={() => setProductsOpen(false)}
+                                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent transition-opacity hover:opacity-80"
+                                  >
+                                    {productsFeatured.cta}
+                                    <ArrowRight
+                                      aria-hidden
+                                      className="size-3.5"
+                                    />
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           </motion.div>
@@ -642,35 +631,37 @@ function Navbar({
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.18, ease: EASE_OUT }}
                             style={{ top: megaMenuTop }}
-                            className="dark fixed inset-x-0 z-50 border-b border-foreground/10 bg-background text-foreground shadow-2xl"
+                            className="dark fixed inset-x-0 z-50 pt-3"
                           >
-                            <div className="container py-8">
-                              <ul className="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
-                                {industriesMenu.map((it) => (
-                                  <li key={it.href}>
-                                    <Link
-                                      href={it.href}
-                                      onClick={() => setIndustriesOpen(false)}
-                                      className="flex items-start gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-foreground/5"
-                                    >
-                                      <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
-                                        {createElement(it.icon, {
-                                          className: "size-4",
-                                          strokeWidth: 1.5,
-                                        })}
-                                      </span>
-                                      <span>
-                                        <span className="block text-sm font-medium text-foreground">
-                                          {it.label}
+                            <div className="container max-w-7xl">
+                              <div className="rounded-xl border border-foreground/10 bg-background p-6 text-foreground shadow-2xl">
+                                <ul className="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
+                                  {industriesMenu.map((it) => (
+                                    <li key={it.href}>
+                                      <Link
+                                        href={it.href}
+                                        onClick={() => setIndustriesOpen(false)}
+                                        className="flex items-start gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-foreground/5"
+                                      >
+                                        <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
+                                          {createElement(it.icon, {
+                                            className: "size-4",
+                                            strokeWidth: 1.5,
+                                          })}
                                         </span>
-                                        <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
-                                          {it.description}
+                                        <span>
+                                          <span className="block text-sm font-medium text-foreground">
+                                            {it.label}
+                                          </span>
+                                          <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
+                                            {it.description}
+                                          </span>
                                         </span>
-                                      </span>
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
                             </div>
                           </motion.div>
                         )}
@@ -733,7 +724,7 @@ function Navbar({
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.18, ease: EASE_OUT }}
-                            className="absolute top-full left-1/2 z-50 w-[36rem] -translate-x-1/2 pt-4"
+                            className="absolute top-full left-1/2 z-50 w-[36rem] -translate-x-1/2 pt-3"
                           >
                             <ul className="grid grid-cols-2 gap-1 rounded-xl border border-foreground/10 bg-background p-2 shadow-2xl">
                               {companyMenu.map((it) => (
@@ -798,7 +789,7 @@ function Navbar({
               })}
             </ul>
 
-            <div className="flex items-center justify-end gap-2">
+            <div className="flex items-center justify-end gap-2 md:col-start-3">
               <ThemeToggle />
               <Button
                 variant="ghost"

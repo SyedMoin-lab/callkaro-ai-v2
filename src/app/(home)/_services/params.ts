@@ -7,7 +7,6 @@ export const params = {
     desktop: "Auto-playing. Hover to pause, click to select.",
     mobile: "Tap to select.",
   },
-  // TODO: images are placeholders reused from the old template; the user will change them later.
   services: [
     {
       roman: "I",

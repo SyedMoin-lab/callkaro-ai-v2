@@ -20,7 +20,7 @@ function AboutMission() {
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-12%" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.85, ease: EASE_OUT }}
             className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-foreground/10"
           >
@@ -36,7 +36,7 @@ function AboutMission() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-15%" }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: EASE_OUT }}
           >
             <Eyebrow>{params.eyebrow}</Eyebrow>
@@ -55,7 +55,7 @@ function AboutMission() {
                   key={pair}
                   initial={{ opacity: 0, x: -8 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-10%" }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{
                     duration: 0.5,
                     ease: EASE_OUT,

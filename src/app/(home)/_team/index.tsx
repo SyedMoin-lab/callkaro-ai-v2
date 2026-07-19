@@ -17,9 +17,6 @@ type Member = (typeof team)[number]
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
-// All cards are `col-span-3` (equal width). The col-start values leave
-// intentional empty 3-col gaps inside each row, middle-left on row 1,
-// middle-right on row 2, for the bento rhythm.
 const slots = [
   "md:col-start-1 md:row-start-1",
   "md:col-start-7 md:row-start-1",
@@ -48,7 +45,7 @@ function Team() {
       </div>
 
       <div className="container mt-12 md:mt-16 lg:mt-20">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-12 md:gap-5">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-12 md:gap-5">
           {team.map((p, i) => (
             <MemberCard key={p.id} p={p} index={i} className={slots[i]} />
           ))}
@@ -82,7 +79,7 @@ function MemberCard({
     <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.7, ease: EASE, delay: (index % 3) * 0.08 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -108,15 +105,15 @@ function MemberCard({
         className="absolute inset-0 bg-linear-to-t from-black/95 via-black/30 to-transparent"
       />
 
-      <div className="absolute inset-x-0 bottom-0 p-5 text-white md:p-6">
+      <div className="absolute inset-x-0 bottom-0 p-3 text-white sm:p-5 md:p-6">
         <motion.div
           animate={{ y: hovered ? -6 : 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <h3 className="text-xl leading-tight font-light tracking-tight md:text-2xl lg:text-[1.75rem]">
+          <h3 className="text-sm leading-tight font-light tracking-tight sm:text-xl md:text-2xl lg:text-[1.75rem]">
             {p.name}
           </h3>
-          <p className="mt-2 font-mono text-[0.625rem] tracking-[0.2em] text-white/70 uppercase">
+          <p className="mt-1 font-mono text-[0.55rem] tracking-[0.15em] text-white/70 uppercase sm:mt-2 sm:text-[0.625rem] sm:tracking-[0.2em]">
             {p.role}
           </p>
         </motion.div>
