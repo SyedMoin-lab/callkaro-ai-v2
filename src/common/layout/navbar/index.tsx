@@ -50,8 +50,22 @@ const navItems = [
   { label: "Industries", href: "/industries", dropdown: true },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
+  { label: "Resources", href: "/case-studies", resources: true },
+]
+
+const resourcesMenu = [
+  {
+    label: "Case Studies",
+    description: "Real results from teams running CallKaro AI",
+    href: "/case-studies",
+    icon: LayoutGrid,
+  },
+  {
+    label: "Blog",
+    description: "Guides, product news, and voice AI insights",
+    href: "/blog",
+    icon: BookOpen,
+  },
 ]
 
 // Rendered in the middle of the desktop nav so the brand sits centered
@@ -163,6 +177,9 @@ function Navbar({
   const [productsOpen, setProductsOpen] = useState(false)
   const [productsMobileOpen, setProductsMobileOpen] = useState(false)
   const productsRef = useRef<HTMLLIElement>(null)
+  const [resourcesOpen, setResourcesOpen] = useState(false)
+  const [resourcesMobileOpen, setResourcesMobileOpen] = useState(false)
+  const resourcesRef = useRef<HTMLLIElement>(null)
   const navRef = useRef<HTMLElement>(null)
   const [megaMenuTop, setMegaMenuTop] = useState(0)
   const { scrollY } = useScroll()
@@ -170,7 +187,11 @@ function Navbar({
   const pathname = usePathname()
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/")
-  const activeHref = navItems.find((item) => isActive(item.href))?.href
+  // Resources groups two sections, so it lights up for either of them.
+  const resourcesActive = resourcesMenu.some((r) => isActive(r.href))
+  const activeHref =
+    navItems.find((item) => isActive(item.href))?.href ??
+    (resourcesActive ? "/case-studies" : undefined)
 
   // Drives the compact/pill style and reclaims the banner's space once
   // scrolled — the header itself always stays pinned in place, never hides.
@@ -187,6 +208,8 @@ function Navbar({
     setIndustriesMobileOpen(false)
     setProductsOpen(false)
     setProductsMobileOpen(false)
+    setResourcesOpen(false)
+    setResourcesMobileOpen(false)
   }
 
   // While the menu is open: lock scroll and close on Escape.
@@ -222,6 +245,25 @@ function Navbar({
       window.removeEventListener("keydown", onKey)
     }
   }, [industriesOpen])
+
+  // Close the resources dropdown on outside click or Escape.
+  useEffect(() => {
+    if (!resourcesOpen) return
+    const onPointerDown = (e: PointerEvent) => {
+      if (!resourcesRef.current?.contains(e.target as Node)) {
+        setResourcesOpen(false)
+      }
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setResourcesOpen(false)
+    }
+    window.addEventListener("pointerdown", onPointerDown)
+    window.addEventListener("keydown", onKey)
+    return () => {
+      window.removeEventListener("pointerdown", onPointerDown)
+      window.removeEventListener("keydown", onKey)
+    }
+  }, [resourcesOpen])
 
   // Close the products mega menu on outside click or Escape.
   useEffect(() => {
@@ -590,6 +632,95 @@ function Navbar({
                   )
                 }
 
+                if (item.resources) {
+                  return (
+                    <li
+                      key={item.label}
+                      ref={resourcesRef}
+                      className="relative"
+                      onMouseEnter={() => {
+                        setHovered(item.href)
+                        setResourcesOpen(true)
+                      }}
+                      onMouseLeave={() => setResourcesOpen(false)}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setResourcesOpen((v) => !v)}
+                        aria-haspopup="true"
+                        aria-expanded={resourcesOpen}
+                        className={cn(
+                          "relative flex items-center gap-1 text-sm whitespace-nowrap transition-colors hover:text-foreground",
+                          resourcesActive
+                            ? "text-foreground"
+                            : "text-foreground/75"
+                        )}
+                      >
+                        {item.label}
+                        <ChevronDown
+                          aria-hidden
+                          strokeWidth={1.75}
+                          className={cn(
+                            "size-3.5 transition-transform duration-200",
+                            resourcesOpen && "rotate-180"
+                          )}
+                        />
+                        {highlighted && (
+                          <motion.span
+                            layoutId="nav-underline"
+                            aria-hidden
+                            className="absolute -bottom-1.5 left-0 h-px w-full bg-accent"
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 35,
+                            }}
+                          />
+                        )}
+                      </button>
+
+                      <AnimatePresence>
+                        {resourcesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.18, ease: EASE_OUT }}
+                            className="absolute top-full left-1/2 z-50 w-72 -translate-x-1/2 pt-4"
+                          >
+                            <ul className="rounded-xl border border-foreground/10 bg-background p-2 shadow-2xl">
+                              {resourcesMenu.map((it) => (
+                                <li key={it.href}>
+                                  <Link
+                                    href={it.href}
+                                    onClick={() => setResourcesOpen(false)}
+                                    className="flex items-start gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-foreground/5"
+                                  >
+                                    <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-muted/60 text-foreground/85">
+                                      {createElement(it.icon, {
+                                        className: "size-4",
+                                        strokeWidth: 1.5,
+                                      })}
+                                    </span>
+                                    <span>
+                                      <span className="block text-sm font-medium text-foreground">
+                                        {it.label}
+                                      </span>
+                                      <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
+                                        {it.description}
+                                      </span>
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </li>
+                  )
+                }
+
                 return (
                   <li key={item.label}>
                     <Link
@@ -791,6 +922,57 @@ function Navbar({
                             >
                               <ul className="flex flex-col gap-0.5 pb-4">
                                 {industriesMenu.map((it) => (
+                                  <li key={it.href}>
+                                    <Link
+                                      href={it.href}
+                                      onClick={() => setMenuOpen(false)}
+                                      className="block py-2 text-sm text-foreground/70"
+                                    >
+                                      {it.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </li>
+                    )
+                  }
+
+                  if (item.resources) {
+                    return (
+                      <li key={item.label} className="border-b">
+                        <button
+                          type="button"
+                          onClick={() => setResourcesMobileOpen((v) => !v)}
+                          aria-expanded={resourcesMobileOpen}
+                          className={cn(
+                            "flex w-full items-center justify-between py-4 text-lg font-medium tracking-tight transition-colors hover:text-foreground",
+                            resourcesActive ? "text-accent" : "text-foreground/85"
+                          )}
+                        >
+                          {item.label}
+                          <ChevronDown
+                            aria-hidden
+                            strokeWidth={1.5}
+                            className={cn(
+                              "size-5 transition-transform duration-200",
+                              resourcesMobileOpen && "rotate-180"
+                            )}
+                          />
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {resourcesMobileOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: EASE_OUT }}
+                              className="overflow-hidden"
+                            >
+                              <ul className="flex flex-col gap-0.5 pb-4">
+                                {resourcesMenu.map((it) => (
                                   <li key={it.href}>
                                     <Link
                                       href={it.href}
